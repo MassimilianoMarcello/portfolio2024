@@ -13,6 +13,10 @@ const NavBar = () => {
     setClick(!click);
   };
 
+  const handleCloseMenu = () => {
+    setClick(false);
+  };
+
   const logoe = "/assets/logie_2.png";
 
   return (
@@ -36,23 +40,23 @@ const NavBar = () => {
         </MenuIcon>
       </NavFixed>
       <NavMenu className={click ? "active" : ""}>
-        <NavItem>
+        <NavItem onClick={handleCloseMenu}>
           <Link href="/about_me" passHref>
             <NavLink>About Me</NavLink>
           </Link>
         </NavItem>
-        <NavItem>
+        <NavItem onClick={handleCloseMenu}>
           <Link href="/projects" passHref>
             <NavLink>Projects</NavLink>
           </Link>
         </NavItem>
-        <NavItem>
+        <NavItem onClick={handleCloseMenu}>
           <Link href="/blog_post" passHref>
             <NavLink>Blog</NavLink>
           </Link>
         </NavItem>
-        <NavItem>
-        <Link href="/" passHref>
+        <NavItem onClick={handleCloseMenu}>
+          <Link href="/" passHref>
             <NavLink>Contact</NavLink>
           </Link>
         </NavItem>

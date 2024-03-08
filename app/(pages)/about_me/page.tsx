@@ -3,8 +3,8 @@
 
 const About = () => {
   return (
-    // <AboutBox>About</AboutBox>
-    <div>ass</div>
+  <> <div>ass</div> <div>ass</div> <div>ass</div> <div>ass</div> <div>ass</div> <div>ass</div> <div>ass</div> <div>ass</div> <div>ass</div> <div>ass</div> <div>ass</div> <div>ass</div> <div>ass</div> <div>ass</div> <div>ass</div> <div>ass</div> <div>ass</div> <div>ass</div> <div>ass</div> <div>ass</div> <div>ass</div> <div>ass</div></>
+   
   )
 }
 
