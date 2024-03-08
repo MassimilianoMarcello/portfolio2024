@@ -52,7 +52,7 @@ const NavBar = () => {
           </Link>
         </NavItem>
         <NavItem>
-          <Link href="/" passHref>
+        <Link href="/" passHref>
             <NavLink>Contact</NavLink>
           </Link>
         </NavItem>
@@ -62,6 +62,7 @@ const NavBar = () => {
 };
 
 export default NavBar;
+
 
 const NavContainer = styled.nav`
   width: 100%;
@@ -179,7 +180,7 @@ const NavItem = styled.li`
   }
 `;
 
-const NavLink = styled.a`
+const NavLink = styled.div`
   text-decoration: none;
   color: #fff;
   font-size: 2rem;
