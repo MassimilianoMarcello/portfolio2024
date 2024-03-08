@@ -53,7 +53,7 @@ const NavBar = () => {
         </NavItem>
         <NavItem>
           <Link href="/" passHref>
-            <NavLink>Use Client</NavLink>
+            <NavLink>Contact</NavLink>
           </Link>
         </NavItem>
       </NavMenu>
@@ -65,7 +65,9 @@ export default NavBar;
 
 const NavContainer = styled.nav`
   width: 100%;
-  background-color: #171d35;
+background-color: #171d35;
+  position: fixed;
+  border-bottom:solid .2rem  #feeb64;
 `;
 
 const NavFixed = styled.div`
@@ -73,46 +75,82 @@ const NavFixed = styled.div`
   justify-content: space-between;
   align-items: center;
   padding: 1rem 2rem;
+  height: 3rem;
 `;
 
 const LogoContainer = styled.div`
   display: flex;
   align-items: center;
   cursor: pointer;
- 
 `;
 
 const AnimatedLogo = styled.div`
   animation: fadeIn 2s ease-in-out;
-align-items: center;
+  align-items: center;
 
   img {
     /* width: 5rem;
     height: 5rem; */
     background-color: aliceblue;
     border-radius: 50%;
+    animation: spin 2s linear;
+  }
+  @keyframes fadeIn {
+    from {
+      opacity: 0;
+    }
+    to {
+      opacity: 1;
+    }
+  }
+
+  @keyframes spin {
+    from {
+      transform: rotate(0deg);
+    }
+    to {
+      transform: rotate(360deg);
+    }
   }
 `;
 
 const AnimatedText = styled.h1`
   font-family: "protest guerrilla";
-  font-size: 2rem;
+  font-size: 2.5rem;
   color: #fff;
   margin-left: 1rem;
+  animation: slideIn 1s ease-in-out;
+
+  @keyframes slideIn {
+    from {
+      opacity: 0;
+      transform: translateY(-100%);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0%);
+    }
+  }
 `;
 
 const MenuIcon = styled.div`
   cursor: pointer;
-img{
-  color: red;
-}
+  margin-top: .5rem;
+  img {
+    color: red;
+    background-color: white;
+  }
+  @media screen and (min-width: 920px) {
+    display: none;
+  }
 `;
 
 const NavMenu = styled.ul`
   list-style: none;
   display: none;
+  margin-bottom: -2rem;
 
-  @media screen and (min-width: 768px) {
+  @media screen and (min-width: 920px) {
     display: flex;
     justify-content: flex-end;
     align-items: center;
@@ -122,10 +160,13 @@ const NavMenu = styled.ul`
     display: flex;
     flex-direction: column;
     position: absolute;
-    top: 5rem;
+    top: 0;
     right: 0;
     width: 100%;
     background-color: #171d35;
+    margin-top: 5.2rem;
+   
+
   }
 `;
 
@@ -133,8 +174,10 @@ const NavItem = styled.li`
   margin: 3.5rem;
   text-align: center;
 
-  @media screen and (min-width: 768px) {
-    margin: 0 1rem;
+  @media screen and (min-width: 920px) {
+    margin-top: -4.5rem;
+
+    margin-left: 0;
   }
 `;
 
