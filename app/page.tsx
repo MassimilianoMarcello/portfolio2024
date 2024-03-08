@@ -13,17 +13,15 @@ export default function Home() {
        <ThemeProvider theme={theme}>
 
        <Global styles={globalStyles} />
-     <h1>cant</h1>
-     <Beduino>
-      anselmo
-     </Beduino>
+  
+  
        </ThemeProvider>
 
     </main>
   );
 }
 
-const Beduino = styled.h3`
-  background-color:${({ theme }) => theme.colors.blue};
-  font-size:${({ theme }) => theme.fontSize.heading1};;
-`
+// const Beduino = styled.h3`
+//   background-color:${({ theme }) => theme.colors.blue};
+//   font-size:${({ theme }) => theme.fontSize.heading1};;
+// `
