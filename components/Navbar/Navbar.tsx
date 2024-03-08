@@ -65,9 +65,9 @@ export default NavBar;
 
 const NavContainer = styled.nav`
   width: 100%;
-background-color: #171d35;
+  background-color: #171d35;
   position: fixed;
-  border-bottom:solid .2rem  #feeb64;
+  border-bottom: solid 0.2rem #feeb64;
 `;
 
 const NavFixed = styled.div`
@@ -135,7 +135,7 @@ const AnimatedText = styled.h1`
 
 const MenuIcon = styled.div`
   cursor: pointer;
-  margin-top: .5rem;
+  margin-top: 0.5rem;
   img {
     color: red;
     background-color: white;
@@ -165,8 +165,6 @@ const NavMenu = styled.ul`
     width: 100%;
     background-color: #171d35;
     margin-top: 5.2rem;
-   
-
   }
 `;
 
