@@ -5,8 +5,7 @@ module.exports = {
         {
           protocol: 'https',
           hostname: 'cdn.sanity.io',
-     
-          pathname: '/images/rd7ljoko/production/*',
+     pathname: '/images/rd7ljoko/production/*',
         },
       ],
     },
