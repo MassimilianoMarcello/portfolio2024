@@ -3,7 +3,7 @@ import { Global } from "@emotion/react";
 import globalStyles from "@/app/global_emotion_styles";
 import { ThemeProvider } from "@emotion/react";
 import "./page.module.css";
-import NavBar from "@/components/NavBar/NavBar";
+import NavBar from "../components/NavBar/NavBar";
 import Footer from "@/components/Footer/Footer";
 import PreFooter from "@/components/PreFooter/PreFooter";
 
