@@ -51,7 +51,7 @@ const NavBar = () => {
           </Link>
         </NavItem>
         <NavItem onClick={handleCloseMenu}>
-          <Link href="/blog_post" passHref>
+          <Link href="/blog" passHref>
             <NavLink>Blog</NavLink>
           </Link>
         </NavItem>
@@ -71,7 +71,13 @@ const NavContainer = styled.nav`
   width: 100%;
   background-color: #171d35;
   position: fixed;
-  border-bottom: solid 0.2rem #feeb64;
+  top: 0;
+  left: 0;
+  z-index: 1000; 
+  height: 5rem; 
+  overflow-x: hidden; 
+  overflow-y: auto; 
+  border-bottom: solid 0.4rem #feeb64;
 `;
 
 const NavFixed = styled.div`
@@ -80,14 +86,17 @@ const NavFixed = styled.div`
   align-items: center;
   padding: 1rem 2rem;
   height: 3rem;
+  a{text-decoration:none;}
 `;
 
 const LogoContainer = styled.div`
   display: flex;
   align-items: center;
   cursor: pointer;
+
   margin-left: -1rem;
   margin-top: 0.3rem;
+
 `;
 
 const AnimatedLogo = styled.div`
@@ -120,22 +129,36 @@ const AnimatedLogo = styled.div`
 
 const AnimatedText = styled.h1`
   font-family: "protest guerrilla";
+  text-decoration: none;
   font-size: 2.5rem;
   color: #fff;
   margin-left: 0.5rem;
-  margin-top: 4rem;
-  animation: slideIn 1s ease-in-out;
+  margin-top: 2rem;
+  animation: slideIn 1.8s ease-in-out;
 
   @keyframes slideIn {
-    from {
+    0% {
       opacity: 0;
       transform: translateY(-100%);
     }
-    to {
+    25% {
+      opacity: 1;
+      transform: translateY(-50%);
+    }
+    50% {
+      opacity: 0;
+      transform: translateX(20%);
+    }
+    75% {
+      opacity: 1;
+      transform: translateY(-20%);
+    }
+    100% {
       opacity: 1;
       transform: translateY(0%);
     }
   }
+ 
 `;
 
 const MenuIcon = styled.div`
@@ -154,13 +177,12 @@ const NavMenu = styled.ul`
   list-style: none;
   display: none;
   margin-bottom: -2rem;
-font-family: "Quicksand", sans-serif;
+  font-family: "Quicksand", sans-serif;
 
   @media screen and (min-width: 920px) {
     display: flex;
     justify-content: flex-end;
     align-items: center;
- 
   }
 
   &.active {
@@ -178,9 +200,9 @@ font-family: "Quicksand", sans-serif;
 const NavItem = styled.li`
   margin: 3.5rem;
   text-align: center;
-a{
-  text-decoration: none;
-}
+  a {
+    text-decoration: none;
+  }
   @media screen and (min-width: 920px) {
     margin-top: -4.5rem;
 

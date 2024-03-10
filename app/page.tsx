@@ -6,6 +6,7 @@ import globalStyles from '@/app/global_emotion_styles';
 import { ThemeProvider } from '@emotion/react'
 import theme from '@/app/theme_emotion';
 import styled from '@emotion/styled'
+import MainPage from "@/components/Main_Page/MainPage";
 
 export default function Home() {
   return (
@@ -13,7 +14,7 @@ export default function Home() {
        <ThemeProvider theme={theme}>
 
        <Global styles={globalStyles} />
-  
+  <MainPage/>
   
        </ThemeProvider>
 
