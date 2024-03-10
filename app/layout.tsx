@@ -46,7 +46,7 @@ import "./globals.css";
 import "./page.module.css";
 import styled from "@emotion/styled";
 
-import Navbar from "@/components/NavBar/NavBar";
+// import Navbar from "@/components/NavBar/NavBar";
 import Footer from "@/components/Footer/Footer";
 import PreFooter from '@/components/PreFooter/PreFooter';
 
@@ -66,7 +66,7 @@ export default function RootLayout({
     <html lang="en">
       <body className={inter.className}>
         <title>MassDev</title>
-        <Navbar />
+        {/* <Navbar /> */}
         {children}
         <PreFooter/>
         <Footer/>
