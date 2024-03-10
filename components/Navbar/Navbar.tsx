@@ -51,12 +51,12 @@ const NavBar = () => {
           </Link>
         </NavItem>
         <NavItem onClick={handleCloseMenu}>
-          <Link href="/blog" passHref>
+          <Link href="/blog_post" passHref>
             <NavLink>Blog</NavLink>
           </Link>
         </NavItem>
         <NavItem onClick={handleCloseMenu}>
-          <Link href="/" passHref>
+          <Link href="/contact" passHref>
             <NavLink>Contact</NavLink>
           </Link>
         </NavItem>
@@ -72,11 +72,11 @@ const NavContainer = styled.nav`
   background-color: #171d35;
   position: fixed;
   top: 0;
-  left: 0;
+  left: 0; 
   z-index: 1000; 
-  height: 5rem; 
-  overflow-x: hidden; 
-  overflow-y: auto; 
+  height: 5rem;  
+  /* overflow-x: hidden;  */
+  /* overflow-y: auto;   */
   border-bottom: solid 0.4rem #feeb64;
 `;
 
@@ -134,7 +134,7 @@ const AnimatedText = styled.h1`
   color: #fff;
   margin-left: 0.5rem;
   margin-top: 2rem;
-  animation: slideIn 1.8s ease-in-out;
+   animation: slideIn 1.8s ease-in-out;
 
   @keyframes slideIn {
     0% {
@@ -157,7 +157,7 @@ const AnimatedText = styled.h1`
       opacity: 1;
       transform: translateY(0%);
     }
-  }
+  } 
  
 `;
 
@@ -165,7 +165,7 @@ const MenuIcon = styled.div`
   cursor: pointer;
   margin-top: 0.5rem;
   img {
-    color: red;
+    
     background-color: white;
   }
   @media screen and (min-width: 920px) {
@@ -194,6 +194,7 @@ const NavMenu = styled.ul`
     width: 100%;
     background-color: #171d35;
     margin-top: 5.2rem;
+    border-bottom:solid 2rem yellow;
   }
 `;
 

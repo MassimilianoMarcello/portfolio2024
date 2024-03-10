@@ -7,7 +7,7 @@ export default defineConfig({
   name: 'default',
   title: 'my_portfolio24_next_emotion',
 
-  projectId: 'rd7ljoko',
+  projectId: '53nq60u1',
   dataset: 'production',
   basePath:"/studio",
   plugins: [structureTool(), visionTool()],
