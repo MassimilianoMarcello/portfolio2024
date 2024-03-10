@@ -142,7 +142,7 @@ const SkillsContainer = styled.div`
   left: 0;
   bottom: 0;
   margin: -0.7rem auto;
-  margin-left: 16rem;
+  margin-left: 14rem;
   padding-bottom: 2rem;
   .skill-item {
     margin-right: 1rem;
@@ -183,8 +183,8 @@ font-family: "Quicksand", sans-serif;
   }
 
   @media (max-width: 600px) {
-    height: 150vh;
+    height: 160vh;
     margin-right: 0rem;
-    padding-top: 1rem;
+    padding-top: 4rem;
   }
 `;
