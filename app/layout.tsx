@@ -27,8 +27,13 @@
 //   );
 // }
 "use client"
+import { Global } from '@emotion/react'
+import globalStyles from '@/app/global_emotion_styles';
 import { ThemeProvider } from '@emotion/react';
+import './page.module.css';
 import NavBar from "@/components/NavBar/NavBar";
+import Footer from '@/components/Footer/Footer';
+import PreFooter from '@/components/PreFooter/PreFooter';
 
 const theme = {
   fonts: {
@@ -44,15 +49,23 @@ export default function RootLayout({
 }>) {
   return (
     <ThemeProvider theme={theme}>
+          <Global styles={globalStyles} />
       <html lang="en">
         <head>
           <link href="https://fonts.googleapis.com/css2?family=Protest+Guerrilla&display=swap" rel="stylesheet" />
-        </head>
+          <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@300..700&display=swap" rel="stylesheet"/>
+     </head>
         <body>
           <NavBar />
+
           {children}
+
+          <PreFooter/>
+          <Footer/>
         </body>
       </html>
     </ThemeProvider>
   );
 }
+
+
