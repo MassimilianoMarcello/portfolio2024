@@ -79,7 +79,7 @@ const PersonalCard = styled.section`
 `;
 
 const ProfileCard = styled.section`
-  font-family: "Mukta", sans-serif;
+font-family: "Quicksand", sans-serif;
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   grid-template-rows: repeat(6, auto);
@@ -169,7 +169,7 @@ const SkillsContainer = styled.div`
 `;
 
 const AboutContainer = styled.div`
-font-family: "Quicksand", sans-serif;
+
   background: url("/assets/Blue_particles.jpg") center/cover no-repeat;
   height: auto;
 margin-top:2rem;
