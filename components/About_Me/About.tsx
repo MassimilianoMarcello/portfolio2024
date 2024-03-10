@@ -172,9 +172,10 @@ const AboutContainer = styled.div`
 font-family: "Quicksand", sans-serif;
   background: url("/assets/Blue_particles.jpg") center/cover no-repeat;
   height: auto;
-
-  padding-top: 0rem;
+margin-top:2rem;
+  padding-top: 2rem;
   z-index: 10000;
+  height: 80vh;
   h1 {
     color: #343733;
     text-align: center;
