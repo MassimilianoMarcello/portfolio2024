@@ -55,7 +55,7 @@ export default function RootLayout({
         <link href="https://fonts.googleapis.com/css2?family=Protest+Guerrilla&family=Protest+Strike&family=Quicksand:wght@300..700&display=swap" rel="stylesheet"/>
      </head>
         <body>
-          <NavBar />
+          {/* <NavBar /> */}
 
           {children}
 
