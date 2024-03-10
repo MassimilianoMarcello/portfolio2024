@@ -75,8 +75,7 @@ const NavContainer = styled.nav`
   left: 0; 
   z-index: 1000; 
   height: 5rem;  
-  /* overflow-x: hidden;  */
-  /* overflow-y: auto;   */
+
   border-bottom: solid 0.4rem #feeb64;
 `;
 

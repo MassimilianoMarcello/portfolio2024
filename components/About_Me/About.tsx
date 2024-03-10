@@ -169,6 +169,7 @@ const SkillsContainer = styled.div`
 `;
 
 const AboutContainer = styled.div`
+font-family: "Quicksand", sans-serif;
   background: url("/assets/Blue_particles.jpg") center/cover no-repeat;
   height: auto;
 
