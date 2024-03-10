@@ -31,9 +31,7 @@ export default function RootLayout({
         </head>
         <body>
           <NavBar />
-
           {children}
-
           <PreFooter />
           <Footer />
         </body>
