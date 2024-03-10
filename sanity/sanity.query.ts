@@ -107,16 +107,13 @@ export async function getAboutMe(): Promise<AboutMe[]> {
       _id,
         _type,
         description,
-        "socialLinks":socialLinks[]{platform,url,"socialIconImage":icon.asset->url},
-         "skillsName":skills[]{"skillIconImage":icon.asset->url,name},
-          "profileImage":profileImage.asset->url,
-        
-    }
+    "skillsName":skills[]{"skillIconImage":icon.asset->url,name},
+       }
     
     `,
     {
       next: {
-        revalidate: 68,
+        revalidate: 67,
       },
     }
   );
