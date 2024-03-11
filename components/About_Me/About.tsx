@@ -215,7 +215,7 @@ export default async function About() {
         <PersonalCard>
           <h1>Hi there! I'm Massi</h1>
 
-          {aboutData.map((about) => (
+          {aboutData.map((about, index) => (
             <ProfileCard key={about._id}>
               <div className="description">
                 <p className="about-description">
@@ -228,15 +228,15 @@ export default async function About() {
                 <p className="about-description">{about.description}</p>
               </div>
               <SkillsContainer>
-                {about.skillsName.map((skill, index) => (
-                 <li key={index} className="skill-item">
-                 <AnimatedImage
-                   src={skill.skillIconImage}
-                   width={50}
-                   height={50}
-                   alt={skill.name}
-                 />
-               </li>
+                {about.skillsName.map((skill, skillIndex) => (
+                  <SkillItem key={skillIndex} delay={index * 0.2 + skillIndex}>
+                    <AnimatedImage
+                      src={skill.skillIconImage}
+                      width={50}
+                      height={50}
+                      alt={skill.name}
+                    />
+                  </SkillItem>
                 ))}
               </SkillsContainer>
             </ProfileCard>
@@ -246,8 +246,8 @@ export default async function About() {
     </>
   );
 }
-const scaleAnimation = keyframes`
-0%, 100% {
+const bounceAnimation = keyframes`
+  0%, 100% {
     transform: translateY(0);
   }
   50% {
@@ -256,7 +256,12 @@ const scaleAnimation = keyframes`
 `;
 
 const AnimatedImage = styled(Image)`
-  animation: ${scaleAnimation} 2s infinite;
+  animation: ${bounceAnimation} 1s infinite;
+`;
+const SkillItem = styled.li`
+ margin-right: 1rem;
+  animation: ${bounceAnimation} 1s infinite;
+  animation-delay: ${(props) => props.delay * 0.4}s; /* Adjust the delay timing as needed */
 `;
 const PersonalCard = styled.section`
   background-color: blue;
@@ -355,7 +360,7 @@ const SkillsContainer = styled.div`
   margin-left: 14rem;
   padding-bottom: 2rem;
   skill-item{
-    margin-right: 1rem;
+    margin-right: 3rem;
     margin-bottom: 1rem;
     margin-top: 1rem;
   }
