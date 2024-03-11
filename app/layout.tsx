@@ -25,10 +25,8 @@ export default function RootLayout({
       <Global styles={globalStyles} />
       <html lang="en">
         <head>
-          <link
-            href="https://fonts.googleapis.com/css2?family=Protest+Guerrilla&family=Protest+Strike&family=Quicksand:wght@300..700&display=swap"
-            rel="stylesheet"
-          />
+        <link href="https://fonts.googleapis.com/css2?family=Amatic+SC:wght@400;700&family=Protest+Guerrilla&family=Protest+Strike&family=Quicksand:wght@300..700&display=swap" rel="stylesheet"/>
+
         </head>
         <body>
           {/* <NavBar /> */}

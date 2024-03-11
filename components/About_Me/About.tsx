@@ -105,7 +105,7 @@ const PersonalCard = styled.section`
 `;
 
 const ProfileCard = styled.section`
-  font-family: "Quicksand", sans-serif;
+
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   grid-template-rows: repeat(6, auto);
@@ -113,6 +113,7 @@ const ProfileCard = styled.section`
   padding-bottom: 2rem;
 
   .description {
+    font-family: "Quicksand", sans-serif;
     grid-column: 1/4;
     grid-row: 1/2;
     padding: 3rem;
@@ -121,7 +122,8 @@ const ProfileCard = styled.section`
     margin-bottom: 2rem;
   }
   .about-description {
-    font-family: "Recursive", sans-serif;
+    font-family: "Quicksand", sans-serif;
+   
     font-optical-sizing: auto;
     font-size: 1.1rem;
     font-weight: 300;
@@ -194,6 +196,7 @@ const AboutContainer = styled.div`
   height: auto;
   margin-top: 2rem;
   padding-top: 2rem;
+  padding-bottom: 1rem;
   z-index: 10000;
   width: auto;
     height: auto;
