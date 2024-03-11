@@ -35,7 +35,6 @@ const MainPage = () => {
       <ProfileContainer>
         <MyName>Hi, I'm Massi</MyName>
         <ShortBio>A Web Developer based in Brussels</ShortBio>
-        
       </ProfileContainer>
     </Section>
   );
@@ -45,12 +44,20 @@ export default MainPage;
 
 const Section = styled.section`
   background: url("assets/Blue_particles.jpg") center/cover no-repeat;
-  height: 98vh;
+
   display: grid;
   grid-template-columns: 1fr 1fr;
   grid-template-rows: 400px 3fr 1fr;
-padding-top: 0rem;
+  padding-top: 0rem;
   z-index: 10000;
+  height: 110vh;
+  width: 100%;
+  @media screen and (min-width: 1020px) {
+    height: 100vh;
+  }
+  @media screen and (min-width: 1420px) {
+    height: 88vh;
+  }
 `;
 
 const ProfileContainer = styled.section`
@@ -58,16 +65,20 @@ const ProfileContainer = styled.section`
   grid-column: 1/4;
   grid-row: 1/2;
   display: grid;
+  margin-top: -8rem;
+  @media screen and (min-width: 1020px) {
+    margin-top: 0rem;
+  }
 `;
 const MyName = styled.h1`
   font-family: "protest strike";
   font-weight: 300;
   text-align: center;
-grid-column: 1/4;
+  grid-column: 1/4;
   grid-row: 2/3;
   font-size: 7rem;
-margin: 8rem auto;
-margin-top: 16rem;
+  margin: 8rem auto;
+  margin-top: 16rem;
 
   padding: 0.5rem;
   display: block;
@@ -93,6 +104,7 @@ const ShortBio = styled.p`
   text-transform: uppercase;
   color: #b29d6e;
   margin: 0rem auto;
+  margin-top: -3rem;
   padding: 1.5rem;
 
   animation: ${moveInBottom} 1.5s ease-out;
@@ -103,8 +115,7 @@ const ShortBio = styled.p`
   -webkit-backdrop-filter: blur(1.5px);
   border-radius: 10px;
   border: 1px solid rgba(255, 255, 255, 0.18);
+  @media screen and (min-width: 1020px) {
+    margin-top: 0rem;
+  }
 `;
-
-
-
-
