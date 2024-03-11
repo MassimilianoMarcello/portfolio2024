@@ -5,7 +5,7 @@
 import { getAboutMe } from "@/sanity/sanity.query";
 import Image from "next/image";
 import styled from "@emotion/styled";
-import { css, keyframes } from "@emotion/react";
+import {keyframes } from "@emotion/react";
 import Link from "next/link";
 import "@/app/page.module.css";
 
@@ -124,7 +124,6 @@ const ProfileCard = styled.section`
     font-family: "Recursive", sans-serif;
     font-optical-sizing: auto;
     font-size: 1.1rem;
-
     font-weight: 300;
     letter-spacing: 2px;
     word-spacing: 5px;
@@ -134,8 +133,8 @@ const ProfileCard = styled.section`
     line-height: 1.6;
     text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
   }
-  @media (max-width: 1000px) {
-  }
+  /* @media (max-width: 1000px) {
+  } */
 
   @media (max-width: 600px) {
 
@@ -156,6 +155,8 @@ const ProfileCard = styled.section`
   }
 `;
 const SkillsContainer = styled.div`
+  width: auto;
+    height: auto;
   grid-column: 3/4;
   grid-row: 3/4;
   display: flex;
@@ -169,6 +170,10 @@ const SkillsContainer = styled.div`
   margin: -0.7rem auto;
   margin-left: 14rem;
   padding-bottom: 2rem;
+  @media (max-width: 1000px) {
+    width: auto;
+    height: auto;
+  }
 
   @media (max-width: 600px) {
     grid-column: 1/2;
@@ -190,7 +195,8 @@ const AboutContainer = styled.div`
   margin-top: 2rem;
   padding-top: 2rem;
   z-index: 10000;
-  height: 80vh;
+  width: auto;
+    height: auto;
   h1 {
     color: #343733;
     text-align: center;
