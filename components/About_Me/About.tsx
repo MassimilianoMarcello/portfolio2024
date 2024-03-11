@@ -237,6 +237,8 @@ export default async function About() {
                       width={50}
                       height={50}
                       alt={skill.name}
+                      title={skill.name} 
+                
                     />
                   </SkillItem>
                 ))}
