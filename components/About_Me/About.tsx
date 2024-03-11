@@ -206,6 +206,8 @@ import { css, keyframes } from '@emotion/react'
 import Link from "next/link";
 import "@/app/page.module.css";
 
+
+
 export default async function About() {
   const aboutData = await getAboutMe();
 
@@ -246,6 +248,10 @@ export default async function About() {
     </>
   );
 }
+
+type SkillItemProps = {
+  delay: number;
+};
 const bounceAnimation = keyframes`
   0%, 100% {
     transform: translateY(0);
@@ -258,10 +264,10 @@ const bounceAnimation = keyframes`
 const AnimatedImage = styled(Image)`
   animation: ${bounceAnimation} 1s infinite;
 `;
-const SkillItem = styled.li`
- margin-right: 1rem;
-  animation: ${bounceAnimation} 1s infinite;
-  animation-delay: ${(props) => props.delay * 0.4}s; /* Adjust the delay timing as needed */
+const SkillItem = styled.li<SkillItemProps>`
+margin-right: 1rem;
+  animation: ${bounceAnimation} 4s infinite;
+  animation-delay: ${(props) => props.delay}s; /* Adjust the delay timing as needed */
 `;
 const PersonalCard = styled.section`
   background-color: blue;
