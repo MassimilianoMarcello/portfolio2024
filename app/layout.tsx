@@ -4,6 +4,7 @@ import globalStyles from "@/app/global_emotion_styles";
 import { ThemeProvider } from "@emotion/react";
 import "./page.module.css";
 // import NavBar from "../components/NavBar/NavBar";
+import NavBar2 from '@/components/NavBar2/NavBar2';
 import Footer from "@/components/Footer/Footer";
 import PreFooter from "@/components/PreFooter/PreFooter";
 
@@ -31,6 +32,7 @@ export default function RootLayout({
         </head>
         <body>
           {/* <NavBar /> */}
+          <NavBar2/>
           {children}
           <PreFooter />
           <Footer />
