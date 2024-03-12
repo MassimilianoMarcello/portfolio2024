@@ -1,6 +1,5 @@
 "use client";
 
-import React from "react";
 import styled from "@emotion/styled";
 import { css } from "@emotion/react";
 import moment from "moment";
@@ -20,26 +19,29 @@ const TextContainer = styled.div`
 
 const ProjectContainer = styled.div`
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
   flex-wrap: wrap;
 `;
 
 const ProjectCard = styled.div`
   flex-grow: 1; /* Rettangoli occupano tutto lo spazio disponibile */
-  max-width: 30rem; /* Imposta una larghezza massima */
-  min-height: 20rem;
-  margin-right: 1rem;
-  margin-bottom: 2rem;
+  min-width: 30rem;
+  max-width: 50rem;
+  max-height: 30rem;
+
+  margin: 2rem;
   background-color: rgba(0, 0, 255, 0.2);
-  border: 2px solid yellow;
+  border: 0.2rem solid yellow;
   transition: all 0.2s ease;
   overflow: hidden;
   position: relative;
   cursor: pointer;
 
   &:hover {
-    max-width: 1250px; /* Larghezza massima aumenta solo al passaggio del mouse */
-    max-height: 20rem;
+    max-width: 100%; /* Larghezza massima aumenta solo al passaggio del mouse */
+    max-height: 100%;
   }
 
   &:hover .project-info {
@@ -56,10 +58,25 @@ const ImageProject = styled.div`
 
   img {
     width: 100%;
-    height: 100%;
-    &:hover {
-     display: none;
+    height: 40%;
+    @media screen and (min-width: 720px) {
+      width: 100%;
+      height: 40%;
+      margin: 0 auto;
     }
+    @media screen and (min-width: 1000px) {
+      width: 100%;
+      height: 40%;
+  
+      margin: 0 auto;
+    }
+  }
+  .project-technologies {
+    padding: 1rem;
+    margin: 1rem;
+    /* @media screen and (min-width: 800px) {
+    margin-top: -1rem;
+    } */
   }
 `;
 
@@ -98,20 +115,20 @@ export default async function Home() {
           <ProjectCard key={index}>
             <StyledLink href={`/projects/${project.slug}`}>
               <ImageProject>
-              <h3>{project.name}</h3>
+                <h3>{project.name}</h3>
                 <Image
                   src={project.image}
                   alt={project.imageAlt}
-                  width={1050}
+                  width={300}
                   height={200}
                   className="project-image"
                   key={project._id}
                 />
-                  <p>{project.technologies}</p>
+                <p className="project-technologies">{project.technologies}</p>
               </ImageProject>
               <ProjectInfo className="project-info">
                 <h3>{project.name}</h3>
-              
+
                 <p>Small description: {project.content[0]}</p>
                 <p>Status project: {project.status}</p>
                 <p>
