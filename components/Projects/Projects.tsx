@@ -6,11 +6,12 @@ import moment from "moment";
 import Image from "next/image";
 import Link from "next/link";
 import { getProjects } from "@/sanity/sanity.query";
+import { PortableText } from "@portabletext/react";
 
 const Section = styled.section`
   background-color: #f0f0f0;
   padding: 20px;
-  margin-top: 20rem;
+  margin-top: 6rem;
 `;
 
 const TextContainer = styled.div`
@@ -128,8 +129,8 @@ export default async function Home() {
               </ImageProject>
               <ProjectInfo className="project-info">
                 <h3>{project.name}</h3>
-
-                <p>Small description: {project.content[0]}</p>
+                <PortableText value={project.content[0]} />
+             
                 <p>Status project: {project.status}</p>
                 <p>
                   Last update: {moment(project._updateAt).format("DD-MM-YYYY")}

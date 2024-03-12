@@ -13,6 +13,6 @@ export type Project = {
   imageAlt:string;
   status:string;
   url: string;
-  content: string;
+  content:PortableTextBlock[];
   githubUrl:string;
 }
