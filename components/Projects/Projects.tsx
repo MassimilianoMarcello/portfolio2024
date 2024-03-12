@@ -11,33 +11,25 @@ export default async function Home() {
   return (
     <Section>
       <TextContainer>
-        <p className="greeting">Hello everyone! Check out my projects!</p>
+        <p className="greeting">Hello everyone! Check out </p>
         <h2 className="section-title">My Projects</h2>
       </TextContainer>
 
       <ProjectContainer className="project-container">
         {projects.map((project) => (
-          <Link
+          <StyledLink
             href={`/projects/${project.slug}`}
             key={project._id}
             className="project-link"
           >
-            {/* {project.image && (
-              <Image
-                src={project.image}
-                alt={project.name}
-                width={150}
-                height={150}
-                className="project-image"
-              />
-            )} */}
             <div className="project-name">{project.name}</div>
-          </Link>
+          </StyledLink>
         ))}
       </ProjectContainer>
     </Section>
   );
 }
+
 const TextContainer = styled.div`
   text-align: center;
   color: #0f2556;
@@ -50,19 +42,20 @@ const TextContainer = styled.div`
   background-color: #feeb64;
   box-shadow: 0 8px 32px 0 rgba(7, 12, 74, 0.37);
 
-  border-bottom-right-radius: 10px;
-  border-bottom-left-radius: 10px;
-  border: 1px solid rgba(255, 255, 255, 0.18);
+  border-bottom-right-radius: 3rem;
+  border-bottom-left-radius: 3rem;
+  /* border: 1px solid rgba(255, 255, 255, 0.18); */
   .greeting {
-    margin-top: -0.7rem;
+    margin-top: -1rem;
     font-size: 1.7rem;
   }
 
   .section-title {
     font-size: 3rem;
-    margin-top: -0.7rem;
+    margin-top: -2.5rem;
     padding: 0;
     color: #b29d6e;
+    margin-bottom: 0rem;
   }
   position: fixed;
   top: 0;
@@ -82,60 +75,83 @@ const TextContainer = styled.div`
   }
 `;
 
+const StyledLink = styled(Link)`
+  border-radius: 12px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+  transition: transform 0.3s ease;
+  height: 10rem;
+  width: 40rem;
+  margin: 2rem;
+
+  background-color: #eaf6f9;
+  text-decoration: none;
+  font-size: 2rem;
+  align-items: center;
+  color: #afae7f;
+  font-family: "Quicksand", sans-serif;
+  text-transform: uppercase;
+  font-weight: 200;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+box-shadow: blue 0px 0px 0px 2px inset, rgb(255, 255, 255) 10px -10px 0px -3px;
+transition: background-color 0.3s ease;
+&:hover {
+  border: 2px solid #ff69b4;
+border-image: linear-gradient(to right, #1c09c8, #a1a0ff) 1;
+}
+
+@media (max-width: 600px) {
+    width: 80%;
+  }
+
+  &:hover {
+    transform: scale(1.05);
+  }
+
+  .project-name {
+    margin-top: 1rem;
+    margin-right: 1rem;
+    background-color: #254fa9;
+    padding: 1rem 0;
+    width: 100%;
+    text-align: center;
+    color: #fff;
+    transition: transform 0.3s ease;
+  &:hover {
+    transform: scale(1.1);
+  }
+  }
+
+  &:nth-child(even) {
+    margin-right: auto;
+    margin-left: 2rem;
+    border-right: solid 1rem #254fa9;
+  }
+
+  &:nth-child(odd) {
+    margin-left: auto;
+    margin-right: 2rem;
+    border-left: solid 1rem #254fa9;
+  }
+`;
+
 const Section = styled.section`
   background-color: #171d35;
   height: auto;
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
   align-items: center;
+  
 `;
 
 const ProjectContainer = styled.div`
+  font-family: "Quicksand", sans-serif;
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
   align-items: center;
   padding-top: 0rem;
-  margin-top:20rem;
-
-  .project-link {
-    border-radius: 12px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    overflow: hidden;
-    transition: transform 0.3s ease;
-    height: 20rem;
-    width: 20rem;
-    margin: 2rem;
-    border-left: solid 1rem #254fa9;
-    background-color: #eaf6f9;
-    text-decoration: none;
-    font-size: 3rem;
-    align-items: center;
-    color: #afae7f;
-    font-family: "Amatic SC", sans-serif;
-    font-weight: 600;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-
-  @media (max-width: 600px) {
-    padding-top: 0rem;
-    flex-direction: column;
-  }
-
-  
-    &:hover {
-      transform: scale(1.05);
-    }
-
-    .project-name {
-      margin-top: 1rem;
-      margin-right:1rem;
-      background-color: #254fa9;
-      padding: 1rem 0;
-      width: 100%;
-      text-align: center;
-      color: #fff;
-    }
-  }
+  margin-top: 12rem;
 `;

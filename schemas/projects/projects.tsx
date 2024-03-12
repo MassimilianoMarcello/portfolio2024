@@ -42,8 +42,36 @@ const project = {
         title: "Content",
         type: "array",
         of: [{ type: "block" }]
-      }
+      },
+      {
+        name: "technologies",
+        title: "Technologies",
+        type: "array",
+        of: [{ type: "string" }],
+        description: "List of technologies used in the project"
+      },
+      {
+        name: "status",
+        title: "Status",
+        type: "string",
+        options: {
+          list: ["In Progress", "Completed", "On Hold"],
+          layout: "radio"
+        }
+      },
+      {
+        name: "createdAt",
+        title: "Created At",
+        type: "datetime",
+        options: {
+          dateFormat: "YYYY-MM-DD",
+          timeFormat: "HH:mm",
+          calendarTodayLabel: "Today"
+        },
+        description: "Date and time when the project was created"
+      },
     ]
+    
   }
   
   export default project;
