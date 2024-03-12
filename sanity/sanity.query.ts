@@ -7,18 +7,22 @@ import { AboutMe } from "@/types/AboutMe";
 export async function getProjects(): Promise<Project[]> {
   return client.fetch(
     groq`*[_type == "project"]{
-      _id,
-      _createdAt,
-      name,
-      "slug": slug.current,
-      "image": image.asset->url,
-      url,
-      content,
-      
-  githubUrl,
-  
-
-    }`,
+name,
+    _id,
+     _key,
+      technologies,
+    _createdAt,
+    _updatedAt,
+   _type,
+   url,
+    githubUrl,
+   "slug": slug.current,
+    'content': content[].children[].text,
+    // content,
+     'image' :image.asset->url,
+     'imageAlt':image.alt,
+  status, 
+   }`,
     {
       next: {
         revalidate: 63,

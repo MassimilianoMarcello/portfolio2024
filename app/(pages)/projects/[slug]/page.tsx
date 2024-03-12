@@ -25,20 +25,20 @@ export default async function Project({ params }: Props) {
           <div className="buttons-container">
             <StyledButton>
               <Link href={project.githubUrl}>
-                <Image src="/github.png" width={50} height={50} alt="github" />
+                <Image src="/assets/github.png" width={50} height={50} alt="github" />
               </Link>
               Github
             </StyledButton>
           </div>
           <CloseButton className="close-button">
             <Link href="/projects">
-              <Image src="/right.png" width={50} height={50} alt="close" />
+              <Image src="/assets/right.png" width={50} height={50} alt="close" />
             </Link>
           </CloseButton>
           <div className="buttons-container">
             <StyledButton>
               <Link href={project.url}>
-                <Image src="/go.png" width={60} height={60} alt="github" />{" "}
+                <Image src="/assets/go.png" width={60} height={60} alt="github" />{" "}
               </Link>
             </StyledButton>
           </div>
