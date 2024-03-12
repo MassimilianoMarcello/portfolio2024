@@ -1,4 +1,5 @@
 import projects from './projects/projects';
+
 import aboutMe from './about_me/about';
 import blockContent from '@/schemas/blog_schema/blockContent'
 import category from '@/schemas/blog_schema/category'

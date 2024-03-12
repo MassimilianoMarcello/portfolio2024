@@ -15,7 +15,48 @@ const Section = styled.section`
 `;
 
 const TextContainer = styled.div`
-  margin-bottom: 20px;
+  text-align: center;
+  color: #0f2556;
+  margin: 5rem auto;
+  font-family: "Amatic SC", sans-serif;
+
+  padding-top: 1rem;
+
+  background-color: #0f2556;
+  background-color: #feeb64;
+  box-shadow: 0 8px 32px 0 rgba(7, 12, 74, 0.37);
+
+  border-bottom-right-radius: 3rem;
+  border-bottom-left-radius: 3rem;
+  /* border: 1px solid rgba(255, 255, 255, 0.18); */
+  .greeting {
+    margin-top: -1rem;
+    font-size: 1.7rem;
+  }
+
+  .section-title {
+    font-size: 3rem;
+    margin-top: -2.5rem;
+    padding: 0;
+    color: #b29d6e;
+    margin-bottom: 0rem;
+  }
+  position: fixed;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 100%;
+  z-index: 999;
+  @media (max-width: 600px) {
+    margin-top: 5.1rem;
+
+    .section-title {
+      font-size: 2rem;
+      margin-top: -2rem;
+      padding: 0;
+      color: #b29d6e;
+    }
+  }
 `;
 
 const ProjectContainer = styled.div`
@@ -24,15 +65,18 @@ const ProjectContainer = styled.div`
   align-items: center;
   justify-content: center;
   flex-wrap: wrap;
+  margin-top:5rem;
 `;
 
 const ProjectCard = styled.div`
-  flex-grow: 1; /* Rettangoli occupano tutto lo spazio disponibile */
+  /* flex-grow: 1;  */
+  /* Rettangoli occupano tutto lo spazio disponibile */
   min-width: 30rem;
-  max-width: 50rem;
+  max-width: 40rem;
   max-height: 30rem;
 
-  margin: 2rem;
+  margin: 4rem;
+  margin-top: 4rem;
   background-color: rgba(0, 0, 255, 0.2);
   border: 0.2rem solid yellow;
   transition: all 0.2s ease;
@@ -68,16 +112,27 @@ const ImageProject = styled.div`
     @media screen and (min-width: 1000px) {
       width: 100%;
       height: 40%;
-  
+
       margin: 0 auto;
     }
   }
   .project-technologies {
     padding: 1rem;
     margin: 1rem;
-    /* @media screen and (min-width: 800px) {
-    margin-top: -1rem;
-    } */
+    
+    & > * { /* Applica lo stile a ogni singolo elemento figlio */
+      margin: 1.5rem;
+      padding: 1.5rem;
+      background-color: rgba(0, 0, 255, 0.1);
+      border-radius: 0.5rem;
+    }
+  }
+  h3{
+    margin: .5rem 0;
+    margin-left: 2rem;
+
+    color: #fff;
+    font-size:2rem
   }
 `;
 
@@ -130,7 +185,7 @@ export default async function Home() {
               <ProjectInfo className="project-info">
                 <h3>{project.name}</h3>
                 <PortableText value={project.content[0]} />
-             
+
                 <p>Status project: {project.status}</p>
                 <p>
                   Last update: {moment(project._updateAt).format("DD-MM-YYYY")}
