@@ -7,6 +7,8 @@ import Image from "next/image";
 import Link from "next/link";
 import { getProjects } from "@/sanity/sanity.query";
 import { PortableText } from "@portabletext/react";
+import { ThemeProvider } from "@emotion/react";
+import theme from "@/app/theme_emotion";
 
 const Section = styled.section`
   background-color: #f0f0f0;
@@ -65,7 +67,7 @@ const ProjectContainer = styled.div`
   align-items: center;
   justify-content: center;
   flex-wrap: wrap;
-  margin-top:5rem;
+  margin-top: 5rem;
 `;
 
 const ProjectCard = styled.div`
@@ -119,20 +121,23 @@ const ImageProject = styled.div`
   .project-technologies {
     padding: 1rem;
     margin: 1rem;
-    
-    & > * { /* Applica lo stile a ogni singolo elemento figlio */
+
+    & > * {
+      /* Applica lo stile a ogni singolo elemento figlio */
       margin: 1.5rem;
       padding: 1.5rem;
       background-color: rgba(0, 0, 255, 0.1);
       border-radius: 0.5rem;
     }
   }
-  h3{
-    margin: .5rem 0;
+  h3 {
+    margin: 0.5rem 0;
     margin-left: 2rem;
-
+   
+    font-weight: ${theme.fontWeight.bold};
+    font-family: ${theme.fontFamily.customFont};
     color: #fff;
-    font-size:2rem
+    font-size: 2rem;
   }
 `;
 
@@ -144,67 +149,97 @@ const ProjectInfo = styled.div`
   padding: 10px;
   margin-right: -1rem;
   margin-top: 0rem;
-  background-color: rgba(0, 0, 255, 0.4);
+  /* background-color: rgba(0, 0, 255, 0.4); */
+  background-color: #1d3b7a;
   color: white;
   transition: all 0.3s ease;
   opacity: 0;
   transform: translateY(100%);
+  h3 {
+    font-family: ${theme.fontFamily.customFont};
+  
+
+    margin: 0;
+    padding-left: 2rem;
+    background-color: #fff;
+    color: #1d3b7a;
+    font-size: 2rem;
+  }
+
+  .my-portable-text {
+    font-size: 1rem;
+  }
 `;
 
 const StyledLink = styled.a`
   text-decoration: none;
   color: inherit;
 `;
+const Content =styled.div`
+    .details {
+    font-size: 2rem;
+  }
+`
+
+
 
 export default async function Home() {
   const projects = await getProjects();
 
   return (
-    <Section>
-      <TextContainer>
-        <p className="greeting">Hello everyone! Check out </p>
-        <h2 className="section-title">My Projects</h2>
-      </TextContainer>
+    <ThemeProvider theme={theme}>
+      <Section>
+        <TextContainer>
+          <p className="greeting">Hello everyone! Check out </p>
+          <h2 className="section-title">My Projects</h2>
+        </TextContainer>
 
-      <ProjectContainer className="project-container">
-        {projects.map((project, index) => (
-          <ProjectCard key={index}>
-            <StyledLink href={`/projects/${project.slug}`}>
-              <ImageProject>
-                <h3>{project.name}</h3>
-                <Image
-                  src={project.image}
-                  alt={project.imageAlt}
-                  width={300}
-                  height={200}
-                  className="project-image"
-                  key={project._id}
-                />
-                <p className="project-technologies">{project.technologies}</p>
-              </ImageProject>
-              <ProjectInfo className="project-info">
-                <h3>{project.name}</h3>
-                <PortableText value={project.content[0]} />
+        <ProjectContainer className="project-container">
+          {projects.map((project, index) => (
+            <ProjectCard key={index}>
+              <StyledLink href={`/projects/${project.slug}`}>
+                <ImageProject>
+                  <h3>{project.name}</h3>
+                  <Image
+                    src={project.image}
+                    alt={project.imageAlt}
+                    width={300}
+                    height={200}
+                    className="project-image"
+                    key={project._id}
+                  />
+                  <p className="project-technologies">{project.technologies}</p>
+                </ImageProject>
+                <ProjectInfo className="project-info">
+                  <h3>{project.name}</h3>
+                  <Content className="my-portable-text">
+                    <PortableText value={project.content[0]} />
+                  </Content>
 
-                <p>Status project: {project.status}</p>
-                <p>
-                  Last update: {moment(project._updateAt).format("DD-MM-YYYY")}
-                </p>
-                <p>
-                  Created: {moment(project._createdAt).format("DD-MM-YYYY")}
-                </p>
-                <Link href={project.url}>
+                  <div className="text-details">
+                    {/* <p className="status">Status project: {project.status}</p> */}
+                    {/* <p className="last-update">
+                      Last update:{" "}
+                      {moment(project._updateAt).format("DD-MM-YYYY")}
+                    </p> */}
+                    {/* <p className="date-creation">
+                      Created: {moment(project._createdAt).format("DD-MM-YYYY")}
+                    </p> */}
+                    <p className="details">Click for Details 🚀</p>
+                  </div>
+                </ProjectInfo>
+              </StyledLink>
+              {/* <Link href={project.url}>
                   <h1>Visit website</h1>
                 </Link>
                 <Link href={project.githubUrl}>
                   <h1>See code</h1>
-                </Link>
-              </ProjectInfo>
-            </StyledLink>
-          </ProjectCard>
-        ))}
-      </ProjectContainer>
-    </Section>
+                </Link> */}
+            </ProjectCard>
+          ))}
+        </ProjectContainer>
+      </Section>
+    </ThemeProvider>
   );
 }
 // const ImageProject = styled.div``

@@ -7,7 +7,7 @@ import "./page.module.css";
 import NavBar2 from '@/components/NavBar2/NavBar2';
 import Footer from "@/components/Footer/Footer";
 import PreFooter from "@/components/PreFooter/PreFooter";
-
+const almaqFont = "../public/fonts/Almaq Refined.ttf"
 const theme = {
   fonts: {
     body: "'Protest Guerrilla', sans-serif",
@@ -30,7 +30,7 @@ export default function RootLayout({
         </head>
         <body>
           {/* <NavBar /> */}
-          {/* <NavBar2/> */}
+          <NavBar2/>
           {children}
           <PreFooter />
           <Footer />

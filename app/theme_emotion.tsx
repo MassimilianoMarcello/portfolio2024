@@ -1,3 +1,14 @@
+
+const fontFace = `
+  @font-face {
+    font-family: 'Almaq Refined'; 
+    src: url('../public/fonts/Almaq Refined.ttf') format('truetype');
+    
+  }
+`;
+
+
+
 const theme = {
   colors: {
     gold: " #f5a800",
@@ -65,8 +76,7 @@ const theme = {
   },
 
   fontFamily: {
-    euclidFlex:
-      'Euclid Flex, system-ui, -apple-system, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji"',
+    customFont: "'Almaq Refined', sans-serif", 
   },
   fontWeight: {
     light: 200,
