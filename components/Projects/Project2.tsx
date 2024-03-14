@@ -22,12 +22,13 @@ const ProjectContainer = styled.div`
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
+  position: relative;
 `;
 
 const ProjectCard = styled.div`
   /* Stili per la carta di progetto */
   width: calc(100% / 1); /* Inizia con una larghezza del 100% */
-  margin: 10px;
+  margin: 1rem;
   background-color: #f9f9f9;
   border-radius: 10px;
   overflow: hidden;
@@ -48,8 +49,10 @@ const ProjectCard = styled.div`
 `;
 
 const ImageProject = styled.div`
-  /* Stili per l'immagine del progetto */
-  position: relative;
+  text-align: center;
+  .image-project {
+    width: 95%;
+  }
 `;
 
 const ProjectInfo = styled.div`
@@ -75,6 +78,7 @@ const ExpandedCard = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
+  /* hhhh */
 `;
 
 const ExpandedCardContent = styled.div`
@@ -85,6 +89,15 @@ const ExpandedCardContent = styled.div`
   max-width: 80%;
   max-height: 80%;
   overflow-y: auto;
+
+  .title-box {
+    display: flex;
+    justify-content: space-around;
+  }
+  @media (min-width: 992px) {
+    max-width: 40%;
+    max-height: 40%;
+  }
 `;
 
 export default function Projects() {
@@ -117,18 +130,23 @@ export default function Projects() {
             <ProjectCard key={index}>
               <StyledLink onClick={() => handleCardClick(project)}>
                 <ImageProject>
+                  <ProjectInfo>
+                    <h3>{project.name}</h3>
+                  </ProjectInfo>
                   <Image
                     src={project.image}
                     alt={project.imageAlt}
-                    width={300}
+                    width={200}
                     height={200}
                     className="project-image"
                     key={project._id}
                   />
+      {project.technologies.map((technology, techIndex) => (
+        <p className="project-technologies" key={techIndex}>
+          {technology}
+        </p>
+      ))}
                 </ImageProject>
-                <ProjectInfo>
-                  <h3>{project.name}</h3>
-                </ProjectInfo>
               </StyledLink>
             </ProjectCard>
           ))}
@@ -137,11 +155,21 @@ export default function Projects() {
         {expandedProject && (
           <ExpandedCard onClick={handleCloseClick}>
             <ExpandedCardContent>
-              <h2>{expandedProject.name}</h2>
+              <div className="title-box">
+                <h2>{expandedProject.name}</h2>
+                <Image
+                  src={expandedProject.image}
+                  alt={expandedProject.imageAlt}
+                  width={140}
+                  height={100}
+                  className="project-image"
+                  key={expandedProject._id}
+                />
+              </div>
+
               <PortableText value={expandedProject.content[0]} />
               <PortableText value={expandedProject.content[1]} />
               <Link href={`/projects/${expandedProject.slug}`}>wgy</Link>
-         
             </ExpandedCardContent>
           </ExpandedCard>
         )}
@@ -150,4 +178,4 @@ export default function Projects() {
   );
 }
 
-const Description =styled.a``
+const Description = styled.a``;
