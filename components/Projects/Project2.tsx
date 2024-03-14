@@ -100,82 +100,118 @@ const ExpandedCardContent = styled.div`
   }
 `;
 
+// Resto del codice rimane invariato
+
 export default function Projects() {
-  const [projects, setProjects] = useState([]);
-  const [expandedProject, setExpandedProject] = useState(null);
-
-  useEffect(() => {
-    async function fetchProjects() {
-      const fetchedProjects = await getProjects();
-      setProjects(fetchedProjects);
-    }
-    fetchProjects();
-  }, []); // Empty dependency array ensures the effect runs only once, similar to componentDidMount
-
-  const handleCardClick = (project) => {
-    setExpandedProject(project);
-  };
-
-  const handleCloseClick = () => {
-    setExpandedProject(null);
-  };
-
-  return (
-    <ThemeProvider theme={theme}>
-      <Section>
-        <TextContainer>{/* Contenuto del container di testo */}</TextContainer>
-
-        <ProjectContainer>
-          {projects.map((project, index) => (
-            <ProjectCard key={index}>
-              <StyledLink onClick={() => handleCardClick(project)}>
-                <ImageProject>
-                  <ProjectInfo>
-                    <h3>{project.name}</h3>
-                  </ProjectInfo>
+    const [projects, setProjects] = useState([]);
+    const [expandedProject, setExpandedProject] = useState(null);
+    const [selectedTechnology, setSelectedTechnology] = useState(null);
+  
+    useEffect(() => {
+      async function fetchProjects() {
+        const fetchedProjects = await getProjects();
+        setProjects(fetchedProjects);
+      }
+      fetchProjects();
+    }, []);
+  
+    const handleCardClick = (project) => {
+      setExpandedProject(project);
+    };
+  
+    const handleCloseClick = () => {
+      setExpandedProject(null);
+    };
+  
+    const handleFilterByTechnology = (technology) => {
+      setSelectedTechnology(technology);
+      setExpandedProject(null); // Chiude eventuali schede aperte
+    };
+  
+    // Filtraggio dei progetti in base alla tecnologia selezionata
+    const filteredProjects = selectedTechnology
+      ? projects.filter(project => project.technologies.includes(selectedTechnology))
+      : projects;
+  
+    return (
+      <ThemeProvider theme={theme}>
+        <Section>
+          <TextContainer>{/* Contenuto del container di testo */}</TextContainer>
+          {/* Filtri per tecnologie */}
+          <div>
+            <h4>Filter by Technology:</h4>
+            <ul>
+              {Array.from(new Set(projects.flatMap(project => project.technologies))).map((technology, index) => (
+                <li key={index}>
+                  <button
+                    onClick={() => handleFilterByTechnology(technology)}
+                    style={{ fontWeight: technology === selectedTechnology ? "bold" : "normal" }}
+                  >
+                    {technology}
+                  </button>
+                </li>
+              ))}
+              {selectedTechnology && (
+                <li>
+                  <button onClick={() => setSelectedTechnology(null)}>Clear Filter</button>
+                </li>
+              )}
+            </ul>
+          </div>
+          {/* Fine Filtri per tecnologie */}
+          <ProjectContainer>
+            {/* Mapping dei progetti filtrati */}
+            {filteredProjects.map((project, index) => (
+              <ProjectCard key={index}>
+                <StyledLink onClick={() => handleCardClick(project)}>
+                  <ImageProject>
+                    <ProjectInfo>
+                      <h3>{project.name}</h3>
+                    </ProjectInfo>
+                    <Image
+                      src={project.image}
+                      alt={project.imageAlt}
+                      width={200}
+                      height={200}
+                      className="project-image"
+                      key={project._id}
+                    />
+                    {project.technologies.map((technology, techIndex) => (
+                      <p className="project-technologies" key={techIndex}>
+                        {technology}
+                      </p>
+                    ))}
+                  </ImageProject>
+                </StyledLink>
+              </ProjectCard>
+            ))}
+          </ProjectContainer>
+  
+          {/* Visualizzazione della scheda espansa */}
+          {expandedProject && (
+            <ExpandedCard onClick={handleCloseClick}>
+              <ExpandedCardContent>
+                <div className="title-box">
+                  <h2>{expandedProject.name}</h2>
                   <Image
-                    src={project.image}
-                    alt={project.imageAlt}
-                    width={200}
-                    height={200}
+                    src={expandedProject.image}
+                    alt={expandedProject.imageAlt}
+                    width={140}
+                    height={100}
                     className="project-image"
-                    key={project._id}
+                    key={expandedProject._id}
                   />
-      {project.technologies.map((technology, techIndex) => (
-        <p className="project-technologies" key={techIndex}>
-          {technology}
-        </p>
-      ))}
-                </ImageProject>
-              </StyledLink>
-            </ProjectCard>
-          ))}
-        </ProjectContainer>
-
-        {expandedProject && (
-          <ExpandedCard onClick={handleCloseClick}>
-            <ExpandedCardContent>
-              <div className="title-box">
-                <h2>{expandedProject.name}</h2>
-                <Image
-                  src={expandedProject.image}
-                  alt={expandedProject.imageAlt}
-                  width={140}
-                  height={100}
-                  className="project-image"
-                  key={expandedProject._id}
-                />
-              </div>
-
-              <PortableText value={expandedProject.content[0]} />
-              <PortableText value={expandedProject.content[1]} />
-              <Link href={`/projects/${expandedProject.slug}`}>wgy</Link>
-            </ExpandedCardContent>
-          </ExpandedCard>
-        )}
-      </Section>
-    </ThemeProvider>
-  );
-}
-
-const Description = styled.a``;
+                </div>
+                <PortableText value={expandedProject.content[0]} />
+                <PortableText value={expandedProject.content[1]} />
+                <Link href={`/projects/${expandedProject.slug}`}>wgy</Link>
+              </ExpandedCardContent>
+            </ExpandedCard>
+          )}
+        </Section>
+      </ThemeProvider>
+    );
+  }
+  
+  const Description = styled.a``;
+  
