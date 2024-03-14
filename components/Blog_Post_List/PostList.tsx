@@ -83,28 +83,30 @@ img{
 
 const TextContainer = styled.div`
   text-align: center;
-  color: #fff;
-  margin: 6rem auto;
+  color: #0f2556;
+  margin: 5rem auto;
   font-family: "Amatic SC", sans-serif;
 
   padding-top: 1rem;
 
   background-color: #0f2556;
+  background-color: #feeb64;
   box-shadow: 0 8px 32px 0 rgba(7, 12, 74, 0.37);
 
-  border-bottom-right-radius: 10px;
-  border-bottom-left-radius: 10px;
-  border: 1px solid rgba(255, 255, 255, 0.18);
+  border-bottom-right-radius: 3rem;
+  border-bottom-left-radius: 3rem;
+  
   .greeting {
-    margin-top: -0.7rem;
+    margin-top: -1rem;
     font-size: 1.7rem;
   }
 
   .section-title {
     font-size: 3rem;
-    margin-top: -0.7rem;
+    margin-top: -2.5rem;
     padding: 0;
     color: #b29d6e;
+    margin-bottom: 0rem;
   }
   position: fixed;
   top: 0;
