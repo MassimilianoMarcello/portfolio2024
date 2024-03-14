@@ -1,4 +1,3 @@
-
 const fontFace = `
   @font-face {
     font-family: 'Almaq Refined'; 
@@ -6,8 +5,6 @@ const fontFace = `
     
   }
 `;
-
-
 
 const theme = {
   colors: {
@@ -39,8 +36,8 @@ const theme = {
 
   fontSize: {
     small: "0.75rem",
-    medium: "1rem",
-    large: "1.5rem",
+    medium: "1.4rem",
+    large: "2rem",
     heading1: "2rem",
     heading2: "1.5rem",
     paragraph: "1rem",
@@ -76,13 +73,14 @@ const theme = {
   },
 
   fontFamily: {
-    customFont: "'Almaq Refined', sans-serif", 
+    customFont: "'Almaq Refined', sans-serif",
   },
   fontWeight: {
     light: 200,
     regular: 400,
     bold: 700,
   },
+  
 };
 
 export default theme;

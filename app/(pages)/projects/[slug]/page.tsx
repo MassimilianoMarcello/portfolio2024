@@ -44,6 +44,20 @@ export default async function Project({ params }: Props) {
           </div>
         </Buttons>
       </ContentWrapper>
+        {/* <p className="status">Status project: {project.status}</p> */}
+                    {/* <p className="last-update">
+                      Last update:{" "}
+                      {moment(project._updateAt).format("DD-MM-YYYY")}
+                    </p> */}
+                    {/* <p className="date-creation">
+                      Created: {moment(project._createdAt).format("DD-MM-YYYY")}
+                    </p> */}
+                          {/* <Link href={project.url}>
+                  <h1>Visit website</h1>
+                </Link>
+                <Link href={project.githubUrl}>
+                  <h1>See code</h1>
+                </Link> */}
     </ProjectContainer>
   );
 }

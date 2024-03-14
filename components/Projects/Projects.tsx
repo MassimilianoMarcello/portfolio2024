@@ -11,12 +11,14 @@ import { ThemeProvider } from "@emotion/react";
 import theme from "@/app/theme_emotion";
 
 const Section = styled.section`
+
   background-color: #f0f0f0;
   padding: 20px;
   margin-top: 6rem;
 `;
 
 const TextContainer = styled.div`
+
   text-align: center;
   color: #0f2556;
   margin: 5rem auto;
@@ -62,6 +64,7 @@ const TextContainer = styled.div`
 `;
 
 const ProjectContainer = styled.div`
+position: relative;
   display: flex;
   flex-direction: row;
   align-items: center;
@@ -71,6 +74,7 @@ const ProjectContainer = styled.div`
 `;
 
 const ProjectCard = styled.div`
+/* position: relative; */
   /* flex-grow: 1;  */
   /* Rettangoli occupano tutto lo spazio disponibile */
   min-width: 30rem;
@@ -79,7 +83,8 @@ const ProjectCard = styled.div`
 
   margin: 4rem;
   margin-top: 4rem;
-  background-color: rgba(0, 0, 255, 0.2);
+  /* background-color: rgba(0, 0, 255, 0.2); */
+  background-color: #f0fff4;
   border: 0.2rem solid yellow;
   transition: all 0.2s ease;
   overflow: hidden;
@@ -98,7 +103,7 @@ const ProjectCard = styled.div`
 `;
 
 const ImageProject = styled.div`
-  position: relative;
+  /* position: relative; */
   display: flex;
   flex-direction: column;
   overflow: hidden;
@@ -122,18 +127,19 @@ const ImageProject = styled.div`
     padding: 1rem;
     margin: 1rem;
 
-    & > * {
+    *:first-of-type {
       /* Applica lo stile a ogni singolo elemento figlio */
       margin: 1.5rem;
       padding: 1.5rem;
-      background-color: rgba(0, 0, 255, 0.1);
+      /* background-color: rgba(0, 0, 255, 0.1); */
+      background-color: #254fa9 ;
       border-radius: 0.5rem;
     }
   }
   h3 {
     margin: 0.5rem 0;
     margin-left: 2rem;
-   
+   background-color: #aaebfe ;
     font-weight: ${theme.fontWeight.bold};
     font-family: ${theme.fontFamily.customFont};
     color: #fff;
@@ -142,6 +148,7 @@ const ImageProject = styled.div`
 `;
 
 const ProjectInfo = styled.div`
+
   position: absolute;
   top: 0;
   right: 0;
@@ -172,15 +179,25 @@ const ProjectInfo = styled.div`
 `;
 
 const StyledLink = styled.a`
+
   text-decoration: none;
   color: inherit;
 `;
 const Content =styled.div`
+
     .details {
     font-size: 2rem;
   }
 `
+// const Paragraph = styled.div`
 
+// *:first-of-type {
+//     font-size: ${theme.fontSize.medium};
+//     font-weight:${theme.fontWeight.bold};
+//     margin:${theme.layout.margin}
+//      }
+
+// `;
 
 
 export default async function Home() {
@@ -194,12 +211,21 @@ export default async function Home() {
           <h2 className="section-title">My Projects</h2>
         </TextContainer>
 
-        <ProjectContainer className="project-container">
+<ProjectContainer className="project-container">
+
           {projects.map((project, index) => (
+            
             <ProjectCard key={index}>
+              
               <StyledLink href={`/projects/${project.slug}`}>
-                <ImageProject>
+                   <ImageProject>
+            
+
+           
                   <h3>{project.name}</h3>
+                  <PosRelative className="posrelative">
+                   <Span/>
+                   </PosRelative>
                   <Image
                     src={project.image}
                     alt={project.imageAlt}
@@ -212,36 +238,58 @@ export default async function Home() {
                 </ImageProject>
                 <ProjectInfo className="project-info">
                   <h3>{project.name}</h3>
-                  <Content className="my-portable-text">
-                    <PortableText value={project.content[0]} />
-                  </Content>
+                  {/* <Paragraph className="my-portable-text"> */}
+                    <PortableText  value={project.content } />
+                  {/* </Paragraph> */}
 
                   <div className="text-details">
-                    {/* <p className="status">Status project: {project.status}</p> */}
-                    {/* <p className="last-update">
-                      Last update:{" "}
-                      {moment(project._updateAt).format("DD-MM-YYYY")}
-                    </p> */}
-                    {/* <p className="date-creation">
-                      Created: {moment(project._createdAt).format("DD-MM-YYYY")}
-                    </p> */}
+                  
                     <p className="details">Click for Details 🚀</p>
                   </div>
                 </ProjectInfo>
               </StyledLink>
-              {/* <Link href={project.url}>
-                  <h1>Visit website</h1>
-                </Link>
-                <Link href={project.githubUrl}>
-                  <h1>See code</h1>
-                </Link> */}
+              <Span/>
             </ProjectCard>
           ))}
+         
         </ProjectContainer>
+
+
+
+       
+
       </Section>
     </ThemeProvider>
   );
 }
+
+const PosRelative = styled.span`
+  background-color:#d3f6ff ;
+  padding: 1rem;
+  position: relative; /* Cambiato da sticky a relative */
+  top: 0rem;
+  left: 0rem;
+`;
+
+const Span = styled.span`
+  background-color:#feeb64;
+  height: 10rem;
+  width: 10rem;
+  position: absolute; /* Cambiato da sticky a absolute */
+  top: 0;
+  right: 0;
+  z-index: 100000000000000; /* Cambiato da 10000000 a -1 */
+  margin-top: 19rem;
+  margin-left: -1rem;
+`;
+
+
+
+
+
+
+
+
 // const ImageProject = styled.div``
 // const TextContainer = styled.div`
 //   text-align: center;
