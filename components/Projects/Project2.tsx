@@ -165,6 +165,7 @@ const ExpandedCardContent = styled.div`
   /* Stili per il contenuto della scheda espansa */
   background-color: white;
   padding: 2rem;
+  padding-bottom: 0;
   border-radius: 1rem;
   max-width: 80%;
   max-height: 80%;
@@ -172,8 +173,27 @@ const ExpandedCardContent = styled.div`
 
   .title-box {
     display: flex;
-    justify-content: space-around;
+    justify-content: space-between;
+    margin-top: -2rem;
+    h2{
+      margin-top: 1rem;
+      margin-left: -2rem;
+      background-color:#feeb64 ;
+      padding: 1rem;
+      text-transform:uppercase;
+    }
+
   }
+  a{
+      text-decoration:none;
+      background-color:#feeb64 ;
+      font-size:1.5rem;
+      text-transform:uppercase;
+      text-align:  right;
+      margin-left: 20rem;
+      margin-bottom: -2rem;
+
+    }
   @media (min-width: 62rem) {
     max-width: 40%;
     max-height: 40%;
@@ -241,13 +261,13 @@ export default function Projects() {
                     className="project-image"
                     key={project._id}
                   />
-                  {/* <BoxTechnologies className="boxlist-technologies">
+                   <BoxTechnologies className="boxlist-technologies">
                     {project.technologies.map((technology, techIndex) => (
                       <p className="single-technology" key={techIndex}>
                         {technology}
                       </p>
                     ))}
-                  </BoxTechnologies> */}
+                  </BoxTechnologies> 
                 </ImageProject>
               </StyledLink>
             </ProjectCard>
@@ -270,7 +290,7 @@ export default function Projects() {
                 />
               </div>
               <PortableText value={expandedProject.content[0]} />
-              <PortableText value={expandedProject.content[1]} />
+              {/* <PortableText value={expandedProject.content[1]} /> */}
               <Link href={`/projects/${expandedProject.slug}`}>In detail</Link>
             </ExpandedCardContent>
           </ExpandedCard>
