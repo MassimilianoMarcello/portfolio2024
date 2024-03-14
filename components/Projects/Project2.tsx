@@ -10,6 +10,7 @@ import { ThemeProvider } from "@emotion/react";
 import theme from "@/app/theme_emotion";
 
 const Section = styled.section`
+  font-family: ${theme.fontFamily.customFont};
   margin-top: 10rem;
 `;
 
@@ -17,6 +18,7 @@ const TextContainer = styled.div`
   text-align: center;
   color: #0f2556;
   margin: 5rem auto;
+
   font-family: "Amatic SC", sans-serif;
 
   padding-top: 1rem;
@@ -24,15 +26,9 @@ const TextContainer = styled.div`
   background-color: #0f2556;
   background-color: #feeb64;
 
-
   /* box-shadow: 0 8px 32px 0 rgba(7, 12, 74, 0.37); */
-  box-shadow:
-  0 2px 4px rgba(0, 0, 0, 0.1),
-  0 4px 8px rgba(0, 0, 0, 0.1),
-  0 6px 12px rgba(0, 0, 0, 0.1),
-  0 8px 16px rgba(0, 0, 0, 0.1)
-;
-
+  box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.1), 0 1rem 2rem rgba(0, 0, 0, 0.1),
+    0 1.5rem 3rem rgba(0, 0, 0, 0.1), 0 2rem 4rem rgba(0, 0, 0, 0.1);
 
   border-bottom-right-radius: 3rem;
   border-bottom-left-radius: 3rem;
@@ -80,20 +76,20 @@ const ProjectCard = styled.div`
   width: calc(100% / 1);
   margin: 1rem;
   background-color: #f9f9f9;
-  border-radius: 10px;
+  border-radius: 1rem;
   overflow: hidden;
-  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+  box-shadow: 0.5rem 1rem 2rem rgba(0, 0, 0, 0.1);
   transition: box-shadow 0.3s ease;
 
   &:hover {
-    box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.2);
+    box-shadow: 1rem 2rem 4rem rgba(0, 0, 0, 0.2);
   }
 
-  @media (min-width: 768px) {
+  @media (min-width: 48rem) {
     width: calc(100% / 2);
   }
 
-  @media (min-width: 992px) {
+  @media (min-width: 62rem) {
     width: calc(100% / 3.4);
   }
 `;
@@ -101,8 +97,8 @@ const ProjectCard = styled.div`
 const ImageProject = styled.div`
   /*box-> contain title,image,used technologies   */
   text-align: center;
-  .image-project {
-    width: 95%;
+  .project-image {
+    width: 100%;
   }
 `;
 
@@ -111,16 +107,29 @@ const BoxTechnologies = styled.div`
   flex-direction: row;
   justify-content: space-around;
   align-items: center;
+  background-color: #1d3b7a;
   .single-technology {
     font-size: 1.2rem;
-    padding: 0.5rem;
-    background-color: #d4ff00;
+    padding: 1rem;
+
+    text-transform: uppercase;
+    font-weight: 700;
+    color: #fff;
   }
 `;
 
 const ProjectInfo = styled.div`
   /* Stile project information */
-  padding: 20px;
+  padding: 0.1rem;
+  background-color: #1d3b7a;
+  color: #fff;
+  font-size: 1.5rem;
+  font-weight: 100;
+  h3 {
+    border-top: solid 2px #feeb64;
+    margin: 0.5rem 6rem;
+    padding: 0.5rem;
+  }
 `;
 
 const StyledLink = styled.a`
@@ -147,8 +156,8 @@ const ExpandedCard = styled.div`
 const ExpandedCardContent = styled.div`
   /* Stili per il contenuto della scheda espansa */
   background-color: white;
-  padding: 20px;
-  border-radius: 10px;
+  padding: 2rem;
+  border-radius: 1rem;
   max-width: 80%;
   max-height: 80%;
   overflow-y: auto;
@@ -157,7 +166,7 @@ const ExpandedCardContent = styled.div`
     display: flex;
     justify-content: space-around;
   }
-  @media (min-width: 992px) {
+  @media (min-width: 62rem) {
     max-width: 40%;
     max-height: 40%;
   }
@@ -199,40 +208,13 @@ export default function Projects() {
   return (
     <ThemeProvider theme={theme}>
       <Section>
-      <TextContainer>
+        <TextContainer>
           <p className="greeting">Hello everyone! Check out </p>
           <h2 className="section-title">My Projects</h2>
         </TextContainer>
         {/* Technologies by filter */}
         {/* BUTTONS */}
-        <ButtonsBox>
-          <h4>Filter by Technology:</h4>
-          <ListButtonTechnologies>
-            {Array.from(
-              new Set(projects.flatMap((project) => project.technologies))
-            ).map((technology, index) => (
-              <li key={index}>
-                <Button
-                  onClick={() => handleFilterByTechnology(technology)}
-                  style={{
-                    fontWeight:
-                      technology === selectedTechnology ? "bold" : "normal",
-                  }}
-                >
-                  {technology}
-                </Button>
-              </li>
-            ))}
-         
-            {selectedTechnology && (
-              <li className="clear-button">
-                <ClearFilterButton onClick={() => setSelectedTechnology(null)}>
-                  Clear Filter
-                </ClearFilterButton>
-              </li>
-            )}
-          </ListButtonTechnologies>
-        </ButtonsBox>
+
         {/* Fine Filtri per tecnologie */}
         <ProjectContainer>
           {/* Mapping dei progetti filtrati */}
@@ -285,6 +267,34 @@ export default function Projects() {
             </ExpandedCardContent>
           </ExpandedCard>
         )}
+        <ButtonsBox>
+          <h4>Filter:</h4>
+
+          <ListButtonTechnologies>
+            {Array.from(
+              new Set(projects.flatMap((project) => project.technologies))
+            ).map((technology, index) => (
+              <li key={index}>
+                <Button
+                  onClick={() => handleFilterByTechnology(technology)}
+                  style={{
+                    fontWeight:
+                      technology === selectedTechnology ? "bold" : "normal",
+                  }}
+                >
+                  {technology}
+                </Button>
+              </li>
+            ))}
+            {selectedTechnology && (
+              <li className="clear-button">
+                <ClearFilterButton onClick={() => setSelectedTechnology(null)}>
+                  All
+                </ClearFilterButton>
+              </li>
+            )}
+          </ListButtonTechnologies>
+        </ButtonsBox>
       </Section>
     </ThemeProvider>
   );
@@ -293,32 +303,55 @@ export default function Projects() {
 const Description = styled.a``;
 
 const ButtonsBox = styled.div`
-  text-align: center;
-  margin-bottom: 2rem; /* Add margin at the bottom to separate from project container */
+  display: flex;
+  flex-direction: row;
+  margin: auto 0rem;
+  padding-top: 2rem;
+  margin-bottom: -1rem;
+
   h4 {
-    font-size: 2rem;
+    font-size: 1.5rem;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    font-weight: 700;
+    color: #fff;
+    padding: 2rem 0.5rem;
+    margin-bottom: 1rem;
+    background-color: #254fa9;
+    border-top: solid 0.5rem #feeb64;
   }
+  /* @media (min-width: 800px) {
+    margin-right: 45rem;
+  } */
 `;
 
 const ListButtonTechnologies = styled.ul`
+  border-top: solid 0.5rem #feeb64;
+  padding-top: 0.2rem;
+  margin-top: 2rem;
   text-decoration: none;
-  list-style-type: none; 
+  list-style-type: none;
   display: flex;
   align-items: center;
-  justify-content: center;
-  flex-wrap: wrap; /* Allow buttons to wrap */
+  /* justify-content: left; */
+  background-color: #f2f2f2;
+  flex-wrap: wrap;
   li {
-    margin-top: 1rem;
+    /* padding: 1rem 0; */
   }
 `;
 
 const Button = styled.button`
-  padding: 8px 20px;
-  border-radius: 4px;
-  margin-right: 20px;
+  font-family: ${theme.fontFamily.customFont};
+  text-transform: uppercase;
+  padding: 0.5rem 1rem;
+
+  border-radius: 0.25rem;
+
   outline: none;
   border: none;
-  font-size: 18px;
+  font-size: 1.2rem;
+  font-weight: 700;
   color: #1b61d8;
   cursor: pointer;
   background-color: #f2f2f2;
@@ -326,11 +359,9 @@ const Button = styled.button`
   &:hover {
     transition: all 0.3s ease-out;
     background-color: transparent;
-    background-color: #f5a700;
+    background-color: #feeb64;
     color: #fff;
-    border-radius: 4px;
-    border: 2px solid var(--primary);
-    transition: all 0.3s ease-out;
+    border-radius: 0.25rem;
   }
 `;
 
