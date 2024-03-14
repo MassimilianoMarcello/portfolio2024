@@ -55,7 +55,7 @@ const TextContainer = styled.div`
     margin-top: 5.1rem;
 
     .section-title {
-      font-size: 2rem;
+      font-size: 2.5rem;
       margin-top: -2rem;
       padding: 0;
       color: #b29d6e;
@@ -97,8 +97,12 @@ const ProjectCard = styled.div`
 const ImageProject = styled.div`
   /*box-> contain title,image,used technologies   */
   text-align: center;
+  padding: 2rem;
+  background-color: #1d3b7a ;
   .project-image {
     width: 100%;
+    padding-bottom: 2rem;
+    border-bottom: solid 2px #feeb64;
   }
 `;
 
@@ -120,15 +124,19 @@ const BoxTechnologies = styled.div`
 
 const ProjectInfo = styled.div`
   /* Stile project information */
-  padding: 0.1rem;
+  padding-bottom: 1rem;
+  margin-top: -1rem;
   background-color: #1d3b7a;
   color: #fff;
-  font-size: 1.5rem;
+  font-size: 2rem;
   font-weight: 100;
   h3 {
+    font-family: ${theme.fontFamily.customFont};
     border-top: solid 2px #feeb64;
-    margin: 0.5rem 6rem;
+    margin: 0.5rem 0rem;
     padding: 0.5rem;
+    font-size: 3rem;
+    font-weight:500;
   }
 `;
 
@@ -229,17 +237,17 @@ export default function Projects() {
                     src={project.image}
                     alt={project.imageAlt}
                     width={200}
-                    height={200}
+                    height={250}
                     className="project-image"
                     key={project._id}
                   />
-                  <BoxTechnologies className="boxlist-technologies">
+                  {/* <BoxTechnologies className="boxlist-technologies">
                     {project.technologies.map((technology, techIndex) => (
                       <p className="single-technology" key={techIndex}>
                         {technology}
                       </p>
                     ))}
-                  </BoxTechnologies>
+                  </BoxTechnologies> */}
                 </ImageProject>
               </StyledLink>
             </ProjectCard>
