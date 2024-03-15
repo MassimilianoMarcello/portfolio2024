@@ -94,6 +94,7 @@ const ProjectCard = styled.div`
   @media (min-width: 62rem) {
     width: calc(100% / 3.4);
   }
+  
 `;
 
 const Section = styled.section`
@@ -110,4 +111,26 @@ const ProjectContainer = styled.div`
   position: relative;
 `;
 
+// const StyledProjectCard = styled.div`
+//   /* Stili per la carta di progetto */
+//   width: calc(100% / 1);
+//   margin: 1rem;
+//   background-color: #f9f9f9;
+//   border-radius: 1rem;
+//   overflow: hidden;
+//   box-shadow: 0.5rem 1rem 2rem rgba(0, 0, 0, 0.1);
+//   transition: box-shadow 0.3s ease;
+
+//   &:hover {
+//     box-shadow: 1rem 2rem 4rem rgba(0, 0, 0, 0.2);
+//   }
+
+//   @media (min-width: 48rem) {
+//     width: calc(100% / 2);
+//   }
+
+//   @media (min-width: 62rem) {
+//     width: calc(100% / 3.4);
+//   }
+// `;
 
