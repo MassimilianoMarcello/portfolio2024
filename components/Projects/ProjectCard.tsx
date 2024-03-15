@@ -10,12 +10,11 @@ export const StyledProjectCard = ({ project, onClick }) => (
         <ProjectInfo>
           <h3>{project.name}</h3>
           <div className="description">
-       
             <Image
               src="/assets/straight-way.png"
               alt="logo icon"
-              width={75}
-              height={75}
+              width={50}
+              height={50}
               className="project-image"
               key={project._id}
             />
@@ -24,8 +23,8 @@ export const StyledProjectCard = ({ project, onClick }) => (
         <Image
           src={project.image}
           alt={project.imageAlt}
-          width={370}
-          height={150}
+          width={300}
+          height={200}
           className="project-image"
           key={project._id}
         />
@@ -63,8 +62,8 @@ export const StyledProjectCard = ({ project, onClick }) => (
 const StyledBorder = styled.div`
   margin: 0 2rem;
   margin-bottom: 1rem;
-  padding-top: 1rem;
-background-color: #feeb64 ;
+  padding-top: .5rem;
+  background-color: #feeb64;
   border-radius: 12px;
   box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px,
     rgba(60, 64, 67, 0.15) 0px 1px 3px 1px;
@@ -72,7 +71,7 @@ background-color: #feeb64 ;
 
 const StyledButton = styled.div`
   cursor: pointer;
-
+ 
   position: absolute;
   left: 0;
   top: 0;
@@ -94,6 +93,7 @@ const StyledButton = styled.div`
 `;
 
 const StyledLink = styled.a`
+
   text-decoration: none;
   color: inherit;
   width: 100%;
@@ -120,23 +120,27 @@ const StyledLink = styled.a`
 const StyledImage = styled(Image)`
   border-radius: 50%;
   padding-bottom: 2rem;
+ 
+
 `;
 
 const ImageProject = styled.div`
   position: relative;
   text-align: center;
   padding: 2rem;
-  width: 24.2rem;
-  height: 18rem;
+  width: 20rem;
+  height: 15rem;
   background-color: #ffffff;
+  border-top:solid 3rem #1d3b7a;
   img {
     position: absolute;
     right: 0;
     top: 0;
-    margin-right: 1rem;
-    margin-top: 4rem;
+    margin-right: 3rem;
+    margin-top: 1rem;
+   
     background-color: #ffffff;
-    padding: 2rem;
+    padding: 0rem;
     z-index: 1;
     border-radius: 12px;
     /* box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px,
@@ -157,12 +161,13 @@ const ProjectInfo = styled.div`
     border-radius: 12px;
     box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px,
       rgba(60, 64, 67, 0.15) 0px 1px 3px 1px;
-      z-index: 2;
-    margin-left: -3rem;
+    z-index: 2;
+    margin-left: -1rem;
 
-    margin-top: -4.8rem;
-    padding: 1rem;
-    padding-left: 2rem;
+    margin-top: -7.4rem;
+    padding: .5rem;
+
+    padding-left: .5rem;
     font-size: 1.5rem;
     font-weight: 600;
     /* background-color: #f8e97d; */
@@ -179,13 +184,12 @@ const ProjectInfo = styled.div`
       position: absolute;
       top: 0;
       right: 0;
-      margin-right: -1.5rem;
-      margin-top: -3rem;
+      margin-right: -1rem;
+      margin-top: -8rem;
+      padding: 0.5rem;
       border-radius: 360px;
       z-index: 2;
-    transform: rotate(90deg); 
-
-
+      transform: rotate(90deg);
     }
   }
   color: #1d3b7a;
@@ -198,26 +202,27 @@ const BoxTechnologies = styled.div`
   align-items: center;
   position: absolute;
   bottom: 0;
-  right: 0;
-  margin-bottom: 1rem;
-  margin-right: -1rem;
-  border-radius: 12px;
-  box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px,
+  left: 0;
+  margin-bottom: 0rem;
+  margin-right: 1rem;
+background-color:#1d3b7a ;
+  /* box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px,
     rgba(60, 64, 67, 0.15) 0px 1px 3px 1px;
-  background-color: #fff;
+  background-color: #fff; */
   z-index: 2;
   /* background-color: #ddfffe; */
 `;
 
 const TechnologyItem = styled.p`
-  font-size: 1rem;
-  padding: 0.5rem 1.3rem;
+  font-size: .8rem;
+  padding: 0rem .5rem;
   text-transform: uppercase;
-  font-weight: 600;
+  font-weight: 900;
   /* background-color: #f8e97d; */
   /* background-color: #fff; */
 
   color: #1d3b7a;
+  color: #fff;
   display: inline-block;
   /* border-radius: 360px; */
   /* border: solid 5px #1d3b7a; */
