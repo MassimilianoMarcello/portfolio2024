@@ -1,91 +1,198 @@
-
 import styled from "@emotion/styled";
 import Image from "next/image";
 import Link from "next/link";
 import theme from "@/app/theme_emotion";
 
 export const StyledProjectCard = ({ project, onClick }) => (
+  <StyledBorder>
     <StyledLink onClick={() => onClick(project)}>
       <ImageProject>
         <ProjectInfo>
           <h3>{project.name}</h3>
+          <div className="description">
+            {" "}
+            <Image
+              src="/assets/decoration_logoe.png"
+              alt="logo icon"
+              width={75}
+              height={75}
+              className="project-image"
+              key={project._id}
+            />
+          </div>
         </ProjectInfo>
         <Image
           src={project.image}
           alt={project.imageAlt}
-          width={200}
-          height={250}
+          width={350}
+          height={155}
           className="project-image"
           key={project._id}
         />
-        <BoxTechnologies className="boxlist-technologies">
+
+        {/* <StyledButton>
+          <Link href={project.githubUrl}>
+            <Image
+              src="/assets/github.png"
+              width={50}
+              height={50}
+              alt="github icon"
+            />
+          </Link>
+          <Link href={project.url}>
+            <Image
+              src="/assets/website-3d-icon-.png"
+              width={50}
+              height={50}
+              alt="github icon"
+            />
+          </Link>
+        </StyledButton> */}
+        <BoxTechnologies className="box-list-technologies">
           {project.technologies.map((technology, techIndex) => (
-            <p className="single-technology" key={techIndex}>
+            <TechnologyItem className="single-technology" key={techIndex}>
               {technology}
-            </p>
+            </TechnologyItem>
           ))}
         </BoxTechnologies>
       </ImageProject>
     </StyledLink>
-  );
+  </StyledBorder>
+);
 
-  const StyledLink = styled.a`
-  /* Stili per il link */
+const StyledBorder = styled.div`
+  margin: 0 2rem;
+  margin-bottom: 1rem;
+  /* border: solid 5px #1d3b7a; */
+  border-radius: 12px;
+  box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px,
+    rgba(60, 64, 67, 0.15) 0px 1px 3px 1px;
+`;
+
+const StyledButton = styled.div`
+  cursor: pointer;
+  /* padding: 0.5rem 2rem; */
+  position: absolute;
+  left: 0;
+  top: 0;
+  margin-right: 12rem;
+  a {
+    padding: 0rem;
+  }
+  border-radius: 12px;
+  box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px,
+    rgba(60, 64, 67, 0.15) 0px 1px 3px 1px;
+
+  /* border-top-right-radius: 12px;
+  border-bottom-right-radius: 12px;
+  border: solid 5px #1d3b7a; */
+  /* border-left: none; */
+  /* margin-right: -1rem; */
+  margin-top: -0.5rem;
+  padding: 1rem;
+  padding-left: 0rem;
+  font-size: 1.5rem;
+  font-weight: 600;
+  /* background-color: #f8e97d; */
+  background-color: #fff;
+`;
+
+const StyledLink = styled.a`
   text-decoration: none;
   color: inherit;
-  /*  */
-     width: calc(100% / 1);
+  width: 100%;
   margin: 1rem;
-   background-color: #f9f9f9;
+  background-color: #f9f9f9;
   border-radius: 1rem;
-   overflow: hidden;
-  box-shadow: 0.5rem 1rem 2rem rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+
   transition: box-shadow 0.3s ease;
 
-   &:hover {
+  &:hover {
     box-shadow: 1rem 2rem 4rem rgba(0, 0, 0, 0.2);
-   }
+  }
 
-   @media (min-width: 48rem) {
-     width: calc(100% / 2);
-   }
+  @media (min-width: 48rem) {
+    width: calc(100% / 2);
+  }
 
   @media (min-width: 62rem) {
-     width: calc(100% / 3.4);
-  } 
-
-`;
-
-
-  const ProjectInfo = styled.div`
-  /* Stile project information */
-  padding-bottom: 1rem;
-  margin-top: -1rem;
-  background-color: #1d3b7a;
-  color: #fff;
-  font-size: 2rem;
-  font-weight: 100;
-  h3 {
-    font-family: ${theme.fontFamily.customFont};
-    border-top: solid 2px #feeb64;
-    margin: 0.5rem 0rem;
-    padding: 0.5rem;
-    font-size: 3rem;
-    font-weight:500;
+    width: calc(100% / 3.4);
   }
 `;
 
+const StyledImage = styled(Image)`
+  border-radius: 50%;
+  padding-bottom: 2rem;
+`;
 
 const ImageProject = styled.div`
-  /*box-> contain title,image,used technologies   */
+  position: relative;
   text-align: center;
   padding: 2rem;
-  background-color: #1d3b7a ;
-  .project-image {
-    width: 100%;
-    padding-bottom: 2rem;
-    border-bottom: solid 2px #feeb64;
+  width: 24.2rem;
+  height: 18rem;
+  background-color: #ffffff;
+  img {
+    position: absolute;
+    right: 0;
+    top: 0;
+    margin-right: 1rem;
+    margin-top: 3.4rem;
+    background-color: #ffffff;
+    padding: 2rem;
+    z-index: 1;
+    border-radius: 12px;
+    /* box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px,
+    rgba(60, 64, 67, 0.15) 0px 1px 3px 1px; */
   }
+`;
+
+const ProjectInfo = styled.div`
+  position: relative;
+  padding-bottom: 1rem;
+  margin-top: 1.5rem;
+
+  h3 {
+    position: absolute;
+    left: 0;
+    top: 0;
+    display: inline-block;
+    border-radius: 12px;
+    box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px,
+      rgba(60, 64, 67, 0.15) 0px 1px 3px 1px;
+    /* border-radius: 180px; */
+    /* border-top-left-radius:12px;
+border-bottom-left-radius:12px; */
+    /* border: solid 5px #1d3b7a; */
+    /* border-left: none; */
+    margin-left: -3rem;
+
+    margin-top: -4rem;
+    padding: 1rem;
+    padding-left: 2rem;
+    font-size: 1.5rem;
+    font-weight: 600;
+    /* background-color: #f8e97d; */
+    background-color: #fff;
+  }
+  .description {
+    margin-left: 2rem;
+    text-align: center;
+    padding: 0rem;
+    position: relative;
+    /* text-transform:uppercase; */
+    img {
+      padding: 0rem;
+      position: absolute;
+      top: 0;
+      right: 0;
+      margin-right: -3rem;
+      margin-top: -6rem;
+      border-radius: 360px;
+    }
+  }
+  color: #1d3b7a;
 `;
 
 const BoxTechnologies = styled.div`
@@ -93,39 +200,26 @@ const BoxTechnologies = styled.div`
   flex-direction: row;
   justify-content: space-around;
   align-items: center;
-  background-color: #1d3b7a;
-  .single-technology {
-    font-size: 1.2rem;
-    padding: 1rem;
-
-    text-transform: uppercase;
-    font-weight: 700;
-    color: #fff;
-  }
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  margin-bottom: 0rem;
+  margin-right: -1rem;
+  border-radius: 12px;
+  box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px,
+    rgba(60, 64, 67, 0.15) 0px 1px 3px 1px;
+  background-color: #fff;
 `;
-  /* Stili per la carta di progetto */
 
-// const StyledProjectCard = styled.div`
-
-//   width: calc(100% / 1);
-//   margin: 1rem;
-//   background-color: #f9f9f9;
-//   border-radius: 1rem;
-//   overflow: hidden;
-//   box-shadow: 0.5rem 1rem 2rem rgba(0, 0, 0, 0.1);
-//   transition: box-shadow 0.3s ease;
-
-//   &:hover {
-//     box-shadow: 1rem 2rem 4rem rgba(0, 0, 0, 0.2);
-//   }
-
-//   @media (min-width: 48rem) {
-//     width: calc(100% / 2);
-//   }
-
-//   @media (min-width: 62rem) {
-//     width: calc(100% / 3.4);
-//   }
-// `;
-
-  
+const TechnologyItem = styled.p`
+  font-size: 1.2rem;
+  padding: 0 1rem;
+  text-transform: uppercase;
+  font-weight: 600;
+  /* background-color: #f8e97d; */
+  background-color: #fff;
+  color: #1d3b7a;
+  display: inline-block;
+  border-radius: 360px;
+  /* border: solid 5px #1d3b7a; */
+`;

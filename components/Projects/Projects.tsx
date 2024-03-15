@@ -1,8 +1,8 @@
 "use client";
-import { HeaderSection } from './HeaderSection';
-import { StyledProjectCard} from './ProjectCard';
-import {  ExpandedProjectCard} from './ExpandedProjectCard';
-import {FilterButtons } from './FilterButtons';
+import { HeaderSection } from "./HeaderSection";
+import { StyledProjectCard } from "./ProjectCard";
+import { ExpandedProjectCard } from "./ExpandedProjectCard";
+import { FilterButtons } from "./FilterButtons";
 
 import React, { useState, useEffect } from "react";
 import styled from "@emotion/styled";
@@ -12,9 +12,6 @@ import { getProjects } from "@/sanity/sanity.query";
 import { PortableText } from "@portabletext/react";
 import { ThemeProvider } from "@emotion/react";
 import theme from "@/app/theme_emotion";
-
-
-
 
 export default function Projects() {
   const [projects, setProjects] = useState([]);
@@ -55,14 +52,24 @@ export default function Projects() {
         <HeaderSection />
         <ProjectContainer>
           {filteredProjects.map((project, index) => (
-            <StyledProjectCard key={index} project={project} onClick={handleCardClick} />
+            <StyledProjectCard
+              key={index}
+              project={project}
+              onClick={handleCardClick}
+            />
           ))}
+          {expandedProject && (
+            <ExpandedProjectCard
+              project={expandedProject}
+              onCloseClick={handleCloseClick}
+            />
+          )}
         </ProjectContainer>
-        {expandedProject && (
-          <ExpandedProjectCard project={expandedProject} onCloseClick={handleCloseClick} />
-        )}
+
         <FilterButtons
-          technologies={Array.from(new Set(projects.flatMap((project) => project.technologies)))}
+          technologies={Array.from(
+            new Set(projects.flatMap((project) => project.technologies))
+          )}
           selectedTechnology={selectedTechnology}
           onClick={handleFilterByTechnology}
           onClearClick={() => setSelectedTechnology(null)}
@@ -71,7 +78,6 @@ export default function Projects() {
     </ThemeProvider>
   );
 }
-
 
 const ProjectCard = styled.div`
   /* Stili per la carta di progetto */
@@ -94,14 +100,13 @@ const ProjectCard = styled.div`
   @media (min-width: 62rem) {
     width: calc(100% / 3.4);
   }
-  
 `;
 
 const Section = styled.section`
   font-family: ${theme.fontFamily.customFont};
-  margin-top: 10rem;
+  margin: 0 1rem;
+  margin-top: 15rem;
 `;
-
 
 const ProjectContainer = styled.div`
   /* Stili per il container dei progetti */
@@ -133,4 +138,3 @@ const ProjectContainer = styled.div`
 //     width: calc(100% / 3.4);
 //   }
 // `;
-
