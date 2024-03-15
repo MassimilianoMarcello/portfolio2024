@@ -4,8 +4,8 @@ import Project2 from '@/components/Projects/Project2';
 const MyProjects = () => {
   return (
     <div>
-        {/* <Projects/> */}
-        <Project2/>
+        <Projects/>
+        {/* <Project2/> */}
     </div>
   )
 }
