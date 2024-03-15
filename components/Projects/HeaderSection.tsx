@@ -18,7 +18,7 @@ export const HeaderSection = () => (
 
   padding-top: 1rem;
 
-  background-color: #0f2556;
+  background-color: #81e0fc  ;
   background-color: #feeb64;
 
   /* box-shadow: 0 8px 32px 0 rgba(7, 12, 74, 0.37); */
@@ -37,7 +37,7 @@ export const HeaderSection = () => (
     font-size: 3rem;
     margin-top: -2.5rem;
     padding: 0;
-    color: #b29d6e;
+    color: #11182d ;
     margin-bottom: 0rem;
   }
   position: fixed;

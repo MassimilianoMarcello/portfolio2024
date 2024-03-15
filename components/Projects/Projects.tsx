@@ -12,6 +12,7 @@ import { getProjects } from "@/sanity/sanity.query";
 import { PortableText } from "@portabletext/react";
 import { ThemeProvider } from "@emotion/react";
 import theme from "@/app/theme_emotion";
+import HeroSvg from "./HeroSvg";
 
 export default function Projects() {
   const [projects, setProjects] = useState([]);
@@ -49,92 +50,81 @@ export default function Projects() {
   return (
     <ThemeProvider theme={theme}>
       <Section>
-        <HeaderSection />
-        <ProjectContainer>
-          {filteredProjects.map((project, index) => (
-            <StyledProjectCard
-              key={index}
-              project={project}
-              onClick={handleCardClick}
-            />
-          ))}
-          {expandedProject && (
-            <ExpandedProjectCard
-              project={expandedProject}
-              onCloseClick={handleCloseClick}
-            />
-          )}
-        </ProjectContainer>
+        <Background>
+          <HeroSvg />
+          <ProjectContainer>
+            {filteredProjects.map((project, index) => (
+              <StyledProjectCard
+                key={index}
+                project={project}
+                onClick={handleCardClick}
+              />
+            ))}
+            {expandedProject && (
+              <ExpandedProjectCard
+                project={expandedProject}
+                onCloseClick={handleCloseClick}
+              />
+            )}
+          </ProjectContainer>
 
-        <FilterButtons
-          technologies={Array.from(
-            new Set(projects.flatMap((project) => project.technologies))
-          )}
-          selectedTechnology={selectedTechnology}
-          onClick={handleFilterByTechnology}
-          onClearClick={() => setSelectedTechnology(null)}
-        />
+          <FilterButtons
+            technologies={Array.from(
+              new Set(projects.flatMap((project) => project.technologies))
+            )}
+            selectedTechnology={selectedTechnology}
+            onClick={handleFilterByTechnology}
+            onClearClick={() => setSelectedTechnology(null)}
+          />
+        </Background>
+
+        <HeaderSection />
       </Section>
     </ThemeProvider>
   );
 }
+const Background = styled.div`
+  position: relative;
+ 
+  /* height: 100%; */
 
-const ProjectCard = styled.div`
-  /* Stili per la carta di progetto */
-  width: calc(100% / 1);
-  margin: 1rem;
-  background-color: #f9f9f9;
-  border-radius: 1rem;
-  overflow: hidden;
-  box-shadow: 0.5rem 1rem 2rem rgba(0, 0, 0, 0.1);
-  transition: box-shadow 0.3s ease;
-
-  &:hover {
-    box-shadow: 1rem 2rem 4rem rgba(0, 0, 0, 0.2);
-  }
-
-  @media (min-width: 48rem) {
-    width: calc(100% / 2);
-  }
-
-  @media (min-width: 62rem) {
-    width: calc(100% / 3.4);
+  /* background-color:#66d4fd  ; */
+  background-color: #4aa6db;
+  background-color: #3a8abf;
+  background-color: #2e6d9e;
+  :first-of-type{
+    /* height: auto; */
+  
   }
 `;
-
 const Section = styled.section`
   font-family: ${theme.fontFamily.customFont};
-  margin: 0 1rem;
-  margin-top: 15rem;
+  margin: 0 -1rem;
+  margin-top: -5rem;
+ 
+  padding-top: 0rem;
+  @media screen and (min-width: 920px) {
+    /* margin-top: -45rem; */
+    padding-top: 10rem;
+   
+  }
 `;
+const ProjectCard = styled.div``;
 
 const ProjectContainer = styled.div`
-  /* Stili per il container dei progetti */
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
-  position: relative;
+
+  margin-left: 2rem;
+  margin-top: 0rem;
+
+  /* overflow: hidden; */
+  height: auto;
+  @media screen and (min-width: 920px) {
+     margin-top: -55rem; 
+   
+   
+  }
+
 `;
-
-// const StyledProjectCard = styled.div`
-//   /* Stili per la carta di progetto */
-//   width: calc(100% / 1);
-//   margin: 1rem;
-//   background-color: #f9f9f9;
-//   border-radius: 1rem;
-//   overflow: hidden;
-//   box-shadow: 0.5rem 1rem 2rem rgba(0, 0, 0, 0.1);
-//   transition: box-shadow 0.3s ease;
-
-//   &:hover {
-//     box-shadow: 1rem 2rem 4rem rgba(0, 0, 0, 0.2);
-//   }
-
-//   @media (min-width: 48rem) {
-//     width: calc(100% / 2);
-//   }
-
-//   @media (min-width: 62rem) {
-//     width: calc(100% / 3.4);
-//   }
-// `;

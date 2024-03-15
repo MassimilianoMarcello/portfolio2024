@@ -20,14 +20,14 @@ export const StyledProjectCard = ({ project, onClick }) => (
             />
           </div>
         </ProjectInfo>
-        <Image
+        {/* <Image
           src={project.image}
           alt={project.imageAlt}
           width={300}
           height={200}
           className="project-image"
           key={project._id}
-        />
+        /> */}
 
         {/* <StyledButton>
           <Link href={project.githubUrl}>
@@ -60,18 +60,22 @@ export const StyledProjectCard = ({ project, onClick }) => (
 );
 
 const StyledBorder = styled.div`
+
+font-family: "Quicksand", sans-serif;
   margin: 0 2rem;
   margin-bottom: 1rem;
   padding-top: .5rem;
   background-color: #feeb64;
+  background-color: #1d3b7a  ;
   border-radius: 12px;
   box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px,
     rgba(60, 64, 67, 0.15) 0px 1px 3px 1px;
+
 `;
 
 const StyledButton = styled.div`
   cursor: pointer;
- 
+
   position: absolute;
   left: 0;
   top: 0;
@@ -125,13 +129,14 @@ const StyledImage = styled(Image)`
 `;
 
 const ImageProject = styled.div`
+ 
   position: relative;
   text-align: center;
   padding: 2rem;
   width: 20rem;
   height: 15rem;
   background-color: #ffffff;
-  border-top:solid 3rem #1d3b7a;
+  border-top:solid 3rem #66d4fd;
   img {
     position: absolute;
     right: 0;
@@ -153,7 +158,9 @@ const ProjectInfo = styled.div`
   padding-bottom: 1rem;
   margin-top: 1.5rem;
 
+
   h3 {
+    font-family: "Quicksand", sans-serif;
     position: absolute;
     left: 0;
     top: 0;
@@ -169,7 +176,8 @@ const ProjectInfo = styled.div`
 
     padding-left: .5rem;
     font-size: 1.5rem;
-    font-weight: 600;
+    font-weight: 900;
+    text-transform:uppercase;
     /* background-color: #f8e97d; */
     background-color: #fff;
   }
@@ -190,6 +198,8 @@ const ProjectInfo = styled.div`
       border-radius: 360px;
       z-index: 2;
       transform: rotate(90deg);
+      box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px,
+      rgba(60, 64, 67, 0.15) 0px 1px 3px 1px;
     }
   }
   color: #1d3b7a;
@@ -204,12 +214,15 @@ const BoxTechnologies = styled.div`
   bottom: 0;
   left: 0;
   margin-bottom: 0rem;
+  padding-right:0;
   margin-right: 1rem;
 background-color:#1d3b7a ;
   /* box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px,
     rgba(60, 64, 67, 0.15) 0px 1px 3px 1px;
   background-color: #fff; */
   z-index: 2;
+  width: 100%;
+
   /* background-color: #ddfffe; */
 `;
 
