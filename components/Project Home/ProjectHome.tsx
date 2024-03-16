@@ -14,8 +14,8 @@ import { HeaderSection } from "./HeaderSection";
 
 const Section = styled.section`
   background-color: #f0f0f0;
-  padding: 20px;
-  margin-top: 6rem;
+  padding: 1rem;
+  margin-top: 26rem;
 `;
 
 const TextContainer = styled.div`
