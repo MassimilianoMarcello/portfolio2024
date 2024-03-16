@@ -170,6 +170,15 @@ const MenuIcon = styled.div`
   img {
     background-color: white;
   }
+  @media screen and (min-width: 600px) {
+    margin-right: -18rem;
+  }
+  @media screen and (min-width: 700px) {
+    margin-right: -20rem;
+  }
+  @media screen and (min-width: 700px) {
+    margin-right: -30rem;
+  }
   @media screen and (min-width: 920px) {
     display: none;
   }
