@@ -80,9 +80,9 @@ const ProjectInfo = styled.div`
   margin-top: 0rem;
   background-color: #1d3b7a;
   color: white;
-  transition: all 0.6s ease;
+  transition: all 0.7s ease;
   opacity: 0;
-  transform: translateY(100%);
+  transform: translateY(-100%);
   h3 {
     font-family: ${theme.fontFamily.customFont};
     margin: 0;

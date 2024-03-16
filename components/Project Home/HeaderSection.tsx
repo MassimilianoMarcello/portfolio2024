@@ -12,7 +12,7 @@ export const HeaderSection = () => (
   const TextContainer = styled.div`
   text-align: center;
   color: #0f2556;
-  margin: 5rem auto;
+  margin: 7rem auto;
   font-family: 'Amatic SC', sans-serif;
   padding-top: 1rem;
   background-color: #feeb64;
