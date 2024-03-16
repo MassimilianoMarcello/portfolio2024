@@ -190,9 +190,10 @@ export default function Home() {
               </ImageProject>
               <ProjectInfo className={`project-info ${project._id === openProjectId ? 'visible' : 'hidden'}`}>
                 <h3>{project.name}</h3>
-                <PortableText value={project.content} />
+                <PortableText value={project.content[0]} />
                 <div className="text-details">
-                  <p className="details">Click for Details 🚀</p>
+                <StyledLink href={`/projects/${project.slug}`}>Click for Details 🚀</StyledLink>
+                
                 </div>
               </ProjectInfo>
             </ProjectCard>
