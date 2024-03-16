@@ -72,7 +72,7 @@ const ProfileContainer = styled.section`
   }
 `;
 const MyName = styled.h1`
-  font-family: "protest strike";
+    font-family: ${theme.fontFamily.titleFont};
   font-weight: 300;
   text-align: center;
   grid-column: 1/4;
