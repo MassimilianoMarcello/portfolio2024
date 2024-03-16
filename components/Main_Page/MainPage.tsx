@@ -1,6 +1,7 @@
 import React from "react";
 import { keyframes } from "@emotion/react";
 import styled from "@emotion/styled";
+import theme from "@/app/theme_emotion";
 import styles from "./page.module.css";
 import Link from "next/link";
 
@@ -93,6 +94,7 @@ const MyName = styled.h1`
   border: 1px solid rgba(255, 255, 255, 0.18);
 `;
 const ShortBio = styled.p`
+  font-family: ${theme.fontFamily.customFont};
   grid-column: 1/4;
   grid-row: 3/4;
   font-size: 2rem;
