@@ -74,6 +74,7 @@ const ProjectInfo = styled.div`
   top: 0;
   right: 0;
   width: 100%;
+  height: 100%;
   padding: 10px;
   margin-right: -1rem;
   margin-top: 0rem;
