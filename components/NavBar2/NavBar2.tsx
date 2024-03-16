@@ -22,14 +22,14 @@ const NavBar2 = () => {
   return (
     <NavContainer>
       <NavFixed>
-        <Link href="/" passHref>
-          <LogoContainer>
-            <AnimatedLogo>
+      <LogoContainer>
+      <AnimatedLogo>
               <Image src={logoe} alt="mass dev logo" width={70} height={70} />
             </AnimatedLogo>
-            <AnimatedText>Mass Dev</AnimatedText>
+          <AnimatedText>Mass Dev</AnimatedText>
+       
+           
           </LogoContainer>
-        </Link>
         <MenuIcon onClick={handleClick}>
           <Image
             src={click ? xmarkSolid : barsSolid}
@@ -38,6 +38,9 @@ const NavBar2 = () => {
             height={40}
           />
         </MenuIcon>
+        <Link href="/" passHref>
+         
+        </Link>
       </NavFixed>
       <NavMenu className={click ? "active" : ""}>
         <NavItem onClick={handleCloseMenu}>
@@ -74,16 +77,18 @@ const NavContainer = styled.nav`
   top: 0;
   left: 0; 
   z-index: 1000; 
-  height: 5rem;  
+  height: 6rem;  
+  padding-bottom:1rem;
+  margin-bottom:2rem;
 
-  border-bottom: solid 0.4rem #feeb64;
+  /* border-bottom: solid 0.4rem #feeb64; */
 `;
 
 const NavFixed = styled.div`
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 1rem 2rem;
+  padding: 2rem 2rem;
   height: 3rem;
   a{text-decoration:none;}
 `;
@@ -93,12 +98,14 @@ const LogoContainer = styled.div`
   align-items: center;
   cursor: pointer;
 
-  margin-left: -1rem;
+  margin-left: 1rem;
   margin-top: 0.3rem;
 
 `;
 
 const AnimatedLogo = styled.div`
+margin-left: -2rem;
+margin-right: 0rem;
   animation: fadeIn 2s ease-in-out;
   align-items: center;
 
@@ -163,6 +170,7 @@ const AnimatedText = styled.h1`
 const MenuIcon = styled.div`
   cursor: pointer;
   margin-top: 0.5rem;
+  margin-right: -10rem;
   img {
     
     background-color: white;
