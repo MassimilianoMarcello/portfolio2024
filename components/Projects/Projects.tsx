@@ -88,10 +88,8 @@ const Background = styled.div`
  
   /* height: 100%; */
 
-  /* background-color:#66d4fd  ; */
-  background-color: #4aa6db;
-  background-color: #3a8abf;
-  background-color: #2e6d9e;
+   background-color:#f5f5f5  ; 
+  
   :first-of-type{
     /* height: auto; */
   

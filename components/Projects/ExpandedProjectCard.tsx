@@ -26,7 +26,7 @@ export  const ExpandedProjectCard = ({ project, onCloseClick }) => (
   
 
   const ExpandedCard = styled.div`
-  /* Stili per la scheda espansa */
+
   position: fixed;
   top: 0;
   left: 0;
