@@ -56,7 +56,9 @@ export default function Home() {
           openProjectId={openProjectId}
           toggleProjectInfo={toggleProjectInfo}
         />
+        
       </Section>
+      
     </ThemeProvider>
   );
 }

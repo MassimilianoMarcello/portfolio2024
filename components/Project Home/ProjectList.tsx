@@ -24,6 +24,15 @@ const ProjectList = ({ projects, openProjectId, toggleProjectInfo }) => {
             />
             <p className="project-technologies">{project.technologies}</p>
           </ImageProject>
+          {project && project.technologies && (
+  <div>
+    <ul>
+      {project.technologies.map((technology, index) => (
+        <li key={index}>{technology}</li>
+      ))}
+    </ul>
+  </div>
+)}
           <ProjectInfos project={project} openProjectId={openProjectId} />
         </ProjectCard>
       ))}
