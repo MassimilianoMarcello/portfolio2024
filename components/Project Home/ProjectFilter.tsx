@@ -90,7 +90,7 @@ const Filter = styled.section`
   gap: 0.5rem;
   position: fixed;
   z-index: 11;
-  animation: slideIn 0.5s forwards; /* Applica l'animazione all'apertura della pagina */
+  animation: slideIn 1.5s forwards; /* Applica l'animazione all'apertura della pagina */
   animation-fill-mode: forwards;
 
   @keyframes slideIn {

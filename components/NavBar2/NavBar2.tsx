@@ -22,7 +22,7 @@ const NavBar2 = () => {
   return (
     <NavContainer>
       <NavFixed>
-        <LogoContainer>
+        <LogoContainer href="/">
           <AnimatedLogo>
             <Image src={logoe} alt="mass dev logo" width={70} height={70} />
           </AnimatedLogo>
@@ -91,7 +91,7 @@ const NavFixed = styled.div`
   }
 `;
 
-const LogoContainer = styled.div`
+const LogoContainer = styled.a`
   display: flex;
   align-items: center;
   cursor: pointer;
