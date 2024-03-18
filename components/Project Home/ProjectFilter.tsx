@@ -120,20 +120,22 @@ const ProjectFilter = ({ projects, setFilteredProjects, setOpenProjectId }) => {
   return (
     <Filter>
       {allTechnologies.map((technology) => (
-        <button
+        <TheButton
           key={technology}
           onClick={() => handleToggleTechnology(technology)}
-          style={{ backgroundColor: selectedTechnologies.includes(technology) ? 'blue' : 'gray', color: 'white' }}
-        >
+          style={{
+            backgroundColor: selectedTechnologies.includes(technology) ? '#feeb64' : 'gray',
+            color: selectedTechnologies.includes(technology) ? 'blue' : 'white'
+          }}        >
           {technology}
-        </button>
+        </TheButton>
       ))}
-      <button onClick={handleClearSelection}>Clear</button>
+      <ClearButton onClick={handleClearSelection}>Clear</ClearButton>
 
       {noProjectsMessage && (
-        <div style={{ backgroundColor: 'red', color: 'white', padding: '10px', marginTop: '10px' }}>
+        <SorryMessage style={{ backgroundColor: 'red', color: 'white', padding: '10px', marginTop: '30px' }}>
           Sorry, there are currently no projects with these technologies.
-        </div>
+        </SorryMessage>
       )}
     </Filter>
   );
@@ -147,5 +149,51 @@ export default ProjectFilter;
 const Filter = styled.section`
 margin-top: 13rem;
 `
+
+const TheButton = styled.button`
+  background-color: #11182d;
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  border-bottom: 3px solid #feeb64; 
+  border-right: 3px solid  #feeb64;
+  transition: all 0.3s ease;
+
+  &:hover {
+    background-color: #feeb64; 
+
+  }
+
+  &:active {
+    transform: translateY(2px); 
+    border-bottom: 3px solid transparent; 
+  border-right: 3px solid transparent;
+  }
+`;
+
+const ClearButton = styled.button`
+  background-color: white;
+  color: #11182d;
+  padding: 10px 20px;
+  border: none;
+  border-bottom: 3px solid #11182d; 
+  border-right: 3px solid #11182d; 
+  transition: all 0.3s ease;
+
+  &:hover {
+    background-color: #feeb64;
+
+  }
+
+  &:active {
+    transform: translateY(2px); 
+    border-bottom: 3px solid transparent; 
+  border-right: 3px solid transparent;
+  }
+`;
+
+const SorryMessage = styled.button``
+
+
 
 
