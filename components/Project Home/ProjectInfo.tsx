@@ -7,8 +7,6 @@ import theme from '@/app/theme_emotion';
 import { HeaderSection } from './HeaderSection';
 
 const ProjectInfos = ({ project, openProjectId }) => {
-// se ci sono problemi puoi provare ad aggiungere questo sopra come argomento della funzione 
-
 
 
   return (
