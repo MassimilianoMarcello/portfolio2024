@@ -84,11 +84,23 @@ export default ProjectFilter;
 
 const Filter = styled.section`
   margin-top: 17rem;
+  margin-left: -50rem;
   display: flex;
   flex-wrap: wrap;
   gap: 0.5rem;
   position: fixed;
   z-index: 11;
+  animation: slideIn 0.5s forwards; /* Applica l'animazione all'apertura della pagina */
+  animation-fill-mode: forwards;
+
+  @keyframes slideIn {
+    from {
+      margin-left: -50rem;
+    }
+    to {
+      margin-left: 0;
+    }
+  }
 `;
 
 const TheButton = styled.button`
