@@ -40,7 +40,7 @@ const ProjectContainer = styled.div`
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
-  margin-top: 5rem;
+  margin-top: 20rem;
 `;
 
 const ProjectCard = styled.div`

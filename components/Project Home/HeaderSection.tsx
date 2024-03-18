@@ -3,13 +3,13 @@ import styled from "@emotion/styled";
 
 export const HeaderSection = () => (
   <TextContainer>
-  <p className="greeting">Explore My Web Dev Journey: </p>
-  <h2 className="section-title">Projects</h2>
+  <p className="greeting">Explore My Web Dev Journey:  <span className="section-title">Projects</span>  </p>
 </TextContainer>
   );
 
   
   const TextContainer = styled.div`
+  
   text-align: center;
   color: #0f2556;
   margin: 7rem auto;
@@ -21,12 +21,12 @@ export const HeaderSection = () => (
   border-bottom-right-radius: 3rem;
   border-bottom-left-radius: 3rem;
   .greeting {
-    margin-top: -1rem;
-    font-size: 1.7rem;
+    margin-top: -2rem;
+    font-size: 4.7rem;
   }
   .section-title {
-    font-size: 3rem;
-    margin-top: -2.5rem;
+    font-size: 5rem;
+    margin-top: -1.5rem;
     padding: 0;
     color: #b29d6e;
     margin-bottom: 0rem;
@@ -38,12 +38,19 @@ export const HeaderSection = () => (
   width: 100%;
   z-index: 999;
   @media (max-width: 600px) {
-    margin-top: 5.1rem;
+    margin-top: 7rem;
+    padding-top: 2rem;
     .section-title {
-      font-size: 2rem;
-      margin-top: -2rem;
+      font-size: 5rem;
+      margin-top: -5rem;
       padding: 0;
       color: #b29d6e;
+      
     }
+    .greeting2{
+        margin-top: -2rem;
+        margin-left: -14rem;
+    font-size: 4.7rem;
+      }
   }
 `;
