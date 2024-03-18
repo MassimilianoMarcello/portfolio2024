@@ -5,6 +5,7 @@ import styled from '@emotion/styled';
 import theme from '@/app/theme_emotion';
 
 import  ProjectInfos  from './ProjectInfo';
+import TechnologiesUsed from './TechnologiesUsed';
 
 
 const ProjectList = ({ projects, openProjectId, toggleProjectInfo }) => {
@@ -24,15 +25,8 @@ const ProjectList = ({ projects, openProjectId, toggleProjectInfo }) => {
             />
             <p className="project-technologies">{project.technologies}</p>
           </ImageProject>
-          {project && project.technologies && (
-  <div>
-    <ul>
-      {project.technologies.map((technology, index) => (
-        <li key={index}>{technology}</li>
-      ))}
-    </ul>
-  </div>
-)}
+          <TechnologiesUsed technologies={project.technologies}/>
+
           <ProjectInfos project={project} openProjectId={openProjectId} />
         </ProjectCard>
       ))}
