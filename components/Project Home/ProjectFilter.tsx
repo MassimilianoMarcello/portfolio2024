@@ -8,8 +8,7 @@ import styled from '@emotion/styled';
 
 
 
-
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 
 const ProjectFilter = ({ projects, setFilteredProjects }) => {
   const [selectedTechnologies, setSelectedTechnologies] = useState([]);
@@ -24,15 +23,8 @@ const ProjectFilter = ({ projects, setFilteredProjects }) => {
     return technologies;
   }, []);
 
-  const handleToggleTechnology = (technology) => {
-    if (selectedTechnologies.includes(technology)) {
-      setSelectedTechnologies(selectedTechnologies.filter(tech => tech !== technology));
-    } else {
-      setSelectedTechnologies([...selectedTechnologies, technology]);
-    }
-  };
-
-  const handleFilterProjects = () => {
+  useEffect(() => {
+    // Filtra i progetti ogni volta che le tecnologie selezionate cambiano
     const filteredProjects = projects.filter(project =>
       selectedTechnologies.every(tech => project.technologies.includes(tech))
     );
@@ -43,12 +35,18 @@ const ProjectFilter = ({ projects, setFilteredProjects }) => {
     } else {
       setNoProjectsMessage(false);
     }
+  }, [selectedTechnologies, projects, setFilteredProjects]);
+
+  const handleToggleTechnology = (technology) => {
+    if (selectedTechnologies.includes(technology)) {
+      setSelectedTechnologies(selectedTechnologies.filter(tech => tech !== technology));
+    } else {
+      setSelectedTechnologies([...selectedTechnologies, technology]);
+    }
   };
 
   const handleClearSelection = () => {
     setSelectedTechnologies([]);
-    setFilteredProjects(projects);
-    setNoProjectsMessage(false);
   };
 
   return (
@@ -62,12 +60,11 @@ const ProjectFilter = ({ projects, setFilteredProjects }) => {
           {technology}
         </button>
       ))}
-      <button onClick={handleFilterProjects}>Apply Filter</button>
       <button onClick={handleClearSelection}>Clear</button>
 
       {noProjectsMessage && (
         <div style={{ backgroundColor: 'red', color: 'white', padding: '10px', marginTop: '10px' }}>
-          Sorry, there are currently no projects with these technologies.
+        Oops! It looks like there are no projects with this combination of technologies yet.
         </div>
       )}
     </Filter>
@@ -75,6 +72,7 @@ const ProjectFilter = ({ projects, setFilteredProjects }) => {
 };
 
 export default ProjectFilter;
+
 
 
 
