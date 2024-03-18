@@ -12,8 +12,9 @@ import ProjectFilter from './ProjectFilter';
 
 const Section = styled.section`
   background-color: #f0f0f0;
-  padding: 20px;
+  padding: 1.25rem;
   margin-top: 6rem;
+  min-height: calc(100vh - (6rem + 6rem));
 `;
 
 export default function Home() {
