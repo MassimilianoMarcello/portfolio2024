@@ -1,8 +1,19 @@
 import { useState } from 'react';
 import styled from '@emotion/styled';
 
+
+
 const ProjectFilter = ({ projects, setFilteredProjects }) => {
   const [selectedTechnology, setSelectedTechnology] = useState('');
+
+  const allTechnologies = projects.reduce((technologies, project) => {
+    project.technologies.forEach(tech => {
+      if (!technologies.includes(tech)) {
+        technologies.push(tech);
+      }
+    });
+    return technologies;
+  }, []);
 
   const handleFilterByTechnology = (technology) => {
     if (selectedTechnology === technology) {
@@ -21,7 +32,7 @@ const ProjectFilter = ({ projects, setFilteredProjects }) => {
 
   return (
     <Filter>
-      {['React', 'Sanity', 'Angular', 'Node.js', 'Express', 'MongoDB', 'GraphQL'].map((technology) => (
+      {allTechnologies.map((technology) => (
         <button
           key={technology}
           onClick={() => handleFilterByTechnology(technology)}
@@ -35,6 +46,7 @@ const ProjectFilter = ({ projects, setFilteredProjects }) => {
 };
 
 export default ProjectFilter;
+
 
 
 const Filter = styled.section`
