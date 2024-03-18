@@ -39,7 +39,7 @@ export default function Home() {
     <ThemeProvider theme={theme}>
       <Section>
         <HeaderSection />
-        <ProjectFilter projects={projects} setFilteredProjects={setFilteredProjects} />
+        <ProjectFilter projects={projects} setFilteredProjects={setFilteredProjects} setOpenProjectId={setOpenProjectId}  />
         <ProjectList
           projects={filteredProjects} // Mostra solo i progetti filtrati
           openProjectId={openProjectId}
