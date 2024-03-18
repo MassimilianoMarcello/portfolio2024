@@ -7,8 +7,8 @@ import { PortableText } from '@portabletext/react';
 import { ThemeProvider } from '@emotion/react';
 import theme from '@/app/theme_emotion';
 import { HeaderSection } from './HeaderSection';
-import  ProjectList  from './ProjectList';
-
+import ProjectList from './ProjectList';
+import ProjectFilter from './ProjectFilter';
 
 const Section = styled.section`
   background-color: #f0f0f0;
@@ -16,24 +16,10 @@ const Section = styled.section`
   margin-top: 6rem;
 `;
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 export default function Home() {
   const [projects, setProjects] = useState([]);
   const [openProjectId, setOpenProjectId] = useState(null);
+  const [filteredProjects, setFilteredProjects] = useState([]);
 
   const toggleProjectInfo = (projectId) => {
     setOpenProjectId(projectId === openProjectId ? null : projectId);
@@ -43,6 +29,7 @@ export default function Home() {
     const fetchProjects = async () => {
       const projectsData = await getProjects();
       setProjects(projectsData);
+      setFilteredProjects(projectsData); // Inizialmente mostra tutti i progetti
     };
     fetchProjects();
   }, []);
@@ -51,14 +38,13 @@ export default function Home() {
     <ThemeProvider theme={theme}>
       <Section>
         <HeaderSection />
+        <ProjectFilter projects={projects} setFilteredProjects={setFilteredProjects} />
         <ProjectList
-          projects={projects}
+          projects={filteredProjects} // Mostra solo i progetti filtrati
           openProjectId={openProjectId}
           toggleProjectInfo={toggleProjectInfo}
         />
-        
       </Section>
-      
     </ThemeProvider>
   );
 }
