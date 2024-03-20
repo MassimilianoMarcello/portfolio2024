@@ -22,14 +22,12 @@ const NavBar = () => {
   return (
     <NavContainer>
       <NavFixed>
-        <Link href="/" passHref>
-          <LogoContainer>
-            <AnimatedLogo>
-              <Image src={logoe} alt="mass dev logo" width={70} height={70} />
-            </AnimatedLogo>
-            <AnimatedText>Mass Dev</AnimatedText>
-          </LogoContainer>
-        </Link>
+        <LogoContainer href="/">
+          <AnimatedLogo>
+            <Image src={logoe} alt="mass dev logo" width={70} height={70} />
+          </AnimatedLogo>
+          <AnimatedText>Mass Dev</AnimatedText>
+        </LogoContainer>
         <MenuIcon onClick={handleClick}>
           <Image
             src={click ? xmarkSolid : barsSolid}
@@ -38,6 +36,7 @@ const NavBar = () => {
             height={40}
           />
         </MenuIcon>
+        <Link href="/" passHref></Link>
       </NavFixed>
       <NavMenu className={click ? "active" : ""}>
         <NavItem onClick={handleCloseMenu}>
@@ -72,33 +71,38 @@ const NavContainer = styled.nav`
   background-color: #171d35;
   position: fixed;
   top: 0;
-  left: 0; 
-  z-index: 1000; 
-  height: 5rem;  
+  left: 0;
+  z-index: 1000;
+  height: 6rem;
+  padding-bottom: 1rem;
+  margin-bottom: 2rem;
 
-  border-bottom: solid 0.4rem #feeb64;
+  /* border-bottom: solid 0.4rem #feeb64; */
 `;
 
 const NavFixed = styled.div`
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 1rem 2rem;
+  padding: 2rem 2rem;
   height: 3rem;
-  a{text-decoration:none;}
+  a {
+    text-decoration: none;
+  }
 `;
 
-const LogoContainer = styled.div`
+const LogoContainer = styled.a`
   display: flex;
   align-items: center;
   cursor: pointer;
 
-  margin-left: -1rem;
+  margin-left: 1rem;
   margin-top: 0.3rem;
-
 `;
 
 const AnimatedLogo = styled.div`
+  margin-left: -2rem;
+  margin-right: 0rem;
   animation: fadeIn 2s ease-in-out;
   align-items: center;
 
@@ -133,7 +137,7 @@ const AnimatedText = styled.h1`
   color: #fff;
   margin-left: 0.5rem;
   margin-top: 2rem;
-   animation: slideIn 1.8s ease-in-out;
+  animation: slideIn 1.8s ease-in-out;
 
   @keyframes slideIn {
     0% {
@@ -156,16 +160,24 @@ const AnimatedText = styled.h1`
       opacity: 1;
       transform: translateY(0%);
     }
-  } 
- 
+  }
 `;
 
 const MenuIcon = styled.div`
   cursor: pointer;
   margin-top: 0.5rem;
+  margin-right: -10rem;
   img {
-    
     background-color: white;
+  }
+  @media screen and (min-width: 600px) {
+    margin-right: -18rem;
+  }
+  @media screen and (min-width: 700px) {
+    margin-right: -20rem;
+  }
+  @media screen and (min-width: 700px) {
+    margin-right: -30rem;
   }
   @media screen and (min-width: 920px) {
     display: none;
@@ -193,13 +205,20 @@ const NavMenu = styled.ul`
     width: 100%;
     background-color: #171d35;
     margin-top: 5.2rem;
-    border-bottom:solid 2rem yellow;
+    border-bottom: solid 2rem yellow;
+    @media screen and (min-width: 920px) {
+      flex-direction: row;
+      margin-top: 7.2rem;
+      border-bottom: none;
+      background-color: transparent;
+    }
   }
 `;
 
 const NavItem = styled.li`
   margin: 3.5rem;
   text-align: center;
+
   a {
     text-decoration: none;
   }
