@@ -4,9 +4,9 @@ import theme from "@/app/theme_emotion";
 import ProjectFilter from './ProjectFilter';
 
 interface HeaderSectionProps {
-  projects: any[]; // Inserisci il tipo corretto dei progetti
-  setFilteredProjects: React.Dispatch<React.SetStateAction<any[]>>; // Tipo corretto per setFilteredProjects
-  setOpenProjectId: React.Dispatch<React.SetStateAction<any>>; // Tipo corretto per setOpenProjectId
+  projects: any[]; 
+  setFilteredProjects: React.Dispatch<React.SetStateAction<any[]>>; 
+  setOpenProjectId: React.Dispatch<React.SetStateAction<any>>; 
 }
 
 class HeaderSection extends Component<HeaderSectionProps> {
@@ -31,7 +31,7 @@ class HeaderSection extends Component<HeaderSectionProps> {
 }
 
 const Container = styled.div`
-  /* Stili per il container principale, se necessario */
+
 `;
 
 
@@ -49,12 +49,9 @@ const TextContainer = styled.div`
   font-size: 5rem;
   padding-top: 6rem;
   padding-bottom: 2rem;
-  /* background-color: #feeb64; */
+
   background-color: #f0f0f0;
-  /* box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1), 0 4px 8px rgba(0, 0, 0, 0.1),
-    0 6px 12px rgba(11, 9, 9, 0.1), 0 8px 16px rgba(0, 0, 0, 0.1); */
-  /* border-bottom-right-radius: 3rem;
-  border-bottom-left-radius: 3rem; */
+
   .greeting {
     margin-top: -2rem;
   }
@@ -65,10 +62,7 @@ const TextContainer = styled.div`
     color: #b29d6e;
     margin-bottom: 0rem;
   }
-  /* position: fixed; */
-  /* top: 0; */
-  /* left: 50%; */
-  /* transform: translateX(-50%); */
+
   width: 100%;
   z-index: 999;
   @media (max-width: 600px) {
