@@ -89,7 +89,7 @@ const ProjectFilter = ({ projects, setFilteredProjects, setOpenProjectId }) => {
 export default ProjectFilter;
 
 const Filter = styled.section`
-  margin-top: -10rem;
+  margin-top: -14rem;
   margin-left: -50rem;
 
   display: flex;
@@ -123,6 +123,7 @@ const TheButton = styled.button`
   transition: background-color 0.3s ease, color 0.3s ease;
   cursor: pointer;
 margin-left: 1rem;
+
   &:hover {
     background-color: #feeb64;
   }
@@ -141,19 +142,22 @@ const ClearButton = styled.button`
 `;
 
 const SorryMessage = styled.div`
-  background-color: red;
-  margin-top: 10rem;
-  color: white;
-  padding: 1rem;
-  margin: 4rem;
+  background-color: #1d3b7a;
+  margin: 8rem;
+  margin-top:-12rem;
+  margin-bottom: 12rem;
+  padding: 1.5rem;
   border-radius: 0.5rem;
-  font-size: 4.2rem;
+  font-size: 1.2rem;
+  color: #f0f0f0;
+  display: inline-block;
+  text-align: center;
   animation: fadeIn 1.5s ease;
 
   @keyframes fadeIn {
     from {
       opacity: 0;
-      transform: translateY(-5rem);
+      transform: translateY(-2rem);
     }
     to {
       opacity: 1;
