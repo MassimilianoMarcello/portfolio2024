@@ -11,7 +11,7 @@ const Footer = () => {
         <SocialMediaBox className="social-media-container">
           <div className="social-link">
             <Link
-              href="https://twitter.com/i/flow/login?redirect_after_login=%2FManhattanDay%2F"
+              href="https://twitter.com"
               className="social twitter-link"
             >
               <svg
@@ -30,7 +30,7 @@ const Footer = () => {
           </div>
           <div className="social-link">
             <Link
-              href="https://www.instagram.com/manhattandayschool/"
+              href="https://www.instagram.com"
               className="social instagram-link"
             >
               <svg
@@ -58,7 +58,7 @@ const Footer = () => {
 
           <div className="social-link">
             <Link
-              href="https://www.facebook.com/ManhattanDaySchool1943/"
+              href="https://www.facebook.com"
               className="social facebook-link"
             >
               <svg
@@ -105,6 +105,7 @@ const FooterBox = styled.footer`
   color: #fff;
   font-family: "Quicksand", sans-serif;
   margin: 0;
+
 
 `;
 const ElementsBox = styled.div``;
