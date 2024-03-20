@@ -1,43 +1,32 @@
-import React, { Component } from 'react';
-import styled from "@emotion/styled";
+
+
 import theme from "@/app/theme_emotion";
+
+
+import React from 'react';
+import styled from '@emotion/styled';
 import ProjectFilter from './ProjectFilter';
 
-interface HeaderSectionProps {
-  projects: any[]; 
-  setFilteredProjects: React.Dispatch<React.SetStateAction<any[]>>; 
-  setOpenProjectId: React.Dispatch<React.SetStateAction<any>>; 
+const HeaderSection = ({ projects, setFilteredProjects, setOpenProjectId }) => {
+  return (
+    <Container>
+      <TextContainer>
+        <p className="greeting">
+          Explore My Web Dev Journey:{" "}
+          <span className="section-title">Projects</span>{" "}
+        </p>
+      </TextContainer>
+      <ProjectFilter
+        projects={projects}
+        setFilteredProjects={setFilteredProjects}
+        setOpenProjectId={setOpenProjectId}
+      />
+    </Container>
+  );
 }
+export default  HeaderSection
 
-class HeaderSection extends Component<HeaderSectionProps> {
-  render() {
-    const { projects, setFilteredProjects, setOpenProjectId } = this.props;
-    return (
-      <Container>
-        <TextContainer>
-          <p className="greeting">
-            Explore My Web Dev Journey:{" "}
-            <span className="section-title">Projects</span>{" "}
-          </p>
-        </TextContainer>
-        <ProjectFilter
-          projects={projects}
-          setFilteredProjects={setFilteredProjects}
-          setOpenProjectId={setOpenProjectId}
-        />
-      </Container>
-    );
-  }
-}
-
-const Container = styled.div`
-
-`;
-
-
-
-export default HeaderSection;
-
+const  Container = styled.div``
 
 const TextContainer = styled.div`
   text-align: center;
