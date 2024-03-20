@@ -42,16 +42,17 @@ export default HeaderSection;
 const TextContainer = styled.div`
   text-align: center;
   color: #0f2556;
-  margin: 7rem auto;
+  margin: 1rem auto;
+  margin-top: 4rem;
   font-family: ${theme.fontFamily.primaryFont};
   font-weight: 900;
   font-size: 5rem;
-  padding-top: 1rem;
+  padding-top: 6rem;
   padding-bottom: 2rem;
   /* background-color: #feeb64; */
   background-color: #f0f0f0;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1), 0 4px 8px rgba(0, 0, 0, 0.1),
-    0 6px 12px rgba(11, 9, 9, 0.1), 0 8px 16px rgba(0, 0, 0, 0.1);
+  /* box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1), 0 4px 8px rgba(0, 0, 0, 0.1),
+    0 6px 12px rgba(11, 9, 9, 0.1), 0 8px 16px rgba(0, 0, 0, 0.1); */
   /* border-bottom-right-radius: 3rem;
   border-bottom-left-radius: 3rem; */
   .greeting {
@@ -64,10 +65,10 @@ const TextContainer = styled.div`
     color: #b29d6e;
     margin-bottom: 0rem;
   }
-  position: fixed;
-  top: 0;
-  left: 50%;
-  transform: translateX(-50%);
+  /* position: fixed; */
+  /* top: 0; */
+  /* left: 50%; */
+  /* transform: translateX(-50%); */
   width: 100%;
   z-index: 999;
   @media (max-width: 600px) {

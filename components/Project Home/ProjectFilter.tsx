@@ -89,7 +89,7 @@ const ProjectFilter = ({ projects, setFilteredProjects, setOpenProjectId }) => {
 export default ProjectFilter;
 
 const Filter = styled.section`
-  margin-top: -8rem;
+  margin-top: -10rem;
   margin-left: -50rem;
 
   display: flex;
@@ -116,13 +116,13 @@ const Filter = styled.section`
 const TheButton = styled.button`
   font-family: ${theme.fontFamily.primaryFont};
   letter-spacing: 0.07rem;
-  padding: 0.7rem 1.2rem;
+  padding: 0.7rem 1rem;
   padding-left: 0.2;
   border: none;
   border-radius: 0.5rem;
   transition: background-color 0.3s ease, color 0.3s ease;
   cursor: pointer;
-
+margin-left: 1rem;
   &:hover {
     background-color: #feeb64;
   }

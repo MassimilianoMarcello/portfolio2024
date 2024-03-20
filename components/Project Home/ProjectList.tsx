@@ -30,7 +30,8 @@ const ProjectContainer = styled.div`
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
-  margin-top: 20rem;
+  margin-top: -6rem;
+  margin-left: 8rem;
 `;
 
 const ProjectCard = styled.div`
