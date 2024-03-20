@@ -6,7 +6,7 @@ import styled from "@emotion/styled";
 import barsSolid from "@/public/assets/bars-solid.svg";
 import xmarkSolid from "@/public/assets/xmark-solid.svg";
 
-const NavBar = () => {
+const NavBar2 = () => {
   const [click, setClick] = useState(false);
 
   const handleClick = () => {
@@ -64,7 +64,7 @@ const NavBar = () => {
   );
 };
 
-export default NavBar;
+export default NavBar2;
 
 const NavContainer = styled.nav`
   width: 100%;
