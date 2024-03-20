@@ -57,10 +57,10 @@ const ProjectFilter = ({ projects, setFilteredProjects, setOpenProjectId }) => {
             style={{
               backgroundColor: selectedTechnologies.includes(technology)
                 ? "#feeb64"
-                : "blue",
+                : "#1d3b7a ",
               color: selectedTechnologies.includes(technology)
-                ? "blue"
-                : "white",
+                ? "#1d3b7a "
+                : "#f0f0f0",
             }}
           >
             {technology}
@@ -83,14 +83,14 @@ const ProjectFilter = ({ projects, setFilteredProjects, setOpenProjectId }) => {
 export default ProjectFilter;
 
 const Filter = styled.section`
-  margin-top: 17rem;
+  margin-top: 9rem;
   margin-left: -50rem;
 
   display: flex;
   flex-wrap: wrap;
   gap: 0.5rem;
   position: fixed;
-  z-index: 11;
+  z-index: 111111111111;
   animation: slideIn 1.5s forwards; 
   animation-fill-mode: forwards;
 
@@ -105,8 +105,9 @@ const Filter = styled.section`
 `;
 
 const TheButton = styled.button`
-
-  padding: 0.5rem 1rem;
+font-family:${theme.fontFamily.primaryFont};
+letter-spacing: .07rem;
+  padding: .7rem 1.2rem;
   border: none;
   border-radius: 0.5rem;
   transition: background-color 0.3s ease, color 0.3s ease;

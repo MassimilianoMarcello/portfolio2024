@@ -1,4 +1,5 @@
 import styled from "@emotion/styled";
+import theme from '@/app/theme_emotion';
 
 
 export const HeaderSection = () => (
@@ -13,16 +14,19 @@ export const HeaderSection = () => (
   text-align: center;
   color: #0f2556;
   margin: 7rem auto;
-  font-family: 'Amatic SC', sans-serif;
+  font-family: ${theme.fontFamily.primaryFont};
+  font-weight:900;
+  font-size:2rem;
   padding-top: 1rem;
-  background-color: #feeb64;
+  /* background-color: #feeb64; */
+  background-color: #f0f0f0 ;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1), 0 4px 8px rgba(0, 0, 0, 0.1),
     0 6px 12px rgba(0, 0, 0, 0.1), 0 8px 16px rgba(0, 0, 0, 0.1);
-  border-bottom-right-radius: 3rem;
-  border-bottom-left-radius: 3rem;
+  /* border-bottom-right-radius: 3rem;
+  border-bottom-left-radius: 3rem; */
   .greeting {
     margin-top: -2rem;
-    font-size: 4.7rem;
+
   }
   .section-title {
     font-size: 5rem;
@@ -41,16 +45,16 @@ export const HeaderSection = () => (
     margin-top: 7rem;
     padding-top: 2rem;
     .section-title {
-      font-size: 5rem;
+      font-size: 3rem;
       margin-top: -5rem;
       padding: 0;
       color: #b29d6e;
       
     }
-    .greeting2{
-        margin-top: -2rem;
-        margin-left: -14rem;
-    font-size: 4.7rem;
+    .greeting{
+        margin-top: -1rem;
+        margin-left: -1rem;
+    font-size: 2rem;
       }
   }
 `;

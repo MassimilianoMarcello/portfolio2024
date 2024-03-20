@@ -1,4 +1,4 @@
-
+import theme from '@/app/theme_emotion';
 
 const TechnologiesUsed = ({ technologies }) => {
   return (

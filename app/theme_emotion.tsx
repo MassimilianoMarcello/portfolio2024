@@ -76,6 +76,7 @@ const theme = {
     customFont: "'Almaq Refined', sans-serif",
     titleFont:  "'Protest Strike', sans-serif",
     headersFont: "'Quicksand', sans-serif",
+    primaryFont: '"Poppins", sans-serif',
   },
   fontWeight: {
     light: 200,
