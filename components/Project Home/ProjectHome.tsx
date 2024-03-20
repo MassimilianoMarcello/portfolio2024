@@ -9,6 +9,27 @@ import theme from '@/app/theme_emotion';
 import { HeaderSection } from './HeaderSection';
 import ProjectList from './ProjectList';
 import ProjectFilter from './ProjectFilter';
+import { keyframes } from '@emotion/react';
+
+const scaleInAnimation = keyframes`
+  from {
+    transform: scale(0);
+  }
+  to {
+    transform: scale(1);
+  }
+`;
+
+const Animation = styled.div`
+  display: flex;
+  flex-direction: column;
+
+  & > * {
+    animation: ${scaleInAnimation} 1.3s ease-in-out forwards;
+  }
+`;
+
+
 
 const Section = styled.section`
   background-color: #f0f0f0;
@@ -40,12 +61,19 @@ export default function Home() {
       <Section>
         <HeaderSection />
         <ProjectFilter projects={projects} setFilteredProjects={setFilteredProjects} setOpenProjectId={setOpenProjectId}  />
-        <ProjectList
+       <Animation>
+ <ProjectList
           projects={filteredProjects} // Mostra solo i progetti filtrati
           openProjectId={openProjectId}
           toggleProjectInfo={toggleProjectInfo}
         />
+       </Animation>
+        
       </Section>
     </ThemeProvider>
   );
 }
+
+
+
+

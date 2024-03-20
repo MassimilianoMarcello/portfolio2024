@@ -9,7 +9,7 @@ import TechnologiesUsed from './TechnologiesUsed';
 
 
 const ProjectList = ({ projects, openProjectId, toggleProjectInfo }) => {
-  return (
+  return (  
     <ProjectContainer className="project-container">
       {projects.map((project) => (
         <ProjectCard key={project._id} onClick={() => toggleProjectInfo(project._id)}>
@@ -33,6 +33,8 @@ const ProjectList = ({ projects, openProjectId, toggleProjectInfo }) => {
     </ProjectContainer>
   );
 };
+
+
 
 export default ProjectList;
 

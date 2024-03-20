@@ -85,12 +85,13 @@ export default ProjectFilter;
 const Filter = styled.section`
   margin-top: 17rem;
   margin-left: -50rem;
+
   display: flex;
   flex-wrap: wrap;
   gap: 0.5rem;
   position: fixed;
   z-index: 11;
-  animation: slideIn 1.5s forwards; /* Applica l'animazione all'apertura della pagina */
+  animation: slideIn 1.5s forwards; 
   animation-fill-mode: forwards;
 
   @keyframes slideIn {
