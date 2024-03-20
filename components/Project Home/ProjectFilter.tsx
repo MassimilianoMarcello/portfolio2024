@@ -49,7 +49,7 @@ const ProjectFilter = ({ projects, setFilteredProjects, setOpenProjectId }) => {
 
   return (
     <div>
-      <Filter>
+   <Filter style={{ display: noProjectsMessage ? 'none' : 'flex' }}>
         {allTechnologies.map((technology) => (
           <TheButton
             key={technology}
@@ -78,6 +78,8 @@ const ProjectFilter = ({ projects, setFilteredProjects, setOpenProjectId }) => {
           />
           Oops! It looks like there are no projects with this combination of
           technologies yet.
+          <ClearButton onClick={handleClearSelection}>Clear</ClearButton>
+
         </SorryMessage>
       )}
     </div>
