@@ -70,8 +70,12 @@ const ProjectFilter = ({ projects, setFilteredProjects, setOpenProjectId }) => {
       </Filter>
       {noProjectsMessage && (
         <SorryMessage>
-              <Image src="/assets/decoration_logoe.png" alt="mass dev logo" width={70} height={70} />
-           
+          <Image
+            src="/assets/decoration_logoe.png"
+            alt="mass dev logo"
+            width={70}
+            height={70}
+          />
           Oops! It looks like there are no projects with this combination of
           technologies yet.
         </SorryMessage>
@@ -83,17 +87,20 @@ const ProjectFilter = ({ projects, setFilteredProjects, setOpenProjectId }) => {
 export default ProjectFilter;
 
 const Filter = styled.section`
-  margin-top: 12rem;
+  margin-top: -8rem;
   margin-left: -50rem;
 
   display: flex;
   flex-wrap: wrap;
+  flex-direction:column;
   gap: 0.5rem;
   position: fixed;
   z-index: 111111111111;
-  animation: slideIn 1.5s forwards; 
+  animation: slideIn 1.5s forwards;
   animation-fill-mode: forwards;
-
+  @media (max-width: 600px) {
+    margin-top: -4rem;
+  }
   @keyframes slideIn {
     from {
       margin-left: -50rem;
@@ -105,9 +112,10 @@ const Filter = styled.section`
 `;
 
 const TheButton = styled.button`
-font-family:${theme.fontFamily.primaryFont};
-letter-spacing: .07rem;
-  padding: .7rem 1.2rem;
+  font-family: ${theme.fontFamily.primaryFont};
+  letter-spacing: 0.07rem;
+  padding: 0.7rem 1.2rem;
+  padding-left: 0.2;
   border: none;
   border-radius: 0.5rem;
   transition: background-color 0.3s ease, color 0.3s ease;

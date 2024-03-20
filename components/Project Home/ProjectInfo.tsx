@@ -4,7 +4,7 @@ import { getProjects } from '@/sanity/sanity.query';
 import { PortableText } from '@portabletext/react';
 import { ThemeProvider } from '@emotion/react';
 import theme from '@/app/theme_emotion';
-import { HeaderSection } from './HeaderSection';
+// import { HeaderSection } from './HeaderSection';
 
 const ProjectInfos = ({ project, openProjectId }) => {
 
