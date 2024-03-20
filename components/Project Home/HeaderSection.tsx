@@ -1,14 +1,43 @@
+import React, { Component } from 'react';
 import styled from "@emotion/styled";
 import theme from "@/app/theme_emotion";
+import ProjectFilter from './ProjectFilter';
 
-export const HeaderSection = () => (
-  <TextContainer>
-    <p className="greeting">
-      Explore My Web Dev Journey:{" "}
-      <span className="section-title">Projects</span>{" "}
-    </p>
-  </TextContainer>
-);
+interface HeaderSectionProps {
+  projects: any[]; // Inserisci il tipo corretto dei progetti
+  setFilteredProjects: React.Dispatch<React.SetStateAction<any[]>>; // Tipo corretto per setFilteredProjects
+  setOpenProjectId: React.Dispatch<React.SetStateAction<any>>; // Tipo corretto per setOpenProjectId
+}
+
+class HeaderSection extends Component<HeaderSectionProps> {
+  render() {
+    const { projects, setFilteredProjects, setOpenProjectId } = this.props;
+    return (
+      <Container>
+        <TextContainer>
+          <p className="greeting">
+            Explore My Web Dev Journey:{" "}
+            <span className="section-title">Projects</span>{" "}
+          </p>
+        </TextContainer>
+        <ProjectFilter
+          projects={projects}
+          setFilteredProjects={setFilteredProjects}
+          setOpenProjectId={setOpenProjectId}
+        />
+      </Container>
+    );
+  }
+}
+
+const Container = styled.div`
+  /* Stili per il container principale, se necessario */
+`;
+
+
+
+export default HeaderSection;
+
 
 const TextContainer = styled.div`
   text-align: center;
