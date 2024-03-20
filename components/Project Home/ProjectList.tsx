@@ -1,30 +1,22 @@
-
-
-import styled from '@emotion/styled';
-
-import theme from '@/app/theme_emotion';
-
-import ProjectInfos from './ProjectInfo';
-import TechnologiesUsed from './TechnologiesUsed';
+import styled from "@emotion/styled";
+import theme from "@/app/theme_emotion";
+import ProjectInfos from "./ProjectInfo";
+import TechnologiesUsed from "./TechnologiesUsed";
 
 const ProjectList = ({ projects, openProjectId, toggleProjectInfo }) => {
-  return (  
-    <ProjectContainer className="project-container">
+  return (
+    <ProjectContainer>
       {projects.map((project) => (
-        <ProjectCard key={project._id} onClick={() => toggleProjectInfo(project._id)}>
+        <ProjectCard
+          key={project._id}
+          onClick={() => toggleProjectInfo(project._id)}
+        >
           <ImageProject>
-            <h3>{project.name}</h3>
-            <img
-              src={project.image}
-              alt={project.imageAlt}
-              width={300}
-              height={200}
-              className="project-image"
-              key={project._id}
-            />
-            <p className="project-technologies">{project.technologies}</p>
+            <ProjectTitle>{project.name}</ProjectTitle>
+            <ProjectImage src={project.image} alt={project.imageAlt} />
+            {/* <ProjectTechnologies>{project.technologies}</ProjectTechnologies> */}
           </ImageProject>
-          <TechnologiesUsed technologies={project.technologies}/>
+          <TechnologiesUsed technologies={project.technologies} />
           <ProjectInfos project={project} openProjectId={openProjectId} />
         </ProjectCard>
       ))}
@@ -46,43 +38,50 @@ const ProjectCard = styled.div`
   max-width: 40rem;
   max-height: 30rem;
   margin: 4rem;
-  background-color: #f0fff4;
-  border: 0.2rem solid yellow;
+  background-color: #fff;
+  border: 0.2rem solid #afae7f; /* Colore ridotto */
   transition: all 0.2s ease;
   overflow: hidden;
   position: relative;
   cursor: pointer;
-  box-shadow: 14px 14px 0 -4px gold, 14px 14px 0 0 black; /* Aggiunta dell'ombra */
+  border-radius: 1rem; /* Bordi arrotondati */
+  box-shadow: 14px 14px 0 -4px black, 14px 14px 0 0 black; /* Aggiunta dell'ombra */
 `;
 
 const ImageProject = styled.div`
   display: flex;
   flex-direction: column;
   overflow: hidden;
-  img {
-    width: 100%;
-    height: 40%;
-    @media screen and (min-width: 720px), (min-width: 1000px) {
-      margin: 0 auto;
-    }
+`;
+
+const ProjectTitle = styled.h3`
+  margin: 0.5rem 0;
+  margin-left: 0.5rem;
+  margin-right: -15rem;
+  border-bottom: solid 0.02rem #b3a27d;
+  font-weight: ${theme.fontWeight.bold};
+  font-family: ${theme.fontFamily.primaryFont};
+  color: #1d3b7a;
+  font-size: 2rem;
+`;
+
+const ProjectImage = styled.img`
+  width: 94%;
+  height: 40%;
+  @media screen and (min-width: 720px), (min-width: 1000px) {
+    margin: 0 auto;
+    /* padding: 0 3rem; */
   }
-  .project-technologies {
-    padding: 1rem;
-    margin: 1rem;
-    *:first-of-type {
-      margin: 1.5rem;
-      padding: 1.5rem;
-      background-color: #254fa9;
-      border-radius: 0.5rem;
-    }
-  }
-  h3 {
-    margin: 0.5rem 0;
-    margin-left: 2rem;
-    background-color: #aaebfe;
-    font-weight: ${theme.fontWeight.bold};
-    font-family: ${theme.fontFamily.customFont};
-    color: #fff;
-    font-size: 2rem;
+`;
+
+const ProjectTechnologies = styled.p`
+  padding: 1rem;
+  margin: 1rem;
+  *:first-of-type {
+    margin: 1.5rem;
+    padding: 1.5rem;
+    background-color: #11182d; /* Colore ridotto */
+    border-radius: 0.5rem;
+    color: #fff; /* Colore del testo aggiunto */
   }
 `;

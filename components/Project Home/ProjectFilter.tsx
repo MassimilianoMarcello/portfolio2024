@@ -83,7 +83,7 @@ const ProjectFilter = ({ projects, setFilteredProjects, setOpenProjectId }) => {
 export default ProjectFilter;
 
 const Filter = styled.section`
-  margin-top: 9rem;
+  margin-top: 12rem;
   margin-left: -50rem;
 
   display: flex;

@@ -1,36 +1,36 @@
 import styled from "@emotion/styled";
-import theme from '@/app/theme_emotion';
-
+import theme from "@/app/theme_emotion";
 
 export const HeaderSection = () => (
   <TextContainer>
-  <p className="greeting">Explore My Web Dev Journey:  <span className="section-title">Projects</span>  </p>
-</TextContainer>
-  );
+    <p className="greeting">
+      Explore My Web Dev Journey:{" "}
+      <span className="section-title">Projects</span>{" "}
+    </p>
+  </TextContainer>
+);
 
-  
-  const TextContainer = styled.div`
-  
+const TextContainer = styled.div`
   text-align: center;
   color: #0f2556;
   margin: 7rem auto;
   font-family: ${theme.fontFamily.primaryFont};
-  font-weight:900;
-  font-size:2rem;
+  font-weight: 900;
+  font-size: 5rem;
   padding-top: 1rem;
+  padding-bottom: 2rem;
   /* background-color: #feeb64; */
-  background-color: #f0f0f0 ;
+  background-color: #f0f0f0;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1), 0 4px 8px rgba(0, 0, 0, 0.1),
-    0 6px 12px rgba(0, 0, 0, 0.1), 0 8px 16px rgba(0, 0, 0, 0.1);
+    0 6px 12px rgba(11, 9, 9, 0.1), 0 8px 16px rgba(0, 0, 0, 0.1);
   /* border-bottom-right-radius: 3rem;
   border-bottom-left-radius: 3rem; */
   .greeting {
     margin-top: -2rem;
-
   }
   .section-title {
     font-size: 5rem;
-    margin-top: -1.5rem;
+    margin-top: -5rem;
     padding: 0;
     color: #b29d6e;
     margin-bottom: 0rem;
@@ -45,16 +45,15 @@ export const HeaderSection = () => (
     margin-top: 7rem;
     padding-top: 2rem;
     .section-title {
-      font-size: 3rem;
+      font-size: 2rem;
       margin-top: -5rem;
       padding: 0;
       color: #b29d6e;
-      
     }
-    .greeting{
-        margin-top: -1rem;
-        margin-left: -1rem;
-    font-size: 2rem;
-      }
+    .greeting {
+      margin-top: -1rem;
+      margin-left: -1rem;
+      font-size: 2rem;
+    }
   }
 `;
