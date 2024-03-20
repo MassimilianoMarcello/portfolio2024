@@ -1,11 +1,7 @@
-
-
+import React from "react";
+import styled from "@emotion/styled";
 import theme from "@/app/theme_emotion";
-
-
-import React from 'react';
-import styled from '@emotion/styled';
-import ProjectFilter from './ProjectFilter';
+import ProjectFilter from "./ProjectFilter";
 
 const HeaderSection = ({ projects, setFilteredProjects, setOpenProjectId }) => {
   return (
@@ -23,10 +19,11 @@ const HeaderSection = ({ projects, setFilteredProjects, setOpenProjectId }) => {
       />
     </Container>
   );
-}
-export default  HeaderSection
+};
 
-const  Container = styled.div``
+const Container = styled.div`
+  /* Stili per il container principale, se necessario */
+`;
 
 const TextContainer = styled.div`
   text-align: center;
@@ -70,3 +67,6 @@ const TextContainer = styled.div`
     }
   }
 `;
+
+export default HeaderSection;
+
