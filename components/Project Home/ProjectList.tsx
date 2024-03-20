@@ -1,12 +1,11 @@
 
-import { useEffect, useState } from 'react';
+
 import styled from '@emotion/styled';
 
 import theme from '@/app/theme_emotion';
 
-import  ProjectInfos  from './ProjectInfo';
+import ProjectInfos from './ProjectInfo';
 import TechnologiesUsed from './TechnologiesUsed';
-
 
 const ProjectList = ({ projects, openProjectId, toggleProjectInfo }) => {
   return (  
@@ -26,15 +25,12 @@ const ProjectList = ({ projects, openProjectId, toggleProjectInfo }) => {
             <p className="project-technologies">{project.technologies}</p>
           </ImageProject>
           <TechnologiesUsed technologies={project.technologies}/>
-
           <ProjectInfos project={project} openProjectId={openProjectId} />
         </ProjectCard>
       ))}
     </ProjectContainer>
   );
 };
-
-
 
 export default ProjectList;
 
@@ -56,7 +52,7 @@ const ProjectCard = styled.div`
   overflow: hidden;
   position: relative;
   cursor: pointer;
-  
+  box-shadow: 14px 14px 0 -4px gold, 14px 14px 0 0 black; /* Aggiunta dell'ombra */
 `;
 
 const ImageProject = styled.div`
@@ -90,4 +86,3 @@ const ImageProject = styled.div`
     font-size: 2rem;
   }
 `;
-
