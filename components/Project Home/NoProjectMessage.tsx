@@ -7,7 +7,7 @@ const NoProjectsMessage = ({ handleClearSelection }) => {
   return (
     <MessageContainer>
       <Image
-        src="/assets/decoration_logoe.png"
+        src="/assets/noFound.png"
         alt="mass dev logo"
         width={70}
         height={70}
