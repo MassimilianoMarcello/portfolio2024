@@ -10,8 +10,8 @@ const NoProjectsMessage = ({ handleClearSelection }) => {
       <Image
         src="/assets/noFound.png"
         alt="mass dev logo"
-        width={100}
-        height={100}
+        width={120}
+        height={120}
       />
       <ClearButton onClick={handleClearSelection}>Clear</ClearButton>
       <p>Oops! No projects with this tech combo yet. Check Back soon!</p>
@@ -35,7 +35,7 @@ const MessageContainer = styled.div`
   padding: 1.5rem;
   border-radius: 0.5rem;
   border:.2rem solid #1d3b7a;
-  font-size: 1.2rem;
+  font-size: 2.2rem;
   color: #1d3b7a;
   display: inline-block;
   text-align: center;
