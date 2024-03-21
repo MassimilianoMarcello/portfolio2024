@@ -1,7 +1,8 @@
 import React from "react";
 import Image from "next/image";
 import styled from "@emotion/styled";
-import ClearButton from "./ClearButton"; 
+import ClearButton from "./ClearButton";
+import theme from "@/app/theme_emotion";
 
 const NoProjectsMessage = ({ handleClearSelection }) => {
   return (
@@ -9,14 +10,12 @@ const NoProjectsMessage = ({ handleClearSelection }) => {
       <Image
         src="/assets/noFound.png"
         alt="mass dev logo"
-        width={70}
-        height={70}
+        width={100}
+        height={100}
       />
-      <p>
-        Oops! It looks like there are no projects with this combination of
-        technologies yet.
-      </p>
       <ClearButton onClick={handleClearSelection}>Clear</ClearButton>
+      <p>Oops! No projects with this tech combo yet. Sorry!</p>
+      
     </MessageContainer>
   );
 };
@@ -24,17 +23,24 @@ const NoProjectsMessage = ({ handleClearSelection }) => {
 export default NoProjectsMessage;
 
 const MessageContainer = styled.div`
-  background-color: #1d3b7a;
-  margin: 8rem;
-  margin-top: -12rem;
+  font-family: ${theme.fontFamily.primaryFont};
+  /* text-transform:uppercase; */
+  /* background-color: #1d3b7a; */
+  background-color: #f0f0f0;
+
+  margin-top: -5rem;
   margin-bottom: 12rem;
+  width: 100%;
+  height: 100%;
   padding: 1.5rem;
   border-radius: 0.5rem;
+  border:.2rem solid #1d3b7a;
   font-size: 1.2rem;
-  color: #f0f0f0;
+  color: #1d3b7a;
   display: inline-block;
   text-align: center;
   animation: fadeIn 1.5s ease;
+
 
   @keyframes fadeIn {
     from {
@@ -45,5 +51,9 @@ const MessageContainer = styled.div`
       opacity: 1;
       transform: translateY(0);
     }
+  }
+  img {
+    border-radius: 50%;
+    margin-right: 2rem;
   }
 `;

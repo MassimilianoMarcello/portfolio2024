@@ -9,6 +9,7 @@ export default ClearButton;
 
 const Button = styled.button`
   background-color: white;
+  padding: 1rem 2rem;
   color: #1d3b7a;
   border: 2px solid #1d3b7a;
   transition: background-color 0.3s ease, color 0.3s ease;
