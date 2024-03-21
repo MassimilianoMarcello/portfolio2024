@@ -4,18 +4,14 @@ import { getPost } from "@/sanity/sanity.query";
 import Image from "next/image";
 import Link from "next/link";
 import styled from "@emotion/styled";
+import HeaderSection from "./Header";
 
 export default async function PostList() {
   const posts = await getPost();
 
   return (
     <Section>
-<TextContainer>
-<p className="greeting">Hello everyone! Check out my blog!</p>
-      <h2 className="section-title">My Posts</h2>
-
-
-</TextContainer>
+<HeaderSection/>
       
       <PostContainer className="post-container">
         {posts.map((post) => (
