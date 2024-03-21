@@ -14,7 +14,7 @@ const NoProjectsMessage = ({ handleClearSelection }) => {
         height={100}
       />
       <ClearButton onClick={handleClearSelection}>Clear</ClearButton>
-      <p>Oops! No projects with this tech combo yet. Sorry!</p>
+      <p>Oops! No projects with this tech combo yet. Check Back soon!</p>
       
     </MessageContainer>
   );
