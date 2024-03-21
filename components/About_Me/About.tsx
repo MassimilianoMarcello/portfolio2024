@@ -8,6 +8,7 @@ import styled from "@emotion/styled";
 import {keyframes } from "@emotion/react";
 import Link from "next/link";
 import "@/app/page.module.css";
+import theme from "@/app/theme_emotion";
 
 export default async function About() {
   const aboutData = await getAboutMe();
@@ -16,7 +17,7 @@ export default async function About() {
     <>
       <AboutContainer>
         <PersonalCard>
-          <h1>Hi there! I'm Massi</h1>
+          <h1>Exploring Frontend: My Path</h1>
 
           {aboutData.map((about, index) => (
             <ProfileCard key={about._id}>
@@ -72,7 +73,7 @@ const SkillItem = styled.li<SkillItemProps>`
   margin-right: 1rem;
   animation: ${bounceAnimation} 4s infinite;
   animation-delay: ${(props) =>
-    props.delay}s; /* Adjust the delay timing as needed */
+    props.delay}s; 
 `;
 const PersonalCard = styled.section`
   background-color: blue;
@@ -85,6 +86,7 @@ const PersonalCard = styled.section`
   margin: 4rem 16rem;
   h1 {
     font-family: "Amatic SC", sans-serif;
+    font-family: ${theme.fontFamily.primaryFont};
     font-size: 4rem;
     padding-top: 1rem;
     text-align: center;
