@@ -39,40 +39,6 @@ export default defineType({
       type: 'array',
       of: [{type: 'reference', to: {type: 'category'}}],
     }),
-// toglilo
-    defineField(  {
-      name: "content",
-      title: "Content",
-      type: "array",
-      of: [{ type: "block" }]
-    }),
-
-// fine toglilo
-// postContent
-defineField({
-  name: 'contents',
-  title: 'Contents',
-  type: 'array',
-  of: [{ type: 'reference', to: { type: 'postContent' } }],
-}),
-// postContent end
-// array content
-defineField({
-  name: 'postContent',
-  title: 'Post Content',
-  type: 'array',
-  of: [
-    {
-      type: 'object',
-      fields: [
-        { name: 'title', title: 'Title', type: 'string' },
-        { name: 'image', title: 'Image', type: 'image', options: { hotspot: true } },
-        { name: 'paragraph', title: 'Paragraph', type: 'text' },
-      ],
-    },
-  ],
-}),
-// array content end
     defineField({
       name: 'publishedAt',
       title: 'Published at',
@@ -96,5 +62,4 @@ defineField({
       return {...selection, subtitle: author && `by ${author}`}
     },
   },
-  
 })

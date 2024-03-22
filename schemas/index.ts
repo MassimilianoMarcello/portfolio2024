@@ -1,12 +1,9 @@
+import blockContent from './blog/blockContent'
+import category from './blog/category'
+import post from './blog/post'
+import author from './blog/author'
 import projects from './projects/projects';
 
 import aboutMe from './about_me/about';
-import blockContent from '@/schemas/blog_schema/blockContent'
-import category from '@/schemas/blog_schema/category'
-import post from '@/schemas/blog_schema/post'
-import author from '@/schemas/blog_schema/author'
-import postContent from '@/schemas/blog_schema/postContent';
 
-export const schemaTypes = [projects,post, author, category, blockContent,postContent,aboutMe]
-
-
+export const schemaTypes = [projects,aboutMe,post, author, category, blockContent]

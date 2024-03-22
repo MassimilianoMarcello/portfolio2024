@@ -1,7 +1,7 @@
 import { groq } from "next-sanity";
 import client from "./sanity.client";
 import { Project } from "@/types/Projects";
-import { Post } from "@/types/Post";
+import  {Post}  from "@/types/Post";
 import { AboutMe } from "@/types/AboutMe";
 
 export async function getProjects(): Promise<Project[]> {
@@ -36,6 +36,7 @@ export async function getProject(slug: string): Promise<Project> {
     groq`*[_type == "project" && slug.current == $slug][0]{
       _id,
       _createdAt,
+      author->,
       name,
       "slug": slug.current,
       "image": image.asset->url,
@@ -55,23 +56,24 @@ export async function getProject(slug: string): Promise<Project> {
 export async function getPost(): Promise<Post[]> {
   return client.fetch(
     groq`*[_type == 'post' ] {
-       _id,
+      _id,
       title,
-      author,
-      categories[]->{title,description,_createdAt,_updatedAt,_id},
-
-      "imageBlog":body[0].asset->url,
-     name,
-      _ref,
-     _type,
-     "body":body[].children[].text,
+      author->{name, "bio":bio[].children[].text,_createdAt},
+      body[]{
+    ...,
+    _type == "image" => {
+      ...,
+      "asset": asset->{
+        ...
+      }
+    }
+  },
+  'bodyText':body[].children[].text,
+          "bodyImage":body[].asset->url,
+      categories[]->{title,_Id},
+      "imageURL": mainImage.asset->url,
       "slug": slug.current,
       "mainImage": mainImage.asset->url,
-        //     postContent[] {
-  //   title,
-  //   "imageURL": image.asset->url, 
-  //   paragraph
-  // } ,
     }`,
     {
       next: {
@@ -84,17 +86,22 @@ export async function getPost(): Promise<Post[]> {
 export async function getPosts(slug: string): Promise<Post> {
   return client.fetch(
     groq`*[_type == 'post' && slug.current == $slug][0]{
-      title,
-      author->,
-      postContent[] {
-    title,
-    "imageURL": image.asset->url, 
-    paragraph
-  } ,
-      "imageBlog":body[0].asset->url,
       _id,
-      name,
-      _ref,
+      title,
+      author->{name, "bio":bio[].children[].text,_createdAt},
+      body[]{
+    ...,
+    _type == "image" => {
+      ...,
+      "asset": asset->{
+        ...
+      }
+    }
+  },
+  'bodyText':body[].children[].text,
+          "bodyImage":body[].asset->url,
+      categories[]->{title,_Id},
+      "imageURL": mainImage.asset->url,
       "slug": slug.current,
       "mainImage": mainImage.asset->url,
     }`,
@@ -111,12 +118,10 @@ export async function getAboutMe(): Promise<AboutMe[]> {
   return client.fetch(
     groq`*[_type == 'aboutMe' ]{
       _id,
-        _type,
-        description,
-    "skillsName":skills[]{"skillIconImage":icon.asset->url,name},
-       }
-    
-    `,
+      _type,
+      description,
+      "skillsName":skills[]{"skillIconImage":icon.asset->url,name},
+    }`,
     {
       next: {
         revalidate: 67,
@@ -124,3 +129,5 @@ export async function getAboutMe(): Promise<AboutMe[]> {
     }
   );
 }
+
+

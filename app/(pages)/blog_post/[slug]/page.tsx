@@ -1,36 +1,15 @@
 "use client";
 
 import { getPosts } from "@/sanity/sanity.query";
-import { PortableText } from "@portabletext/react";
+// import { PortableText } from "@portabletext/react";
+import PortableText from '@sanity/block-content-to-react';
+
+
 import styled from "@emotion/styled";
 
 type Props = {
   params: { slug: string };
 };
-
-export default async function Post({ params }: Props) {
-  const post = await getPosts(params.slug);
-
-  return (
-    <PostWrapper>
-      <TitleWrapper>
-        <h1 className="title-project">{post.title}</h1>
-        <img src={post.imageBlog} alt="imagine" className="image-project" />
-      </TitleWrapper>
-      <p> {post.content}</p>
-      <Paragraph>
-        {post.postContent.map((content, index) => (
-          <div key={index}>
-            <h2>{content.title}</h2>
-            <img src={content.imageURL} alt={content.title} />
-            <p>{content.paragraph}</p>
-          </div>
-        ))}
-      </Paragraph>
-    </PostWrapper>
-  );
-}
-
 const PostWrapper = styled.section`
   margin-top: 6rem;
 `;
@@ -106,3 +85,19 @@ const Paragraph = styled.section`
     }
   }
 `;
+export default async function Post({ params }: Props) {
+  const post = await getPosts(params.slug);
+
+  return (
+    <PostWrapper>
+      <TitleWrapper>
+        <h1 className="title-project">{post.title}</h1>
+        <img src={post.mainImage} alt="imagine" className="image-project" />
+      </TitleWrapper>
+      <Paragraph>
+        {/* Utilizza PortableText per il rendering del corpo del post */}
+        <PortableText blocks={post.body} />
+      </Paragraph>
+    </PostWrapper>
+  );
+  }  
