@@ -58,18 +58,20 @@ export async function getPost(): Promise<Post[]> {
        _id,
       title,
       author,
-      postContent[] {
-    title,
-    "imageURL": image.asset->url, 
-    paragraph
-  } ,
-  "body":body[].children[].text,
+      categories[]->{title,description,_createdAt,_updatedAt,_id},
+
       "imageBlog":body[0].asset->url,
      name,
       _ref,
      _type,
+     "body":body[].children[].text,
       "slug": slug.current,
       "mainImage": mainImage.asset->url,
+        //     postContent[] {
+  //   title,
+  //   "imageURL": image.asset->url, 
+  //   paragraph
+  // } ,
     }`,
     {
       next: {

@@ -1,45 +1,60 @@
 "use client"
 
-import { getPost } from "@/sanity/sanity.query";
+
+
+import React, { useState, useEffect } from "react";
+import styled from "@emotion/styled";
 import Image from "next/image";
 import Link from "next/link";
-import styled from "@emotion/styled";
 import HeaderSection from "./Header";
+import PostFilter from "./PostFilter"; // Importa il componente PostFilter
 
-export default async function PostList() {
-  const posts = await getPost();
+import { getPost } from "@/sanity/sanity.query";
+
+export default function PostList() {
+  const [posts, setPosts] = useState([]);
+  const [filteredPosts, setFilteredPosts] = useState([]);
+
+  useEffect(() => {
+    const fetchPosts = async () => {
+      const allPosts = await getPost();
+      setPosts(allPosts);
+      setFilteredPosts(allPosts); // Inizialmente, i post filtrati sono gli stessi di quelli non filtrati
+    };
+
+    fetchPosts();
+  }, []);
+
+  const handleFilteredPosts = (filteredPosts) => {
+    setFilteredPosts(filteredPosts);
+  };
 
   return (
     <Section>
-<HeaderSection/>
-      
+      <HeaderSection />
+      <PostFilter posts={posts} setFilteredPosts={handleFilteredPosts} /> {/* Passa i dati dei post e la funzione per gestire i post filtrati */}
       <PostContainer className="post-container">
-        {posts.map((post) => (
-           <li key={post._id} className="post-list">
-            <Link
-            href={`/blog_post/${post.slug}`}
-            key={post._id}
-            className="post-link"
-          >
-            <PostContent className="post-content">
-            <h3>{post.title}</h3>
-            {post.mainImage && (
-              <Image
-                src={post.mainImage}
-                alt={post.title}
-                width={350}
-                height={300}
-                className="post-image"
-              />
-            )}
-            </PostContent>
-          
-           
-            
-            <div className="post-name">{post.name}</div>
-          </Link>
-           </li>
-          
+        {filteredPosts.map((post) => (
+          <PostCard key={post._id}>
+            <Link href={`/blog_post/${post.slug}`} key={post._id} className="post-link">
+              <PostContent className="post-content">
+                <h3>{post.title}</h3>
+                {post.mainImage && (
+                  <Image
+                    src={post.mainImage}
+                    alt={post.title}
+                    width={350}
+                    height={300}
+                    className="post-image"
+                  />
+                )}
+              </PostContent>
+              {post.categories.map((category, index) => (
+                <span key={index}>{category.title}</span>
+              ))}
+              <PostName>{post.name}</PostName>
+            </Link>
+          </PostCard>
         ))}
       </PostContainer>
     </Section>
@@ -47,8 +62,6 @@ export default async function PostList() {
 }
 
 const Section = styled.section`
-  /* background: url("/decoration_logoe.png") repeat;
-  background-size: 60px 60px; */
   background-color: #171d35;
   height: 100vh;
   margin-left: -1rem;
@@ -59,113 +72,44 @@ const Section = styled.section`
   }
 `;
 
-
-
-
-
-const PostContent = styled.div`
-position: relative;
-img{
-  position: absolute;
-  top: 0;
-  left: 0;
-  margin-top: -2rem;
-  margin-left:0rem;
-}
-&:hover {
-      transform: scale(1.05);
-    }
-`
-
-const TextContainer = styled.div`
-  text-align: center;
-  color: #0f2556;
-  margin: 5rem auto;
-  font-family: "Amatic SC", sans-serif;
-
-  padding-top: 1rem;
-
-  background-color: #0f2556;
-  background-color: #feeb64;
-  box-shadow: 0 8px 32px 0 rgba(7, 12, 74, 0.37);
-
-  border-bottom-right-radius: 3rem;
-  border-bottom-left-radius: 3rem;
-  
-  .greeting {
-    margin-top: -1rem;
-    font-size: 1.7rem;
-  }
-
-  .section-title {
-    font-size: 3rem;
-    margin-top: -2.5rem;
-    padding: 0;
-    color: #b29d6e;
-    margin-bottom: 0rem;
-  }
-  position: fixed;
-  top: 0;
-  left: 50%;
-  transform: translateX(-50%);
-  width: 100%;
-  z-index: 999;
-  @media (max-width: 600px) {
-    margin-top: 5.1rem;
-
-    .section-title {
-      font-size: 2rem;
-      margin-top: -2rem;
-      padding: 0;
-      color: #b29d6e;
-    }
-  }
-`;
-
-
-
 const PostContainer = styled.div`
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
   align-items: center;
-  padding-top: 20rem;
+  height: auto;
+`;
 
-  text-align: center;
+const PostCard = styled.div`
+  min-width: 30rem;
+  max-width: 40rem;
+  max-height: 30rem;
+  margin: 4rem;
+  background-color: #fff;
+  border: 0.2rem solid #afae7f;
+  transition: all 0.2s ease;
+  overflow: hidden;
+  position: relative;
+  cursor: pointer;
+  border-radius: 1rem;
+  box-shadow: 14px 14px 0 -4px black, 14px 14px 0 0 black;
+`;
 
+const PostContent = styled.div`
+  position: relative;
+  img {
+    width: 94%;
+    height: 40%;
+    margin: 0 auto;
+  }
+`;
 
-  grid-auto-flow: column;
-  .post-list {
-  
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    overflow: hidden;
-    transition: transform 0.3s ease;
-    height: 20rem;
-    width: 20rem;
-    margin: 2rem;
-    /* border-left: solid 1rem rgba(2, 6, 52, 0.8); */
-    border-left: solid .7rem   #feeb64;
-  
-    background-color: #f0fff4;
-    list-style-type: none;
-    font-size:3rem;
-    align-items:center;
-    color:#afae7f;
-    font-family: "Amatic SC", sans-serif;
-    &:hover {
-      transform: scale(1.05);
-    }
-  }
-  .post-link{
-    text-decoration:none;
-  }
-  /* .project-image {
-    width: 100%;
-    height: 100%;
-  } */
-  @media (max-width: 600px) {
-    padding-top: 12rem;
-    flex-direction: column;
-    
-  }
+const PostName = styled.div`
+  margin: 0.5rem 0;
+  margin-left: 0.5rem;
+`;
+
+const PostLink = styled(Link)`
+  text-decoration: none;
+  color: inherit;
 `;
