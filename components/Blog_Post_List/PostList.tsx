@@ -40,13 +40,15 @@ export default function PostList() {
               <PostContent className="post-content">
                 <h3>{post.title}</h3>
                 {post.mainImage && (
-                  <Image
-                    src={post.mainImage}
-                    alt={post.title}
-                    width={350}
-                    height={300}
-                    className="post-image"
-                  />
+                  <ImageWrapper>
+                    <Image
+                      src={post.mainImage}
+                      alt={post.title}
+                      width={350}
+                      height={300}
+                      className="post-image"
+                    />
+                  </ImageWrapper>
                 )}
               </PostContent>
               {post.categories.map((category, index) => (
@@ -57,27 +59,24 @@ export default function PostList() {
           </PostCard>
         ))}
       </PostContainer>
+      <Footer>Questo è il footer</Footer>
     </Section>
   );
 }
 
 const Section = styled.section`
   background-color: #171d35;
-  height: 100vh;
-  margin-left: -1rem;
-  margin-right: -1rem;
-  margin: 0 -1rem;
-  @media (max-width: 600px) {
-    height: 220vh;
-  }
+  min-height: 100vh; /* Assicura che il contenuto riempia almeno tutta l'altezza della viewport */
+  display: flex;
+  flex-direction: column;
 `;
 
 const PostContainer = styled.div`
+  flex: 1; /* Il contenuto dei post occupa lo spazio disponibile */
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
   align-items: center;
-  height: auto;
 `;
 
 const PostCard = styled.div`
@@ -97,11 +96,10 @@ const PostCard = styled.div`
 
 const PostContent = styled.div`
   position: relative;
-  img {
-    width: 94%;
-    height: 40%;
-    margin: 0 auto;
-  }
+`;
+
+const ImageWrapper = styled.div`
+  margin-bottom: 1rem; /* Aggiunge spaziatura sotto l'immagine */
 `;
 
 const PostName = styled.div`
@@ -109,7 +107,9 @@ const PostName = styled.div`
   margin-left: 0.5rem;
 `;
 
-const PostLink = styled(Link)`
-  text-decoration: none;
-  color: inherit;
+const Footer = styled.footer`
+  text-align: center;
+  padding: 2rem 0;
+  background-color: #0f2556;
+  color: #fff;
 `;
