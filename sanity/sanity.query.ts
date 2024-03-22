@@ -59,22 +59,34 @@ export async function getPost(): Promise<Post[]> {
       _id,
       title,
       author->{name, "bio":bio[].children[].text,_createdAt},
-      body[]{
-    ...,
-    _type == "image" => {
-      ...,
-      "asset": asset->{
-        ...
-      }
-    }
-  },
-  'bodyText':body[].children[].text,
-          "bodyImage":body[].asset->url,
+      "body": body[]{
+        ...,
+        _type == 'block' => {
+          ...,
+          "children": children[]{
+            ...,
+            _type == 'span' => {
+              ...,
+              "marks": marks[]->{
+                _type,
+                // Altri campi dei tuoi segni se necessario
+              }
+            },
+            _type == 'image' => {
+              ...,
+              "asset": asset->{
+                ...
+              }
+            }
+          }
+        }
+      },
       categories[]->{title,_Id},
       "imageURL": mainImage.asset->url,
       "slug": slug.current,
       "mainImage": mainImage.asset->url,
     }`,
+   
     {
       next: {
         revalidate: 63,
@@ -89,26 +101,37 @@ export async function getPosts(slug: string): Promise<Post> {
       _id,
       title,
       author->{name, "bio":bio[].children[].text,_createdAt},
-      body[]{
-    ...,
-    _type == "image" => {
-      ...,
-      "asset": asset->{
-        ...
-      }
-    }
-  },
-  'bodyText':body[].children[].text,
-          "bodyImage":body[].asset->url,
+      "body": body[]{
+        ...,
+        _type == 'block' => {
+          ...,
+          "children": children[]{
+            ...,
+            _type == 'span' => {
+              ...,
+              "marks": marks[]->{
+                _type,
+                // Altri campi dei tuoi segni se necessario
+              }
+            },
+            _type == 'image' => {
+              ...,
+              "asset": asset->{
+                ...
+              }
+            }
+          }
+        }
+      },
       categories[]->{title,_Id},
       "imageURL": mainImage.asset->url,
       "slug": slug.current,
       "mainImage": mainImage.asset->url,
     }`,
-    { slug },
+     {slug},
     {
       next: {
-        revalidate: 61,
+        revalidate: 63,
       },
     }
   );

@@ -1,15 +1,13 @@
 "use client";
 
 import { getPosts } from "@/sanity/sanity.query";
-// import { PortableText } from "@portabletext/react";
-import PortableText from '@sanity/block-content-to-react';
-
-
+import { PortableText } from "@portabletext/react";
 import styled from "@emotion/styled";
 
 type Props = {
   params: { slug: string };
 };
+
 const PostWrapper = styled.section`
   margin-top: 6rem;
 `;
@@ -85,6 +83,7 @@ const Paragraph = styled.section`
     }
   }
 `;
+
 export default async function Post({ params }: Props) {
   const post = await getPosts(params.slug);
 
@@ -96,8 +95,18 @@ export default async function Post({ params }: Props) {
       </TitleWrapper>
       <Paragraph>
         {/* Utilizza PortableText per il rendering del corpo del post */}
-        <PortableText blocks={post.body} />
+        <PortableText
+          value={post.body}
+          components={{
+            block: {
+              h1: ({children}) => <h1 className="text-2xl">{children}</h1>,
+              customHeading: ({children}) => (
+                <h2 className="text-lg text-primary text-purple-700">{children}</h2>
+              ),
+            },
+          }}
+        />
       </Paragraph>
     </PostWrapper>
   );
-  }  
+}
