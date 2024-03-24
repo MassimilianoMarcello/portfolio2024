@@ -1,11 +1,9 @@
-
-
 "use client";
 
 import { getAboutMe } from "@/sanity/sanity.query";
 import Image from "next/image";
 import styled from "@emotion/styled";
-import {keyframes } from "@emotion/react";
+import { keyframes } from "@emotion/react";
 import Link from "next/link";
 import "@/app/page.module.css";
 import theme from "@/app/theme_emotion";
@@ -72,12 +70,9 @@ const AnimatedImage = styled(Image)`
 const SkillItem = styled.li<SkillItemProps>`
   margin-right: 1rem;
   animation: ${bounceAnimation} 4s infinite;
-  animation-delay: ${(props) =>
-    props.delay}s; 
+  animation-delay: ${(props) => props.delay}s;
 `;
 const PersonalCard = styled.section`
-
-
   background-color: #f0fff4;
   box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
   backdrop-filter: blur(1.5px);
@@ -85,13 +80,13 @@ const PersonalCard = styled.section`
   position: relative;
   margin: 4rem 16rem;
   margin-top: 6rem;
-  
-  h1 {
+  padding-bottom: 8rem;
 
+  h1 {
     font-family: ${theme.fontFamily.primaryFont};
-    color:${theme.colors.blueDarkerPlus} ;
+    color: ${theme.colors.blueDarkerPlus};
     font-size: 4rem;
-    padding-top: 1rem;
+    padding: 3rem;
     text-align: center;
   }
   @media (max-width: 1000px) {
@@ -110,11 +105,10 @@ const PersonalCard = styled.section`
 `;
 
 const ProfileCard = styled.section`
-
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   grid-template-rows: repeat(6, auto);
-  margin: -2rem 4rem;
+  /* margin: -2rem 4rem; */
   padding-bottom: 2rem;
 
   .description {
@@ -122,19 +116,22 @@ const ProfileCard = styled.section`
     grid-column: 1/4;
     grid-row: 1/2;
     padding: 3rem;
-    margin-left: 0rem;
+    /* margin-left: 0rem; */
     margin-top: -1rem;
-    margin-bottom: 2rem;
+    margin-bottom: 6rem;
+    padding: 0 10rem;
   }
   .about-description {
     font-family: "Quicksand", sans-serif;
-   
+
     font-optical-sizing: auto;
     font-size: 1.1rem;
     font-weight: 300;
     letter-spacing: 2px;
     word-spacing: 5px;
-    margin: -1rem 1rem;
+    margin-left: -4rem;
+    margin-top: -3rem;
+
     text-align: left;
     padding-bottom: 2rem;
     line-height: 1.6;
@@ -144,7 +141,6 @@ const ProfileCard = styled.section`
   } */
 
   @media (max-width: 600px) {
-
     .description {
       padding: 0rem;
       margin-left: -2rem;
@@ -163,7 +159,7 @@ const ProfileCard = styled.section`
 `;
 const SkillsContainer = styled.div`
   width: auto;
-    height: auto;
+  height: auto;
   grid-column: 3/4;
   grid-row: 3/4;
   display: flex;
@@ -174,9 +170,10 @@ const SkillsContainer = styled.div`
   position: absolute;
   left: 0;
   bottom: 0;
-  margin: -0.7rem auto;
+  /* margin: -0.7rem auto; */
+  margin-bottom: 5rem;
   margin-left: 14rem;
-  padding-bottom: 2rem;
+  padding: 0 2rem;
   @media (max-width: 1000px) {
     width: auto;
     height: auto;
@@ -198,6 +195,7 @@ const SkillsContainer = styled.div`
 
 const AboutContainer = styled.div`
   background: url("/assets/Blue_particles.jpg") center/cover no-repeat;
+  padding-bottom: 1rem;
   /* height: auto;
   margin-top: 2rem;
   padding-top: 2rem;
@@ -219,29 +217,6 @@ const AboutContainer = styled.div`
   }
 `;
 
-
-
-
 // he phrase "Digital Pathways: coding My ..."  is a good start, but it can be improved to be more informative and engaging. Here are some ways to complete the title depending on what you want to convey:
 
 // If you want to talk about your web development journey:
-
-// Digital Pathways: Coding My Way Through Web Development
-// Digital Pathways: My Coding Journey as a Web Developer
-// Digital Pathways: Building My Skills - Coding for Web Development
-// If you want to showcase your coding skills:
-
-// Digital Pathways: My Coding Prowess (a bit more informal)
-// Digital Pathways: Showcasing My Coding Skills
-// Digital Pathways: A Glimpse into My Coding Expertise
-// If you want to invite people to explore your coding projects:
-
-// Digital Pathways: Coding My Projects - Explore!
-// Digital Pathways: My Coding Creations - Take a Look!
-// Digital Pathways: Unveiling My Code - Explore My Projects
-// Here are some additional tips:
-
-// Keep it concise: Aim for a title that is under 10 words for better readability.
-// Use strong verbs: Verbs like "coding," "building," or "exploring" add action and interest.
-// Target your audience: If your website is aimed at potential clients, focus on showcasing your skills. If it's more personal, emphasize your journey.
-// I hope this helps you create the perfect title for your section!
