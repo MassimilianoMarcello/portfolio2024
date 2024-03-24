@@ -69,7 +69,6 @@ export async function getPost(): Promise<Post[]> {
               ...,
               "marks": marks[]->{
                 _type,
-                // Altri campi dei tuoi segni se necessario
               }
             },
             _type == 'image' => {
@@ -77,6 +76,10 @@ export async function getPost(): Promise<Post[]> {
               "asset": asset->{
                 ...
               }
+            },
+            _type == 'link' => {
+              ...,
+              "href": href
             }
           }
         }
@@ -85,8 +88,10 @@ export async function getPost(): Promise<Post[]> {
       "imageURL": mainImage.asset->url,
       "slug": slug.current,
       "mainImage": mainImage.asset->url,
+      // Aggiungi campi separati per le immagini e i link
+      "images": body[][_type == 'image'].asset->url,
+      "links": body[][_type == 'link'].href
     }`,
-
     {
       next: {
         revalidate: 63,
@@ -94,6 +99,7 @@ export async function getPost(): Promise<Post[]> {
     }
   );
 }
+
 
 export async function getPosts(slug: string): Promise<Post> {
   return client.fetch(
@@ -111,7 +117,6 @@ export async function getPosts(slug: string): Promise<Post> {
               ...,
               "marks": marks[]->{
                 _type,
-              
               }
             },
             _type == 'image' => {
@@ -119,6 +124,10 @@ export async function getPosts(slug: string): Promise<Post> {
               "asset": asset->{
                 ...
               }
+            },
+            _type == 'link' => {
+              ...,
+              "href": href
             }
           }
         }
@@ -127,6 +136,9 @@ export async function getPosts(slug: string): Promise<Post> {
       "imageURL": mainImage.asset->url,
       "slug": slug.current,
       "mainImage": mainImage.asset->url,
+      // Aggiungi campi separati per le immagini e i link
+      "images": body[][_type == 'image'].asset->url,
+      "links": body[][_type == 'link'].href
     }`,
      {slug},
     {

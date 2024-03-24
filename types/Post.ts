@@ -98,39 +98,65 @@
 // };
 
 
-export type Post = {
-  _id: string;
-  title: string;
-  author: {
-    name: string;
-    bio: string;
-    createdAt: Date;
-  };
-  body: PortableTextBlock[]; // Utilizzare il nuovo tipo PortableTextBlock
-  categories: {
-    title: string;
-    _id: string;
-  }[];
-  mainImage: string;
-  imageURL:string;
-  slug: string;
-};
+// types.ts
 
-// Definizione di PortableTextBlock
-export type PortableTextBlock = {
+// Definizione del tipo per l'oggetto autore
+export interface Author {
+  name: string;
+  bio: string;
+  _createdAt: string;
+}
+
+// Definizione del tipo per l'oggetto categoria
+export interface Category {
+  title: string;
+  _Id: string;
+}
+
+// Definizione del tipo per un singolo blocco di testo all'interno del campo Portable Text
+export interface TextBlock {
   _key: string;
   _type: 'block';
-  children: PortableTextSpan[];
-};
+  children: Array<TextSpan>;
+  style?: string;
+  markDefs?: Array<any>;
+}
 
-export type PortableTextSpan = {
+// Definizione del tipo per un singolo frammento di testo all'interno di un blocco di testo
+export interface TextSpan {
   _key: string;
   _type: 'span';
   text: string;
-  marks: string[]; // Aggiungere i segni necessari
-};
+  marks?: Array<any>;
+}
 
-// Se hai bisogno di supportare altri tipi di blocchi, aggiungili qui come union type
-export type PortableTextBlockType = PortableTextBlock ;
+// Definizione del tipo per un'immagine all'interno del campo Portable Text
+export interface ImageBlock {
+  _key: string;
+  _type: 'image';
+  asset: {
+    _ref: string;
+  };
+}
 
-// Aggiungi altre interfacce o tipi se necessario per altri tipi di b
+// Definizione del tipo per un link all'interno del campo Portable Text
+export interface LinkBlock {
+  _key: string;
+  _type: 'link';
+  href: string;
+}
+
+// Definizione del tipo per un singolo post
+export interface Post {
+  _id: string;
+  title: string;
+  author: Author;
+  body: Array<TextBlock | ImageBlock | LinkBlock>;
+  categories: Array<Category>;
+  imageURL: string;
+  slug: string;
+  mainImage: string;
+  plaintext?: string; // Campo opzionale per il testo normale
+  images?: Array<string>; // Campo opzionale per gli URL delle immagini
+  links?: Array<string>; // Campo opzionale per gli URL dei link
+}
