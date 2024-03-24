@@ -12,7 +12,7 @@ const ProjectList = ({ projects, openProjectId, toggleProjectInfo }) => {
           onClick={() => toggleProjectInfo(project._id)}
         >
           <ImageProject>
-            <ProjectTitle>{project.name}</ProjectTitle>
+            {/* <ProjectTitle>{project.name}</ProjectTitle> */}
             <ProjectImage src={project.image} alt={project.imageAlt} />
             {/* <ProjectTechnologies>{project.technologies}</ProjectTechnologies> */}
           </ImageProject>
@@ -41,13 +41,20 @@ const ProjectCard = styled.div`
   max-height: 20rem;
   margin: 4rem;
   background-color: #fff;
-  border: 0.2rem solid #afae7f; /* Colore ridotto */
+  border: 0.2rem solid #f5f5f5; 
   transition: all 0.2s ease;
   overflow: hidden;
   position: relative;
   cursor: pointer;
-  border-radius: 1rem; /* Bordi arrotondati */
+  border-radius: 1rem; 
   box-shadow: 14px 14px 0 -4px black, 14px 14px 0 0 black; /* Aggiunta dell'ombra */
+  @media screen and (max-width: 600px) {
+    max-width: 20rem;
+    min-width: 15rem;
+    max-height: 30rem;
+    min-height: 25rem;
+  }
+
 `;
 
 const ImageProject = styled.div`
@@ -65,6 +72,9 @@ const ProjectTitle = styled.h3`
   font-family: ${theme.fontFamily.primaryFont};
   color: #1d3b7a;
   font-size: 2rem;
+  @media screen and (max-width: 600px) {
+    margin-right: 0;
+  }
 `;
 
 const ProjectImage = styled.img`

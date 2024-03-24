@@ -1,10 +1,11 @@
-import styled from '@emotion/styled';
+import styled from "@emotion/styled";
 import theme from "@/app/theme_emotion";
 
 const StyledTechnologiesUsed = styled.div`
   ul {
     list-style-type: none;
     padding: 0;
+    display: flex;
   }
 
   li {
@@ -17,8 +18,6 @@ const StyledTechnologiesUsed = styled.div`
     cursor: pointer;
     margin-bottom: 0.5rem;
   }
-
-
 `;
 
 const TechnologiesUsed = ({ technologies }) => {
@@ -34,4 +33,3 @@ const TechnologiesUsed = ({ technologies }) => {
 };
 
 export default TechnologiesUsed;
-

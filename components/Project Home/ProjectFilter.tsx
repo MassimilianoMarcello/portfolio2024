@@ -96,8 +96,13 @@ const Filter = styled.section`
   z-index: 111111111111;
   animation: slideIn 1.5s forwards;
   animation-fill-mode: forwards;
+
   @media (max-width: 600px) {
-    margin-top: -4rem;
+ 
+    flex-direction: row;
+    margin-top: 0rem;
+    position: initial;
+
   }
   @keyframes slideIn {
     from {
@@ -121,18 +126,23 @@ const TheButton = styled.button`
   margin-left: 1rem;
 
   &:hover {
-    background-color: #feeb64;
+    background-color:${theme.colors.yellow};
+  }
+  @media (max-width: 600px) {
+    margin-left: 1rem;
+    padding: 1rem;
+    margin-right: 1rem;
   }
 `;
 
 const ClearButton = styled.button`
-  background-color: white;
-  color: #1d3b7a;
-  border: 2px solid #1d3b7a;
+  background-color:${theme.colors.white};
+  color: ${theme.colors.blueDarker};
+  border: 2px solid ${theme.colors.blueDarker};
   transition: background-color 0.3s ease, color 0.3s ease;
 
   &:hover {
-    background-color: #feeb64;
-    color: #1d3b7a;
+    background-color:${theme.colors.yellow};
+    color: ${theme.colors.blueDarker};
   }
 `;
