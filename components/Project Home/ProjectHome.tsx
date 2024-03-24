@@ -2,9 +2,10 @@
 
 import React, { useEffect, useState } from 'react';
 import styled from '@emotion/styled';
+import theme from '@/app/theme_emotion';
 import { getProjects } from '@/sanity/sanity.query';
 import { ThemeProvider } from '@emotion/react';
-import theme from '@/app/theme_emotion';
+
 import HeaderSection from './HeaderSection';
 import ProjectList from './ProjectList';
 import ProjectFilter from './ProjectFilter';

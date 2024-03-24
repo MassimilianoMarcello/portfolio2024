@@ -6,10 +6,25 @@ import React, { useState, useEffect } from 'react';
 import Header from '@/components/Blog Single Post/Header';
 import { getPosts } from "@/sanity/sanity.query"; 
 import { PortableText } from '@portabletext/react';
+import styled from '@emotion/styled';
 import { createClient } from 'next-sanity';
 import { apiVersion, dataset, projectId } from '@/sanity/sanity.client';
 import { getImageDimensions } from '@sanity/asset-utils';
 import urlBuilder from '@sanity/image-url';
+
+import theme from '@/app/theme_emotion';
+
+
+const PostContainer = styled.div`
+p{
+ font-size:${theme.fontSize.paragraph};
+}
+`;
+
+const Image = styled.img`
+
+
+`;
 
 const Post = ({ params }) => {
   const [post, setPost] = useState(null);
@@ -44,14 +59,13 @@ const Post = ({ params }) => {
       .url();
 
     return (
-      <img
+      <Image
         src={imageUrl}
         alt={value.alt || ' '}
         loading="lazy"
-        style={{
-          display: isInline ? 'inline-block' : 'block',
-          aspectRatio: width / height,
-        }}
+     
+        width={200}
+        height={100}
       />
     );
   };
@@ -63,7 +77,7 @@ const Post = ({ params }) => {
   };
 
   return (
-    <div>
+    <PostContainer>
       {post ? (
         <div>
           <Header title={post.title} image={post.imageURL} />
@@ -72,11 +86,10 @@ const Post = ({ params }) => {
           </div>
         </div>
       ) : (
-        <p>Caricamento in corso...</p>
+        <p>Wait a minute...</p>
       )}
-    </div>
+    </PostContainer>
   );
 }
 
 export default Post;
-
