@@ -1,15 +1,22 @@
-import React, { useState, useEffect, useCallback } from "react";
+import React, { useState, useEffect } from "react";
 import styled from "@emotion/styled";
-import Image from "next/image";
 import theme from "@/app/theme_emotion";
 import NoProjectsMessage from "./NoProjectMessage";
 
 const ProjectFilter = ({ projects, setFilteredProjects, setOpenProjectId }) => {
   const [selectedTechnologies, setSelectedTechnologies] = useState([]);
   const [noProjectsMessage, setNoProjectsMessage] = useState(false);
+  const [showInvalidCombination, setShowInvalidCombination] = useState(false);
 
-  const allTechnologies = useCallback(() => {
-    return projects.reduce((technologies, project) => {
+  useEffect(() => {
+    if (!projects) return;
+
+    const filteredProjects = projects.filter((project) =>
+      selectedTechnologies.every((tech) => project.technologies.includes(tech))
+    );
+    setFilteredProjects(filteredProjects);
+
+    const filteredTechnologies = projects.reduce((technologies, project) => {
       project.technologies.forEach((tech) => {
         if (!technologies.includes(tech)) {
           technologies.push(tech);
@@ -17,57 +24,59 @@ const ProjectFilter = ({ projects, setFilteredProjects, setOpenProjectId }) => {
       });
       return technologies;
     }, []);
-  }, [projects]);
-
-  useEffect(() => {
-    const filteredProjects = projects.filter((project) =>
-      selectedTechnologies.every((tech) => project.technologies.includes(tech))
-    );
-    setFilteredProjects(filteredProjects);
 
     setNoProjectsMessage(filteredProjects.length === 0);
-
+    setShowInvalidCombination(
+      selectedTechnologies.length > 0 && filteredProjects.length === 0
+    );
     setOpenProjectId(null);
   }, [selectedTechnologies, projects, setFilteredProjects, setOpenProjectId]);
 
   const handleToggleTechnology = (technology) => {
-    setSelectedTechnologies((prevTechnologies) => {
-      if (prevTechnologies.includes(technology)) {
-        return prevTechnologies.filter((tech) => tech !== technology);
-      } else {
-        return [...prevTechnologies, technology];
-      }
-    });
+    setSelectedTechnologies((prevTechnologies) =>
+      prevTechnologies.includes(technology)
+        ? prevTechnologies.filter((tech) => tech !== technology)
+        : [...prevTechnologies, technology]
+    );
   };
 
   const handleClearSelection = () => {
     setSelectedTechnologies([]);
+    setShowInvalidCombination(false);
   };
 
   return (
     <div>
-      <Filter style={{ display: noProjectsMessage ? "none" : "flex" }}>
-        {allTechnologies().map((technology) => (
-          <TheButton
-            key={technology}
-            onClick={() => handleToggleTechnology(technology)}
-            style={{
-              backgroundColor: selectedTechnologies.includes(technology)
-                ? "#feeb64"
-                : "#1d3b7a",
-              color: selectedTechnologies.includes(technology)
-                ? "#1d3b7a"
-                : "#f0f0f0",
-            }}
-          >
-            {technology}
-          </TheButton>
-        ))}
+      <Filter>
+        {projects &&
+          projects.reduce((technologies, project) => {
+            project.technologies.forEach((tech) => {
+              if (!technologies.includes(tech)) {
+                technologies.push(tech);
+              }
+            });
+            return technologies;
+          }, []).map((technology) => (
+            <TheButton
+              key={technology}
+              onClick={() => handleToggleTechnology(technology)}
+              style={{
+                backgroundColor: selectedTechnologies.includes(technology)
+                  ? showInvalidCombination
+                    ? "#ff0000"
+                    : "#feeb64"
+                  : "#1d3b7a",
+                color: selectedTechnologies.includes(technology) ? "#1d3b7a" : "#fff",
+              }}
+            >
+              {technology}
+            </TheButton>
+          ))}
         <ClearButton onClick={handleClearSelection}>Clear</ClearButton>
       </Filter>
       {noProjectsMessage && (
-  <NoProjectsMessage handleClearSelection={handleClearSelection} />
-)}
+        <NoProjectsMessage handleClearSelection={handleClearSelection} />
+      )}
     </div>
   );
 };
@@ -75,14 +84,15 @@ const ProjectFilter = ({ projects, setFilteredProjects, setOpenProjectId }) => {
 export default ProjectFilter;
 
 const Filter = styled.section`
-  margin-top: -14rem;
+  margin-top: -16rem;
   margin-left: -50rem;
-
   display: flex;
   flex-wrap: wrap;
   flex-direction: column;
   gap: 0.5rem;
   position: fixed;
+  bottom: 0;
+  margin-bottom: 8rem;
   z-index: 111111111111;
   animation: slideIn 1.5s forwards;
   animation-fill-mode: forwards;
@@ -102,7 +112,7 @@ const Filter = styled.section`
 const TheButton = styled.button`
   font-family: ${theme.fontFamily.primaryFont};
   letter-spacing: 0.07rem;
-  padding: 0.7rem 1rem;
+  padding: 0.7rem .5rem;
   padding-left: 0.2;
   border: none;
   border-radius: 0.5rem;
@@ -126,5 +136,3 @@ const ClearButton = styled.button`
     color: #1d3b7a;
   }
 `;
-
-

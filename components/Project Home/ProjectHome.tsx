@@ -7,6 +7,7 @@ import { ThemeProvider } from '@emotion/react';
 import theme from '@/app/theme_emotion';
 import HeaderSection from './HeaderSection';
 import ProjectList from './ProjectList';
+import ProjectFilter from './ProjectFilter';
 
 export default function Home() {
   const [projects, setProjects] = useState([]);
@@ -30,6 +31,11 @@ export default function Home() {
     <ThemeProvider theme={theme}>
       <Section>
         <HeaderSection
+          projects={projects}
+          setFilteredProjects={setFilteredProjects}
+          setOpenProjectId={setOpenProjectId}
+        />
+        <ProjectFilter // Aggiungi il componente ProjectFilter qui
           projects={projects}
           setFilteredProjects={setFilteredProjects}
           setOpenProjectId={setOpenProjectId}

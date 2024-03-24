@@ -1,10 +1,7 @@
-import React from "react";
 import styled from "@emotion/styled";
 import theme from "@/app/theme_emotion";
 
-
-
-  const HeaderSection = () => {
+const HeaderSection = () => {
   return (
     <Container>
       <TextContainer>
@@ -13,11 +10,6 @@ import theme from "@/app/theme_emotion";
           <span className="section-title">Articles</span>{" "}
         </p>
       </TextContainer>
-      {/* <ProjectFilter
-        projects={projects}
-        setFilteredProjects={setFilteredProjects}
-        setOpenProjectId={setOpenProjectId}
-      /> */}
     </Container>
   );
 };
@@ -40,7 +32,8 @@ const TextContainer = styled.div`
   background-color: #f0f0f0;
 
   .greeting {
-    margin-top: -2rem;
+    margin-top: 0rem;
+    padding-top: 4rem;
   }
   .section-title {
     font-size: 5rem;
@@ -70,4 +63,3 @@ const TextContainer = styled.div`
 `;
 
 export default HeaderSection;
-

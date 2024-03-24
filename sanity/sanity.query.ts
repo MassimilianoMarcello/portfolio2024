@@ -86,7 +86,7 @@ export async function getPost(): Promise<Post[]> {
       "slug": slug.current,
       "mainImage": mainImage.asset->url,
     }`,
-   
+
     {
       next: {
         revalidate: 63,
@@ -111,7 +111,7 @@ export async function getPosts(slug: string): Promise<Post> {
               ...,
               "marks": marks[]->{
                 _type,
-                // Altri campi dei tuoi segni se necessario
+              
               }
             },
             _type == 'image' => {

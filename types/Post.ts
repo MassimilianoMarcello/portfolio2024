@@ -112,6 +112,7 @@ export type Post = {
     _id: string;
   }[];
   mainImage: string;
+  imageURL:string;
   slug: string;
 };
 

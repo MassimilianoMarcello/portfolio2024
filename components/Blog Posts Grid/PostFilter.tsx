@@ -4,26 +4,38 @@ import styled from "@emotion/styled";
 const PostFilter = ({ posts, setFilteredPosts }) => {
   const [selectedCategories, setSelectedCategories] = useState([]);
   const [allCategories, setAllCategories] = useState([]);
+  const [showInvalidCombination, setShowInvalidCombination] = useState(false);
 
   useEffect(() => {
-    const categories = posts.reduce((allCategories, post) => {
-      post.categories.forEach((category) => {
-        if (!allCategories.includes(category.title)) {
-          allCategories.push(category.title);
-        }
-      });
-      return allCategories;
-    }, []);
-    setAllCategories(categories);
+    if (posts) {
+      const categories = posts.reduce((allCategories, post) => {
+        post.categories.forEach((category) => {
+          if (!allCategories.includes(category.title)) {
+            allCategories.push(category.title);
+          }
+        });
+        return allCategories;
+      }, []);
+      setAllCategories(categories);
+    }
   }, [posts]);
 
   useEffect(() => {
-    const filteredPosts = posts.filter((post) =>
-      selectedCategories.every((category) =>
-        post.categories.map((c) => c.title).includes(category)
-      )
-    );
-    setFilteredPosts(filteredPosts);
+    if (posts) {
+      const filteredPosts = posts.filter((post) =>
+        selectedCategories.every((category) =>
+          post.categories.map((c) => c.title).includes(category)
+        )
+      );
+      setFilteredPosts(filteredPosts);
+
+      // Controlla se la combinazione selezionata non corrisponde a nessun post
+      if (filteredPosts.length === 0 && selectedCategories.length > 0) {
+        setShowInvalidCombination(true);
+      } else {
+        setShowInvalidCombination(false);
+      }
+    }
   }, [selectedCategories, posts, setFilteredPosts]);
 
   const handleToggleCategory = (category) => {
@@ -38,10 +50,11 @@ const PostFilter = ({ posts, setFilteredPosts }) => {
 
   const handleClearSelection = () => {
     setSelectedCategories([]);
+    setShowInvalidCombination(false);
   };
 
   return (
-    <Container>
+    <Wrapper>
       <Filter>
         {allCategories.map((category) => (
           <TheButton
@@ -49,7 +62,9 @@ const PostFilter = ({ posts, setFilteredPosts }) => {
             onClick={() => handleToggleCategory(category)}
             style={{
               backgroundColor: selectedCategories.includes(category)
-                ? "#feeb64"
+                ? showInvalidCombination
+                  ? "#ff0000"
+                  : "#feeb64"
                 : "#1d3b7a",
               color: selectedCategories.includes(category) ? "#1d3b7a" : "#fff",
             }}
@@ -59,22 +74,18 @@ const PostFilter = ({ posts, setFilteredPosts }) => {
         ))}
         <ClearButton onClick={handleClearSelection}>Clear</ClearButton>
       </Filter>
-    </Container>
+    </Wrapper>
   );
 };
 
 export default PostFilter;
-const Container = styled.div`
-  position: fixed;
-  display: flex;
-  flex-direction: row;
-`;
+const Wrapper = styled.div``;
 const Filter = styled.section`
-  margin-left: -50rem;
-
-  /* flex-wrap: wrap; */
-  gap: 0.5rem;
-  margin-top: 2rem;
+  display: flex;
+  gap: 1rem;
+  flex-wrap: wrap;
+  margin: 1rem 1.5rem;
+  z-index: 11111111111;
 `;
 
 const TheButton = styled.button`
@@ -85,7 +96,6 @@ const TheButton = styled.button`
   border-radius: 0.5rem;
   transition: background-color 0.3s ease, color 0.3s ease;
   cursor: pointer;
-  margin-left: 2rem;
 
   &:hover {
     background-color: #feeb64;

@@ -1,7 +1,7 @@
 import React from "react";
 import styled from "@emotion/styled";
 import theme from "@/app/theme_emotion";
-import ProjectFilter from "./ProjectFilter";
+
 
 const HeaderSection = ({ projects, setFilteredProjects, setOpenProjectId }) => {
   return (
@@ -12,34 +12,33 @@ const HeaderSection = ({ projects, setFilteredProjects, setOpenProjectId }) => {
           <span className="section-title">Projects</span>{" "}
         </p>
       </TextContainer>
-      <ProjectFilter
-        projects={projects}
-        setFilteredProjects={setFilteredProjects}
-        setOpenProjectId={setOpenProjectId}
-      />
+  
     </Container>
   );
 };
 
 const Container = styled.div`
-  /* Stili per il container principale, se necessario */
-`;
+
+  `;
 
 const TextContainer = styled.div`
   text-align: center;
   color: #0f2556;
   margin: 1rem auto;
-  margin-top: 4rem;
+  margin-top: 0rem;
   font-family: ${theme.fontFamily.primaryFont};
   font-weight: 900;
   font-size: 5rem;
-  padding-top: 6rem;
+  padding-top: 2rem;
   padding-bottom: 2rem;
+ 
+
 
   background-color: #f0f0f0;
 
   .greeting {
-    margin-top: -2rem;
+    margin-top: 0rem;
+    padding-top: 4rem;
   }
   .section-title {
     font-size: 5rem;

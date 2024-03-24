@@ -31,13 +31,14 @@ const ProjectContainer = styled.div`
   flex-wrap: wrap;
   justify-content: center;
   margin-top: -6rem;
-  margin-left: 8rem;
+  margin-left: 2.5rem;
+  margin-right: -6rem;
 `;
 
 const ProjectCard = styled.div`
-  min-width: 30rem;
-  max-width: 40rem;
-  max-height: 30rem;
+  min-width: 28rem;
+  max-width: 30rem;
+  max-height: 20rem;
   margin: 4rem;
   background-color: #fff;
   border: 0.2rem solid #afae7f; /* Colore ridotto */

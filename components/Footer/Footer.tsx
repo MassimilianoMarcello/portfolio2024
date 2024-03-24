@@ -100,6 +100,7 @@ export default Footer;
 
 const FooterBox = styled.footer`
   position: relative;
+  bottom: 0;
   background-color: #00286b;
   height: 8rem;
   color: #fff;
@@ -108,7 +109,9 @@ const FooterBox = styled.footer`
 
 
 `;
-const ElementsBox = styled.div``;
+const ElementsBox = styled.div`
+
+`;
 
 const LogoBox = styled.div`
   display: flex;
