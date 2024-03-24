@@ -10,5 +10,9 @@ const config: ClientConfig = {
 };
 
 const client = createClient(config);
+export const apiVersion = config.apiVersion;
+export const dataset = config.dataset;
+export const projectId = config.projectId;
+
 
 export default client;

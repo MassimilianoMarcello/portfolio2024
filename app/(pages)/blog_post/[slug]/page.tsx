@@ -2,27 +2,18 @@
 
 
 
-// import PortableText from "@sanity/block-content-to-react";
-import styled from "@emotion/styled";
-import theme from "@/app/theme_emotion";
-import Image from "next/image";
-import { useState, useEffect } from 'react';
+import React, { useState, useEffect } from 'react';
 import Header from '@/components/Blog Single Post/Header';
-
 import { getPosts } from "@/sanity/sanity.query"; 
-import {PortableText} from '@portabletext/react'
-import { Post as PostType } from '@/types/Post'; 
+import { PortableText } from '@portabletext/react';
+import { createClient } from 'next-sanity';
+import { apiVersion, dataset, projectId } from '@/sanity/sanity.client';
+import { getImageDimensions } from '@sanity/asset-utils';
+import urlBuilder from '@sanity/image-url';
 
-
-
-interface Props {
-  params: {
-    slug: string;
-  };
-}
-
-const Post = ({ params }: Props) => {
-  const [post, setPost] = useState<PostType | null>(null);
+const Post = ({ params }) => {
+  const [post, setPost] = useState(null);
+  const [client, setClient] = useState(null);
 
   useEffect(() => {
     const fetchPost = async () => {
@@ -30,8 +21,46 @@ const Post = ({ params }: Props) => {
       setPost(postData);
     };
 
+    if (!client) {
+      const sanityClient = createClient({
+        projectId,
+        dataset,
+        apiVersion,
+        useCdn: false
+      });
+      setClient(sanityClient);
+    }
+
     fetchPost();
-  }, [params.slug]);
+  }, [params.slug, client]);
+
+  const SampleImageComponent = ({ value, isInline }) => {
+    const { width, height } = getImageDimensions(value);
+    const imageUrl = urlBuilder(client)
+      .image(value)
+      .width(isInline ? 100 : 800)
+      .fit('max')
+      .auto('format')
+      .url();
+
+    return (
+      <img
+        src={imageUrl}
+        alt={value.alt || ' '}
+        loading="lazy"
+        style={{
+          display: isInline ? 'inline-block' : 'block',
+          aspectRatio: width / height,
+        }}
+      />
+    );
+  };
+
+  const components = {
+    types: {
+      image: SampleImageComponent,
+    },
+  };
 
   return (
     <div>
@@ -39,8 +68,7 @@ const Post = ({ params }: Props) => {
         <div>
           <Header title={post.title} image={post.imageURL} />
           <div>
-            {/* Utilizza il componente PortableText per renderizzare il contenuto del campo body */}
-            <PortableText value={post.body} />
+            <PortableText value={post.body} components={components} />
           </div>
         </div>
       ) : (
@@ -51,3 +79,4 @@ const Post = ({ params }: Props) => {
 }
 
 export default Post;
+
