@@ -3,20 +3,38 @@ import theme from "@/app/theme_emotion";
 
 const StyledTechnologiesUsed = styled.div`
   ul {
+    margin-top: 2rem;
     list-style-type: none;
     padding: 0;
     display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    margin-bottom: -1rem;
+    margin-left: 1rem;
+    height: auto;
   }
 
   li {
-    font-family: ${theme.fontFamily.primaryFont};
+    font-family: ${theme.fontFamily.headersFont};
     letter-spacing: 0.07rem;
-    padding: 0.7rem 1.2rem;
+    padding: 0.7rem 1rem;
     border: none;
     border-radius: 0.5rem;
     transition: background-color 0.3s ease, color 0.3s ease;
     cursor: pointer;
-    margin-bottom: 0.5rem;
+    margin-bottom: 1rem;
+
+    font-size: 1.1rem;
+
+    display: inline-block;
+    padding: 0.5rem 1rem;
+    margin-right: 0.5rem;
+    color: ${theme.colors.blueDark};
+    text-decoration: none;
+    background-color: ${theme.colors.azure};
+    border-right: 4px solid ${theme.colors.yellow};
+    border-bottom: 4px solid ${theme.colors.yellow};
+    transition: all 0.3s ease;
   }
 `;
 
