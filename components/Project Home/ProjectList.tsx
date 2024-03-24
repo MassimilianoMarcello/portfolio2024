@@ -2,6 +2,7 @@ import styled from "@emotion/styled";
 import theme from "@/app/theme_emotion";
 import ProjectInfos from "./ProjectInfo";
 import TechnologiesUsed from "./TechnologiesUsed";
+import { PortableText } from '@portabletext/react';
 
 const ProjectList = ({ projects, openProjectId, toggleProjectInfo }) => {
   return (
@@ -15,6 +16,10 @@ const ProjectList = ({ projects, openProjectId, toggleProjectInfo }) => {
             {/* <ProjectTitle>{project.name}</ProjectTitle> */}
             <ProjectImage src={project.image} alt={project.imageAlt} />
             {/* <ProjectTechnologies>{project.technologies}</ProjectTechnologies> */}
+            <PortableStyle>
+            <PortableText value={project.content[0]} />
+            </PortableStyle>
+           
           </ImageProject>
           <TechnologiesUsed technologies={project.technologies} />
           <ProjectInfos project={project} openProjectId={openProjectId} />
@@ -26,6 +31,12 @@ const ProjectList = ({ projects, openProjectId, toggleProjectInfo }) => {
 
 export default ProjectList;
 
+const PortableStyle = styled.div`
+    font-family: ${theme.fontFamily.primaryFont};
+color: ${theme.colors.blackParagraph};
+line-height: 1.8;
+`
+
 const ProjectContainer = styled.div`
   display: flex;
   flex-wrap: wrap;
@@ -33,6 +44,11 @@ const ProjectContainer = styled.div`
   margin-top: -6rem;
   margin-left: 2.5rem;
   margin-right: -6rem;
+  @media screen and (max-width: 600px) {
+    margin-top: 0rem;
+  margin-left: 0rem;
+  margin-right: 0rem;
+  }
 `;
 
 const ProjectCard = styled.div`
@@ -49,8 +65,8 @@ const ProjectCard = styled.div`
   border-radius: 1rem; 
   box-shadow: 14px 14px 0 -4px black, 14px 14px 0 0 black; /* Aggiunta dell'ombra */
   @media screen and (max-width: 600px) {
-    max-width: 20rem;
-    min-width: 15rem;
+    max-width: 30rem;
+    min-width: 25rem;
     max-height: 30rem;
     min-height: 25rem;
   }
@@ -61,6 +77,8 @@ const ImageProject = styled.div`
   display: flex;
   flex-direction: column;
   overflow: hidden;
+  margin: 1rem;
+  
 `;
 
 const ProjectTitle = styled.h3`
