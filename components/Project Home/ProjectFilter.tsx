@@ -86,6 +86,7 @@ export default ProjectFilter;
 const Filter = styled.section`
   margin-top: -16rem;
   margin-left: -50rem;
+
   display: flex;
   flex-wrap: wrap;
   flex-direction: column;
@@ -96,12 +97,17 @@ const Filter = styled.section`
   z-index: 111111111111;
   animation: slideIn 1.5s forwards;
   animation-fill-mode: forwards;
-
+  
   @media (max-width: 600px) {
  
     flex-direction: row;
+    flex-wrap:wrap-reverse;
+    justify-content: space-between;
     margin-top: 0rem;
+    padding: 1rem 0;
     position: initial;
+    background-color:${theme.colors.blueDarkest} ;
+
 
   }
   @keyframes slideIn {
@@ -117,13 +123,17 @@ const Filter = styled.section`
 const TheButton = styled.button`
   font-family: ${theme.fontFamily.primaryFont};
   letter-spacing: 0.07rem;
-  padding: 0.7rem .5rem;
+  padding: 0.7rem 1.5rem;
   padding-left: 0.2;
+
   border: none;
   border-radius: 0.5rem;
   transition: background-color 0.3s ease, color 0.3s ease;
   cursor: pointer;
-  margin-left: 1rem;
+
+
+
+ 
 
   &:hover {
     background-color:${theme.colors.yellow};
@@ -132,6 +142,7 @@ const TheButton = styled.button`
     margin-left: 1rem;
     padding: 1rem;
     margin-right: 1rem;
+    margin-top: .5rem;
   }
 `;
 
@@ -140,7 +151,8 @@ const ClearButton = styled.button`
   color: ${theme.colors.blueDarker};
   border: 2px solid ${theme.colors.blueDarker};
   transition: background-color 0.3s ease, color 0.3s ease;
-
+margin-right: 1rem;
+padding: 0 .8rem;
   &:hover {
     background-color:${theme.colors.yellow};
     color: ${theme.colors.blueDarker};

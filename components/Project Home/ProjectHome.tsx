@@ -36,13 +36,13 @@ export default function Home() {
           setFilteredProjects={setFilteredProjects}
           setOpenProjectId={setOpenProjectId}
         />
-        <ProjectFilter // Aggiungi il componente ProjectFilter qui
+        <ProjectFilter 
           projects={projects}
           setFilteredProjects={setFilteredProjects}
           setOpenProjectId={setOpenProjectId}
         />
         <ProjectList
-          projects={filteredProjects} // Mostra solo i progetti filtrati
+          projects={filteredProjects} 
           openProjectId={openProjectId}
           toggleProjectInfo={toggleProjectInfo}
         />
@@ -52,5 +52,5 @@ export default function Home() {
 }
 
 const Section = styled.section`
-  /* Stili per la sezione principale, se necessario */
+
 `;
