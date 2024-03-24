@@ -76,7 +76,7 @@ const SkillItem = styled.li<SkillItemProps>`
     props.delay}s; 
 `;
 const PersonalCard = styled.section`
-  background-color: blue;
+
 
   background-color: #f0fff4;
   box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
@@ -84,9 +84,12 @@ const PersonalCard = styled.section`
   border-radius: 15px;
   position: relative;
   margin: 4rem 16rem;
+  margin-top: 6rem;
+  
   h1 {
-    font-family: "Amatic SC", sans-serif;
+
     font-family: ${theme.fontFamily.primaryFont};
+    color:${theme.colors.blueDarkerPlus} ;
     font-size: 4rem;
     padding-top: 1rem;
     text-align: center;
@@ -195,17 +198,17 @@ const SkillsContainer = styled.div`
 
 const AboutContainer = styled.div`
   background: url("/assets/Blue_particles.jpg") center/cover no-repeat;
-  height: auto;
+  /* height: auto;
   margin-top: 2rem;
   padding-top: 2rem;
   padding-bottom: 1rem;
-  z-index: 10000;
-  width: auto;
-    height: auto;
-  h1 {
+  z-index: 10000; */
+  /* width: auto;
+    height: auto; */
+  /* h1 {
     color: #343733;
     text-align: center;
-  }
+  } */
   @media (max-width: 1000px) {
   }
 

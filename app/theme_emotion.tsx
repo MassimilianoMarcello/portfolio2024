@@ -8,14 +8,21 @@ const fontFace = `
 
 const theme = {
   colors: {
-    gold: " #f5a800",
-    goldText: "#e88e06",
+    platinum: " #b29d6e ",
+    platinumText: "#afae7f ",
+    yellow:"#feeb64 ",
+    bigYellow:'#fdd906',
+    azure:"#b0cdff ",
     blueLight: "#277fdd",
-    blue: "#1b61d9",
+    blue: "#254fa9 ",
     blueDark: " #0741a4",
-    blueDarker: "#00286b",
-    blueDarkest: "#001d53",
-    white: "fefffe",
+    blueDarker: "#1d3b7a",
+    blueDarkerPlus: "#102e58",
+    blueDarkest: "#11182d",
+    white: "#fefffe",
+    black1: "#1b1b1b",
+    black2:"#1a1a1a" ,
+    blackParagraph:"#333333;",
   },
 
   layout: {
