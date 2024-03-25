@@ -72,9 +72,12 @@ const ProjectInfo = styled.div`
   transform: translateY(-100%);
   h3 {
     font-family: ${theme.fontFamily.customFont};
-    margin: 0;
-    padding-left: 2rem;
+    word-spacing: 0.01rem;
+    margin-left: 1rem;
+    margin-top: 1rem;
+    padding-left: 0.5rem;
     background-color: #fff;
+    border-left: 1rem solid ${theme.colors.yellow};
     color: #1d3b7a;
     font-size: 2.5rem;
   }
