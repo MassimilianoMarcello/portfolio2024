@@ -50,7 +50,7 @@ const ProjectContainer = styled.div`
 
 
   @media screen and (max-width: 600px) {
-    margin-top: -8rem;
+    margin-top: 2rem;
   margin-left: 0rem;
   margin-right: 0rem;
   }
@@ -74,6 +74,7 @@ height: 30rem;
     min-width: 25rem;
     max-height: 34rem;
     min-height: 26rem;
+
   }
 
 `;
