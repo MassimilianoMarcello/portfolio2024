@@ -206,7 +206,9 @@ const NavMenu = styled.ul`
     width: 100%;
     background-color: #171d35;
     margin-top: 6rem;
-    border-bottom: solid 2rem yellow;
+ 
+    
+    border-bottom: solid 4rem yellow;
     @media screen and (min-width: 920px) {
       flex-direction: row;
       margin-top: 7.2rem;
@@ -235,7 +237,7 @@ const NavLink = styled.div`
   color: #fff;
   font-size: 1.5rem;
   transition: color 0.3s ease;
-
+  margin-bottom: -1rem;
   &:hover {
     color: #feeb64;
   }
