@@ -65,7 +65,7 @@ const bounceAnimation = keyframes`
 
 const AnimatedImage = styled(Image)`
   animation: ${bounceAnimation} 1s infinite;
-  margin-top: 0.5rem;
+  margin: 1rem;
 `;
 const SkillItem = styled.li<SkillItemProps>`
   margin-right: 1rem;
