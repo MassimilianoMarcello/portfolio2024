@@ -17,6 +17,22 @@ const ProjectInfos = ({ project, openProjectId }) => {
     >
       <h3>{project.name}</h3>
       {/* <PortableText value={project.content[0]} /> */}
+      <ChallengesList>
+        <h4>Challenges Faced:</h4>
+        <SingleChallenge>Lorem Ipsum lumina solis</SingleChallenge>
+        <SingleChallenge>Lorem Ipsum lumina solis</SingleChallenge>
+        <SingleChallenge>Lorem Ipsum lumina solis</SingleChallenge>
+        <SingleChallenge>Lorem Ipsum lumina solis</SingleChallenge>
+        <SingleChallenge>Lorem Ipsum lumina solis</SingleChallenge>
+        <SingleChallenge>Lorem Ipsum lumina solis</SingleChallenge>
+      </ChallengesList>
+
+
+
+
+
+
+
       <div className="text-details">
         <Buttons>
           <StyledButton>
@@ -49,6 +65,8 @@ const ProjectInfos = ({ project, openProjectId }) => {
               />
             </Link>
           </CloseButton> */}
+
+      
       </div>
     </ProjectInfo>
   );
@@ -73,16 +91,13 @@ const ProjectInfo = styled.div`
   h3 {
     font-family: ${theme.fontFamily.customFont};
     word-spacing: 0.01rem;
-    margin-left: 1rem;
+    margin-left: 4rem;
     margin-top: 1rem;
     padding-left: 0.5rem;
     background-color: #fff;
     border-left: 1rem solid ${theme.colors.yellow};
     color: #1d3b7a;
     font-size: 2.5rem;
-  }
-  .my-portable-text {
-    font-size: 1rem;
   }
 
   &.visible {
@@ -96,40 +111,36 @@ const ProjectInfo = styled.div`
   }
 `;
 
-// const StyledLink = styled.a`
-//   position: absolute;
-//   bottom: 0;
-//   left: 2rem;
-// text-decoration: none;
-//   font-family: ${theme.fontFamily.headersFont};
-//   letter-spacing: 0.07rem;
-//   padding: 0.7rem 1rem;
-//   border: none;
-//   border-radius: 0.5rem;
-//   transition: background-color 0.3s ease, color 0.3s ease;
-//   cursor: pointer;
-//   margin-bottom: 2.5rem;
-//   font-size: 2rem;
-//   font-weight: 700;
-//   color: ${theme.colors.blueDark};
-//   text-decoration: none;
-//   background-color: ${theme.colors.azure};
-//   border-right: 4px solid ${theme.colors.yellow};
-//   border-bottom: 4px solid ${theme.colors.yellow};
-// `;
+const ChallengesList = styled.ul`
 
-// buttons
+  list-style-type: number;
+  padding-left: 4rem;
+  margin-top: -.5rem;
+  margin-bottom: 1rem;
+  h4{
+    font-size:1.6rem;
+    margin-bottom: .7rem;
+  }
+`;
 
-// const GitHub = styled(Link)`
-//   display: flex;
-//   align-items: center;
-//   gap: 0.5rem;
-//   font-size: 2rem;
-// `;
+const SingleChallenge = styled.li`
+  font-size: 1rem;
+  margin-bottom: 0.5rem;
+
+  color: ${theme.colors.blueLight};
+  font-family: ${theme.fontFamily.primaryFont};
+    word-spacing: 0.01rem;
+    margin-right: 6rem;
+    margin-top: 1rem;
+    padding:.1rem 0.5rem;
+    background-color: #fff;
+    border-right: 1rem solid ${theme.colors.yellow};
+    color: #1d3b7a;
+  
+`;
 
 const Buttons = styled.div`
   display: flex;
-  /* flex-direction: row; */
   align-items: flex-start;
   position: absolute;
   bottom: 1rem;
@@ -140,25 +151,26 @@ const StyledButton = styled.div`
   font-family: ${theme.fontFamily.headersFont};
   letter-spacing: 0.07rem;
   padding: 0.4rem 1rem;
-
   border-radius: 0.5rem;
   transition: background-color 0.3s ease, color 0.3s ease;
   cursor: pointer;
   margin-bottom: 1rem;
   font-weight: 700;
   color: ${theme.colors.blueDark};
-
   background-color: ${theme.colors.azure};
   border-right: 4px solid ${theme.colors.yellow};
   border-bottom: 4px solid ${theme.colors.yellow};
   display: inline-block;
   margin-left: 0.5rem;
+
   a {
     text-decoration: none;
     text-align: center;
     font-weight: 700;
     font-size: 0.8rem;
+    color: ${theme.colors.blueDark};
   }
+
   &:hover {
     background-color: ${theme.colors.yellow};
     border-right: 4px solid ${theme.colors.azure};
