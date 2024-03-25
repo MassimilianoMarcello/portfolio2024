@@ -8,7 +8,7 @@ const HeaderSection = ({ projects, setFilteredProjects, setOpenProjectId }) => {
     <Container>
       <TextContainer>
         <p className="greeting">
-          Explore My Web Dev Journey:{" "}
+          Explore My Web Dev Journey: <br />
           <span className="section-title">Projects</span>{" "}
         </p>
       </TextContainer>
