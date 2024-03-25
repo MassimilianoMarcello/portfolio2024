@@ -24,7 +24,8 @@ const StyledTechnologiesUsed = styled.div`
     cursor: pointer;
     margin-bottom: 1rem;
 
-    font-size: 1.1rem;
+    font-size: .8rem;
+    font-weight:700;
 
     display: inline-block;
     padding: 0.5rem 1rem;
