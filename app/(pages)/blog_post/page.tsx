@@ -2,6 +2,7 @@
 
 import { useState, useEffect } from 'react';
 import { getPost } from '@/sanity/sanity.query';
+import theme from '@/app/theme_emotion';
 
 import Link from 'next/link';
 import styled from '@emotion/styled';
@@ -57,9 +58,9 @@ export default function PostList() {
                   </div>
                 </div>
                 <p>{post.description}</p>
-                <ReadMore>
+                {/* <ReadMore>
                   <Link href={`/blog_post/${post.slug}`}>Read More</Link>
-                </ReadMore>
+                </ReadMore> */}
               </CardContent>
             </Link>
           </PostCard>
@@ -105,6 +106,28 @@ const PostImage = styled.div`
 
 const CardContent = styled.div`
   padding: 1rem;
+
+
+  text-decoration: none;
+  font-family: ${theme.fontFamily.customFont};
+  letter-spacing: 0.07rem;
+ 
+
+
+  cursor: pointer;
+
+  font-weight: 700;
+  color: ${theme.colors.blueDark};
+  background-color: ${theme.colors.white};
+
+
+  display: inline-block;
+
+
+
+
+
+
   h3 {
     margin-bottom: 0.5rem;
     font-size: 1.5rem;
@@ -125,10 +148,32 @@ const CardContent = styled.div`
         li {
           margin-right: 0.5rem;
           a {
-            text-decoration: none;
-            color: #5ad67d;
+            /* text-decoration: none;
+            color: #5ad67d; */
+            font-family: ${theme.fontFamily.headersFont};
+    letter-spacing: 0.07rem;
+   
+    border: none;
+    border-radius: 0.5rem;
+    transition: background-color 0.3s ease, color 0.3s ease;
+    cursor: pointer;
+    margin-bottom: -4rem;
+    margin-top: 1rem;
+
+    font-size: .6rem;
+    font-weight:700;
+
+    display: inline-block;
+    padding: 0.5rem ;
+    /* margin-right: 0.5rem; */
+    color: ${theme.colors.blueDark};
+    text-decoration: none;
+    background-color: ${theme.colors.azure};
+    /* border-right: 4px solid ${theme.colors.yellow};
+    border-bottom: 4px solid ${theme.colors.yellow}; */
+    transition: all 0.3s ease;
             &:hover {
-              text-decoration: underline;
+           color:${theme.colors.yellow}; ;
             }
           }
         }

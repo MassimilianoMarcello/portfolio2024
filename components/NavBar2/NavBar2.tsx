@@ -55,7 +55,8 @@ const NavBar2 = () => {
           </Link>
         </NavItem>
         <NavItem onClick={handleCloseMenu}>
-          <Link href="/contact" passHref>
+     
+          <Link href="mailto:massi.marcello@icloud.com" passHref>
             <NavLink>Contact</NavLink>
           </Link>
         </NavItem>

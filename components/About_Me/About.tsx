@@ -17,7 +17,7 @@ export default async function About() {
       <AboutContainer>
         <PersonalCard>
           {/* <h1>Exploring Frontend: <br/>  <span>My Path</span></h1> */}
-           <HeaderSection/>
+          <HeaderSection />
 
           {aboutData.map((about, index) => (
             <ProfileCard key={about._id}>
@@ -77,18 +77,20 @@ const bounceAnimation = keyframes`
   }
 
 `;
+const AboutContainer = styled.div`
+  background: url("/assets/Blue_particles.jpg") center/cover no-repeat;
+  padding-bottom: 1rem;
 
+  @media (max-width: 1000px) {
+  }
 
-const AnimatedImage = styled(Image)`
-  animation: ${bounceAnimation} 12s infinite;
-  margin: 1rem;
+  @media (max-width: 600px) {
+    height: 160vh;
+    margin-right: 0rem;
+    padding-top: 4rem;
+  }
 `;
-const SkillItem = styled.li<SkillItemProps>`
-  margin-right: 1rem;
 
-  animation: ${bounceAnimation} 14s infinite;
-  animation-delay: ${(props) => props.delay}s;
-`;
 const PersonalCard = styled.section`
   background-color: #f0fff4;
   box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
@@ -105,11 +107,11 @@ const PersonalCard = styled.section`
     font-size: 4rem;
     padding: 3rem;
     text-align: center;
-    span{
+    span {
       color: ${theme.colors.platinum};
     }
   }
-  @media (max-width: 1000px) {
+  @media (min-width: 1000px) {
     margin: 6rem 8rem;
   }
 
@@ -124,13 +126,24 @@ const PersonalCard = styled.section`
   }
 `;
 
+const AnimatedImage = styled(Image)`
+  animation: ${bounceAnimation} 12s infinite;
+  margin: 1rem;
+`;
+const SkillItem = styled.li<SkillItemProps>`
+  margin-right: 1rem;
+height: auto;
+  animation: ${bounceAnimation} 14s infinite;
+  animation-delay: ${(props) => props.delay}s;
+`;
+
 const ProfileCard = styled.section`
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   grid-template-rows: repeat(6, auto);
   /* margin: -2rem 4rem; */
   padding-bottom: 2rem;
-
+height: auto;
   .description {
     font-family: "Quicksand", sans-serif;
     grid-column: 1/4;
@@ -145,7 +158,7 @@ const ProfileCard = styled.section`
     font-family: "Quicksand", sans-serif;
 
     font-optical-sizing: auto;
-    font-size: 1.1rem;
+    font-size: 1.2rem;
     font-weight: 300;
     letter-spacing: 2px;
     word-spacing: 5px;
@@ -163,8 +176,8 @@ const ProfileCard = styled.section`
   @media (max-width: 600px) {
     .description {
       padding: 0rem;
-      margin-left: -2rem;
-      margin-right: -2rem;
+      margin-left: 2rem;
+      margin-right: 2rem;
       margin-top: 0rem;
       grid-column: 1/4;
       grid-row: 2/3;
@@ -174,6 +187,14 @@ const ProfileCard = styled.section`
     .about-description {
       margin: 0;
       font-size: 1rem;
+    }
+  }
+  @media (min-width: 1000px) {
+    .description {
+      padding-top: 1rem;
+    }
+    .about-description {
+      margin: 0.5rem;
     }
   }
 `;
@@ -210,30 +231,6 @@ const SkillsContainer = styled.div`
     padding: 0rem;
     margin-left: 2rem;
     padding-bottom: 0rem;
-  }
-`;
-
-const AboutContainer = styled.div`
-  background: url("/assets/Blue_particles.jpg") center/cover no-repeat;
-  padding-bottom: 1rem;
-  /* height: auto;
-  margin-top: 2rem;
-  padding-top: 2rem;
-  padding-bottom: 1rem;
-  z-index: 10000; */
-  /* width: auto;
-    height: auto; */
-  /* h1 {
-    color: #343733;
-    text-align: center;
-  } */
-  @media (max-width: 1000px) {
-  }
-
-  @media (max-width: 600px) {
-    height: 160vh;
-    margin-right: 0rem;
-    padding-top: 4rem;
   }
 `;
 
