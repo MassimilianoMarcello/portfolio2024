@@ -205,7 +205,7 @@ const NavMenu = styled.ul`
     right: 0;
     width: 100%;
     background-color: #171d35;
-    margin-top: 5.2rem;
+    margin-top: 6rem;
     border-bottom: solid 2rem yellow;
     @media screen and (min-width: 920px) {
       flex-direction: row;
