@@ -33,8 +33,8 @@ const MessageContainer = styled.div`
   width: 100%;
   height: 100%;
   padding: 1.5rem;
-  border-radius: 0.5rem;
-  border:.2rem solid #1d3b7a;
+  /* border-radius: 0.5rem;
+  border:.2rem solid #1d3b7a; */
   font-size: 2.2rem;
   color: #1d3b7a;
   display: inline-block;

@@ -36,6 +36,9 @@ const PortableStyle = styled.div`
 color: ${theme.colors.blackParagraph};
 line-height: 1.8;
 height: 12rem;
+margin: 1rem;
+margin-top: -1rem;
+margin-bottom:1rem;
 `
 
 const ProjectContainer = styled.div`
@@ -58,13 +61,13 @@ const ProjectCard = styled.div`
   max-height: 36rem;
   margin: 4rem;
   background-color: #fff;
-  border: 0.2rem solid #f5f5f5; 
-  transition: all 0.2s ease;
+  border: 0.1rem solid ${theme.colors.blackParagraph}; 
+  transition: all 0.02s ease;
   overflow: hidden;
   position: relative;
   cursor: pointer;
   border-radius: 1rem; 
-  box-shadow: 14px 14px 0 -4px black, 14px 14px 0 0 black; /* Aggiunta dell'ombra */
+  box-shadow: 14px 14px 0 -4px ${theme.colors.blueDarkest}, 14px 14px 0 0 ${theme.colors.blueDarkest}; //rounded shadow
   @media screen and (max-width: 600px) {
     max-width: 30rem;
     min-width: 25rem;
@@ -98,8 +101,8 @@ const BoxImageTextProject = styled.div`
 // `;
 
 const ProjectImage = styled.img`
-  width: 94%;
- 
+  width: 92%;
+;
   height: 10rem;
   @media screen and (min-width: 720px), (min-width: 1000px) {
     margin: 0 auto;
