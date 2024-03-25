@@ -73,18 +73,7 @@ const bounceAnimation = keyframes`
   50%, 100% {
     transform: translateY(0);
   }
-  60% {
-    transform: translateY(-21px);
-  }
-  70% {
-    transform: translateX(21px); 
-  }
-  80% {
-    transform: translateY(21px);
-  }
-  90% {
-    transform: translateX(-21px); 
-  }
+
 `;
 
 
