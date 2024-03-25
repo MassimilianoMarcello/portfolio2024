@@ -5,8 +5,9 @@ import { getPost } from '@/sanity/sanity.query';
 
 import Link from 'next/link';
 import styled from '@emotion/styled';
-import Header from '@/components/Blog Posts Grid/Header';
+import HeaderSection from '@/components/Blog Posts Grid/HeaderSection';
 import PostFilter from '@/components/Blog Posts Grid/PostFilter';
+import MediumBlueBorder from '@/components/borders/MediumBlueBorder';
 
 export default function PostList() {
   const [posts, setPosts] = useState([]);
@@ -28,7 +29,8 @@ export default function PostList() {
 
   return (
     <Section>
-      <Header />
+      <HeaderSection />
+      <MediumBlueBorder/>
       <PostFilter posts={posts} setFilteredPosts={setFilteredPosts} />
       <PostContainer>
         {filteredPosts.map((post) => (
