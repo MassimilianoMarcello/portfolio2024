@@ -37,12 +37,7 @@ const ProjectInfos = ({ project, openProjectId }) => {
         <Buttons>
           <StyledButton>
             <Link href={project.githubUrl}>
-              {/* <img
-                  src="/assets/social-github-octocat.png"
-                  width={30}
-                  height={30}
-                  alt="github"
-                /> */}
+        
               Github
             </Link>
           </StyledButton>
