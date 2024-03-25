@@ -40,6 +40,13 @@ const MessageContainer = styled.div`
   display: inline-block;
   text-align: center;
   animation: fadeIn 1.5s ease;
+  @media screen and (max-width: 600px) {
+    margin-top: -35rem;
+   padding-top:10rem ;
+   padding-bottom:10rem ;
+
+
+  }
 
 
   @keyframes fadeIn {
