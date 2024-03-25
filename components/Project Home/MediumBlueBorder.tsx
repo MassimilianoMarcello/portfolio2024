@@ -20,9 +20,17 @@ const Section = styled.section`
 margin-top: -6rem;
 padding: 0rem;
 margin-bottom: 2rem;
-@media (min-width: 1400px) {
+background-color:${theme.colors.blueDarkest};
+ @media (min-width: 1400px) {
   background-color:${theme.colors.blueDarkest} ;
   width: 44.6%;
+}
+@media (max-width: 600px) {
+  margin-bottom: 0rem;
+  margin-top: -3rem;
+  padding: 0.2rem;
+  border-bottom:solid .001rem #fff ;
+
 }
 
 `
