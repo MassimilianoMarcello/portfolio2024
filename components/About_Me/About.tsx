@@ -60,16 +60,16 @@ const bounceAnimation = keyframes`
     transform: translateY(0);
   }
   10% {
-    transform: translateY(-1px);
+    transform: translateX(-24px);
   }
   20% {
-    transform: translateX(1px); 
+    transform: translateX(24px); 
   }
   30% {
-    transform: translateY(11px);
+    transform: translateY(30px);
   }
   40% {
-    transform: translateX(-5px); 
+    transform: translateY(-35px); 
   }
   50%, 100% {
     transform: translateY(0);
@@ -79,13 +79,13 @@ const bounceAnimation = keyframes`
 
 
 const AnimatedImage = styled(Image)`
-  animation: ${bounceAnimation} 2s infinite;
+  animation: ${bounceAnimation} 12s infinite;
   margin: 1rem;
 `;
 const SkillItem = styled.li<SkillItemProps>`
   margin-right: 1rem;
 
-  animation: ${bounceAnimation} 4s infinite;
+  animation: ${bounceAnimation} 14s infinite;
   animation-delay: ${(props) => props.delay}s;
 `;
 const PersonalCard = styled.section`
