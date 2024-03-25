@@ -55,7 +55,7 @@ const ProjectContainer = styled.div`
 const ProjectCard = styled.div`
   min-width: 28rem;
   max-width: 30rem;
-  max-height: 20rem;
+  max-height: 36rem;
   margin: 4rem;
   background-color: #fff;
   border: 0.2rem solid #f5f5f5; 

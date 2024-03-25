@@ -15,7 +15,8 @@ export default async function About() {
     <>
       <AboutContainer>
         <PersonalCard>
-          <h1>Exploring Frontend: My Path</h1>
+          <h1>Exploring Frontend: <br/>  <span>My Path</span></h1>
+           
 
           {aboutData.map((about, index) => (
             <ProfileCard key={about._id}>
@@ -65,10 +66,10 @@ const bounceAnimation = keyframes`
     transform: translateX(1px); 
   }
   30% {
-    transform: translateY(21px);
+    transform: translateY(11px);
   }
   40% {
-    transform: translateX(-21px); 
+    transform: translateX(-5px); 
   }
   50%, 100% {
     transform: translateY(0);
@@ -78,11 +79,12 @@ const bounceAnimation = keyframes`
 
 
 const AnimatedImage = styled(Image)`
-  animation: ${bounceAnimation} 5s infinite;
+  animation: ${bounceAnimation} 2s infinite;
   margin: 1rem;
 `;
 const SkillItem = styled.li<SkillItemProps>`
   margin-right: 1rem;
+
   animation: ${bounceAnimation} 4s infinite;
   animation-delay: ${(props) => props.delay}s;
 `;
@@ -102,6 +104,9 @@ const PersonalCard = styled.section`
     font-size: 4rem;
     padding: 3rem;
     text-align: center;
+    span{
+      color: ${theme.colors.platinum};
+    }
   }
   @media (max-width: 1000px) {
     margin: 6rem 8rem;
