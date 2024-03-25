@@ -7,6 +7,7 @@ import { keyframes } from "@emotion/react";
 import Link from "next/link";
 import "@/app/page.module.css";
 import theme from "@/app/theme_emotion";
+import HeaderSection from "./HeaderSection";
 
 export default async function About() {
   const aboutData = await getAboutMe();
@@ -15,8 +16,8 @@ export default async function About() {
     <>
       <AboutContainer>
         <PersonalCard>
-          <h1>Exploring Frontend: <br/>  <span>My Path</span></h1>
-           
+          {/* <h1>Exploring Frontend: <br/>  <span>My Path</span></h1> */}
+           <HeaderSection/>
 
           {aboutData.map((about, index) => (
             <ProfileCard key={about._id}>
