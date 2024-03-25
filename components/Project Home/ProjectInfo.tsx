@@ -19,32 +19,26 @@ const ProjectInfos = ({ project, openProjectId }) => {
       {/* <PortableText value={project.content[0]} /> */}
       <div className="text-details">
         <Buttons>
-          <div className="buttons-container">
-            <StyledButton>
-              <Link href={project.githubUrl}>
-                <GitHub className="container">
-                  <p>Github</p>
-                  <Image
-                    src="/assets/social-github-octocat.png"
-                    width={30}
-                    height={30}
-                    alt="github"
-                  />
-                </GitHub>
-              </Link>
-            </StyledButton>
-          </div>
+          <StyledButton>
+            <Link href={project.githubUrl}>
+              {/* <img
+                  src="/assets/social-github-octocat.png"
+                  width={30}
+                  height={30}
+                  alt="github"
+                /> */}
+              Github
+            </Link>
+          </StyledButton>
 
-          <div className="buttons-container">
-            <StyledButton>
-              <Link href={project.url}>Visit Website 🌐</Link>
-            </StyledButton>
-          </div>
+          <StyledButton>
+            <Link href={project.url}>Visit Website </Link>
+          </StyledButton>
+          <StyledButton>
+            <Link href={`/projects/${project.slug}`}>Click for Details </Link>
+          </StyledButton>
         </Buttons>
 
-        <StyledLink href={`/projects/${project.slug}`}>
-          Click for Details 🚀
-        </StyledLink>
         {/* <CloseButton className="close-button">
             <Link href="/projects">
               <Image
@@ -82,7 +76,7 @@ const ProjectInfo = styled.div`
     padding-left: 2rem;
     background-color: #fff;
     color: #1d3b7a;
-    font-size: 2rem;
+    font-size: 2.5rem;
   }
   .my-portable-text {
     font-size: 1rem;
@@ -99,115 +93,72 @@ const ProjectInfo = styled.div`
   }
 `;
 
-const StyledLink = styled.a`
-  position: absolute;
-  bottom: 0;
-
-  text-decoration: none;
-  font-family: ${theme.fontFamily.headersFont};
-  letter-spacing: 0.07rem;
-  padding: 0.7rem 1rem;
-  border: none;
-  border-radius: 0.5rem;
-  transition: background-color 0.3s ease, color 0.3s ease;
-  cursor: pointer;
-  margin-bottom: 1rem;
-
-  margin-bottom: 2.5rem;
-  margin-left: 2rem;
-
-  font-size: 2rem;
-  font-weight: 700;
-  display: inline-block;
-  padding: 0.5rem 1rem;
-  margin-right: 0.5rem;
-  color: ${theme.colors.blueDark};
-  text-decoration: none;
-  background-color: ${theme.colors.azure};
-  border-right: 4px solid ${theme.colors.yellow};
-  border-bottom: 4px solid ${theme.colors.yellow};
-  transition: all 0.3s ease;
-`;
+// const StyledLink = styled.a`
+//   position: absolute;
+//   bottom: 0;
+//   left: 2rem;
+// text-decoration: none;
+//   font-family: ${theme.fontFamily.headersFont};
+//   letter-spacing: 0.07rem;
+//   padding: 0.7rem 1rem;
+//   border: none;
+//   border-radius: 0.5rem;
+//   transition: background-color 0.3s ease, color 0.3s ease;
+//   cursor: pointer;
+//   margin-bottom: 2.5rem;
+//   font-size: 2rem;
+//   font-weight: 700;
+//   color: ${theme.colors.blueDark};
+//   text-decoration: none;
+//   background-color: ${theme.colors.azure};
+//   border-right: 4px solid ${theme.colors.yellow};
+//   border-bottom: 4px solid ${theme.colors.yellow};
+// `;
 
 // buttons
 
-const GitHub = styled.div`
-  display: flex;
-  align-items: center;
-  justify-content: space-around;
-  gap: 0.5rem;
-  font-size: 2rem;
-  padding: 0;
- 
-`;
+// const GitHub = styled(Link)`
+//   display: flex;
+//   align-items: center;
+//   gap: 0.5rem;
+//   font-size: 2rem;
+// `;
 
 const Buttons = styled.div`
-  /* display: flex;
-  align-items: center;
-  flex-direction: column;
-  justify-content: flex-start; */
-
-  .buttons-container {
-    display: flex;
-    flex-direction: column;
-    margin-top: 6rem;
-  }
+  display: flex;
+  /* flex-direction: row; */
+  align-items: flex-start;
+  position: absolute;
+  bottom: 1rem;
 `;
 
 const StyledButton = styled.div`
-  /* display: flex;
-  align-items: center; */
   text-decoration: none;
   font-family: ${theme.fontFamily.headersFont};
   letter-spacing: 0.07rem;
-  padding: 0.7rem 1rem;
-  border: none;
+  padding: 0.4rem 1rem;
+
   border-radius: 0.5rem;
   transition: background-color 0.3s ease, color 0.3s ease;
   cursor: pointer;
   margin-bottom: 1rem;
-
   font-weight: 700;
-  display: inline-block;
-  padding: 0.5rem 1rem;
-  margin-right: 0.5rem;
   color: ${theme.colors.blueDark};
-  text-decoration: none;
+
   background-color: ${theme.colors.azure};
   border-right: 4px solid ${theme.colors.yellow};
   border-bottom: 4px solid ${theme.colors.yellow};
-  transition: all 0.3s ease;
-
-  cursor: pointer;
-  font-size: 1rem;
-  transition: background-color 0.3s ease;
+  display: inline-block;
+  margin-left: 0.5rem;
   a {
     text-decoration: none;
     text-align: center;
+    font-weight: 700;
+    font-size: 0.8rem;
   }
   &:hover {
-    /* background-color: #0056b3; */
-  }
-`;
-
-const CloseButton = styled.button`
-  background-color: #d5dfd2;
-  /* color: white; */
-  padding: 0.5rem 1rem;
-  border: none;
-  border-radius: 0.5rem;
-  /* font-size: 1rem; */
-  cursor: pointer;
-  transition: padding background-color 0.3s ease;
-  height: 4rem;
-  width: 6rem;
-
-  margin: 1rem auto a {
-    text-decoration: none;
-  }
-
-  &:hover {
-    transform: scale(1);
-    padding-right: 4rem;
+    background-color: ${theme.colors.yellow};
+    border-right: 4px solid ${theme.colors.azure};
+    border-bottom: 4px solid ${theme.colors.azure};
   }
 `;
