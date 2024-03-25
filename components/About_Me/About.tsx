@@ -58,13 +58,38 @@ const bounceAnimation = keyframes`
   0%, 100% {
     transform: translateY(0);
   }
-  50% {
-    transform: translateY(-5px);
+  10% {
+    transform: translateY(-1px);
+  }
+  20% {
+    transform: translateX(1px); 
+  }
+  30% {
+    transform: translateY(21px);
+  }
+  40% {
+    transform: translateX(-21px); 
+  }
+  50%, 100% {
+    transform: translateY(0);
+  }
+  60% {
+    transform: translateY(-21px);
+  }
+  70% {
+    transform: translateX(21px); 
+  }
+  80% {
+    transform: translateY(21px);
+  }
+  90% {
+    transform: translateX(-21px); 
   }
 `;
 
+
 const AnimatedImage = styled(Image)`
-  animation: ${bounceAnimation} 1s infinite;
+  animation: ${bounceAnimation} 5s infinite;
   margin: 1rem;
 `;
 const SkillItem = styled.li<SkillItemProps>`
