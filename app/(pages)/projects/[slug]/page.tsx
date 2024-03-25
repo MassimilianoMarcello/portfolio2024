@@ -82,7 +82,10 @@ const ProjectContainer = styled.div`
   background-color: #f5f5f5;
   border-right: 4px solid ${theme.colors.yellow};
   border-left: 4px solid ${theme.colors.yellow};
- 
+ /*  */
+ @media screen and (max-width: 600px) {
+  width: 100%;
+ }
 `;
 
 const ContentWrapper = styled.div`

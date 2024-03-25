@@ -78,8 +78,8 @@ const ProjectInfo = styled.div`
   padding: 10px;
   margin-right: -1rem;
   margin-top: 0rem;
-  background-color: #1d3b7a;
-  color: white;
+  background-color: #f1f1f1;
+  color: ${theme.colors.white};
   transition: all 0.7s ease;
   opacity: 0;
   transform: translateY(-100%);
@@ -91,7 +91,7 @@ const ProjectInfo = styled.div`
     padding-left: 0.5rem;
     background-color: #fff;
     border-left: 1rem solid ${theme.colors.yellow};
-    color: #1d3b7a;
+    color: ${theme.colors.blueDark};
     font-size: 2.5rem;
   }
 
@@ -107,31 +107,28 @@ const ProjectInfo = styled.div`
 `;
 
 const ChallengesList = styled.ul`
-
   list-style-type: number;
   padding-left: 4rem;
-  margin-top: -.5rem;
+  margin-top: -0.5rem;
   margin-bottom: 1rem;
-  h4{
-    font-size:1.6rem;
-    margin-bottom: .7rem;
+  h4 {
+    font-size: 1.6rem;
+    margin-bottom: 0.7rem;
   }
 `;
 
 const SingleChallenge = styled.li`
   font-size: 1rem;
   margin-bottom: 0.5rem;
-
   color: ${theme.colors.blueLight};
   font-family: ${theme.fontFamily.primaryFont};
-    word-spacing: 0.01rem;
-    margin-right: 6rem;
-    margin-top: 1rem;
-    padding:.1rem 0.5rem;
-    background-color: #fff;
-    border-right: 1rem solid ${theme.colors.yellow};
-    color: #1d3b7a;
-  
+  word-spacing: 0.01rem;
+  margin-right: 6rem;
+  margin-top: 1rem;
+  padding: 0.1rem 0.5rem;
+  background-color: #fff;
+  border-right: 1rem solid ${theme.colors.yellow};
+  color: ${theme.colors.blueDark};
 `;
 
 const Buttons = styled.div`
