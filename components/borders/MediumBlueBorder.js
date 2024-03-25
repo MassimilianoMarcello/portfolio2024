@@ -18,13 +18,26 @@ const MediumBlueBorder = () => {
 export default MediumBlueBorder;
 const Section = styled.section`
 margin-top: -6rem;
+padding: 0rem;
+@media (min-width: 1400px) {
+  background-color:${theme.colors.blueDarkest} ;
+  width: 79%;
+}
+
 `
 
 const Border = styled.h5`
-padding: 1rem;
+padding: 0rem;
+margin: .5rem;
 color: ${theme.colors.white} ;
-background-color:${theme.colors.blueDarkest} ;
+
 font-family:${theme.fontFamily.customFont};
-width: 100vh;
+font-size:1rem;
+width: 100%;
 text-align: center;
+@media (min-width: 1400px) {
+
+ }
+
+
 `
