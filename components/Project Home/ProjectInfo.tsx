@@ -86,10 +86,10 @@ const ProjectInfo = styled.div`
   h3 {
     font-family: ${theme.fontFamily.customFont};
     word-spacing: 0.01rem;
-    margin-left: 4rem;
+    margin-left: 2rem;
     margin-top: 1rem;
     padding-left: 0.5rem;
-    background-color: #fff;
+    /* background-color: #fff; */
     border-left: 1rem solid ${theme.colors.yellow};
     color: ${theme.colors.blueDark};
     font-size: 2.5rem;
@@ -107,13 +107,22 @@ const ProjectInfo = styled.div`
 `;
 
 const ChallengesList = styled.ul`
-  list-style-type: number;
-  padding-left: 4rem;
+  list-style-type: none;
+  padding-left: 3rem;
+  margin-right: -6rem;
   margin-top: -0.5rem;
   margin-bottom: 1rem;
   h4 {
     font-size: 1.6rem;
     margin-bottom: 0.7rem;
+  }
+  @media screen and (max-width: 600px) {
+    h4 {
+    font-size: 1.7rem;
+    color:${theme.colors.platinumText}; 
+    margin-bottom: 2rem;
+    margin-top: -1rem;
+  }
   }
 `;
 
@@ -126,7 +135,7 @@ const SingleChallenge = styled.li`
   margin-right: 6rem;
   margin-top: 1rem;
   padding: 0.1rem 0.5rem;
-  background-color: #fff;
+  /* background-color: #fff; */
   border-right: 1rem solid ${theme.colors.yellow};
   color: ${theme.colors.blueDark};
 `;
