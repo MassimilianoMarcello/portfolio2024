@@ -85,7 +85,7 @@ const AboutContainer = styled.div`
   }
 
   @media (max-width: 600px) {
-    height: 160vh;
+    height: 240vh;
     margin-right: 0rem;
     padding-top: 4rem;
   }
@@ -132,7 +132,7 @@ const AnimatedImage = styled(Image)`
 `;
 const SkillItem = styled.li<SkillItemProps>`
   margin-right: 1rem;
-height: auto;
+  height: auto;
   animation: ${bounceAnimation} 14s infinite;
   animation-delay: ${(props) => props.delay}s;
 `;
@@ -143,7 +143,7 @@ const ProfileCard = styled.section`
   grid-template-rows: repeat(6, auto);
   /* margin: -2rem 4rem; */
   padding-bottom: 2rem;
-height: auto;
+  height: auto;
   .description {
     font-family: "Quicksand", sans-serif;
     grid-column: 1/4;
@@ -181,7 +181,7 @@ height: auto;
       margin-top: 0rem;
       grid-column: 1/4;
       grid-row: 2/3;
-      padding-bottom: 0rem;
+      padding-bottom: 8rem;
       padding-right: 0rem;
     }
     .about-description {

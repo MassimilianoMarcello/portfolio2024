@@ -106,6 +106,7 @@ const FooterBox = styled.footer`
   color: #fff;
   font-family: "Quicksand", sans-serif;
   margin: 0;
+  margin-top: auto;
 
 
 `;
