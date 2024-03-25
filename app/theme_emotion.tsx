@@ -43,7 +43,7 @@ const theme = {
 
   fontSize: {
     small: "0.75rem",
-    medium: "1.4rem",
+    medium: "1.08rem",
     large: "2rem",
     heading1: "2rem",
     heading2: "1.5rem",

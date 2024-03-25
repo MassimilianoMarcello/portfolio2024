@@ -34,8 +34,9 @@ export default ProjectList;
 const PortableStyle = styled.div`
     font-family: ${theme.fontFamily.primaryFont};
 color: ${theme.colors.blackParagraph};
+font-size:${theme.fontSize.medium};
 line-height: 1.8;
-height: 12rem;
+height: 14rem;
 margin: 1rem;
 margin-top: -1rem;
 margin-bottom:1rem;
@@ -56,9 +57,9 @@ const ProjectContainer = styled.div`
 `;
 
 const ProjectCard = styled.div`
-  min-width: 28rem;
-  max-width: 30rem;
-  max-height: 36rem;
+
+ width: 30rem;
+height: 30rem;
   margin: 4rem;
   background-color: #fff;
   border: 0.1rem solid ${theme.colors.blackParagraph}; 
