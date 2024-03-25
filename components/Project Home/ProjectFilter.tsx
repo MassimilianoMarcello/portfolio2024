@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import styled from "@emotion/styled";
 import theme from "@/app/theme_emotion";
 import NoProjectsMessage from "./NoProjectMessage";
+import MediumBlueBorder from "./MediumBlueBorder";
 
 const ProjectFilter = ({ projects, setFilteredProjects, setOpenProjectId }) => {
   const [selectedTechnologies, setSelectedTechnologies] = useState([]);
@@ -47,6 +48,7 @@ const ProjectFilter = ({ projects, setFilteredProjects, setOpenProjectId }) => {
 
   return (
     <div>
+      <MediumBlueBorder/>
       <Filter>
         {projects &&
           projects.reduce((technologies, project) => {
@@ -84,16 +86,18 @@ const ProjectFilter = ({ projects, setFilteredProjects, setOpenProjectId }) => {
 export default ProjectFilter;
 
 const Filter = styled.section`
-  margin-top: -16rem;
+  margin-top: -1rem;
   margin-left: -50rem;
 
   display: flex;
   flex-wrap: wrap;
-  flex-direction: column;
+  flex-direction: row;
   gap: 0.5rem;
-  position: fixed;
+  /* position: fixed;
   bottom: 0;
-  margin-bottom: 8rem;
+  left: 0;
+  right: 0; */
+  /* margin-bottom: 20rem; */
   z-index: 111111111111;
   animation: slideIn 1.5s forwards;
   animation-fill-mode: forwards;

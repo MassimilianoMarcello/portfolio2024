@@ -36,6 +36,7 @@ export default function Home() {
           setFilteredProjects={setFilteredProjects}
           setOpenProjectId={setOpenProjectId}
         />
+        
         <ProjectFilter 
           projects={projects}
           setFilteredProjects={setFilteredProjects}

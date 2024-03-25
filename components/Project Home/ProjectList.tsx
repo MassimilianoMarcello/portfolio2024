@@ -46,9 +46,9 @@ const ProjectContainer = styled.div`
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
-  margin-top: -6rem;
-  margin-left: 2.5rem;
-  margin-right: -6rem;
+  margin-top: 0rem;
+
+
   @media screen and (max-width: 600px) {
     margin-top: -8rem;
   margin-left: 0rem;

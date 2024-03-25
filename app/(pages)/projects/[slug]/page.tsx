@@ -5,6 +5,7 @@ import styled from "@emotion/styled";
 import Link from "next/link";
 import Image from "next/image";
 
+import theme from '@/app/theme_emotion';
 type Props = {
   params: { slug: string };
 };
@@ -15,34 +16,15 @@ export default async function Project({ params }: Props) {
   return (
     <ProjectContainer>
       <ContentWrapper>
-        <div className="button-container">
-          <h1 className="title-project">{project.name}</h1>
-        </div>
+        
+         <TitleContainer className="button-container">
+          <HowIMade className="HowIMade">How I Made</HowIMade>
+          <ProjectName className="title-project">{project.name}</ProjectName>
+       </TitleContainer> 
         <ProjectDescription className="project-description">
           <PortableText value={project.content} />
         </ProjectDescription>
-        <Buttons>
-          <div className="buttons-container">
-            <StyledButton>
-              <Link href={project.githubUrl}>
-                <Image src="/assets/github.png" width={50} height={50} alt="github" />
-              </Link>
-              Github
-            </StyledButton>
-          </div>
-          <CloseButton className="close-button">
-            <Link href="/projects">
-              <Image src="/assets/right.png" width={50} height={50} alt="close" />
-            </Link>
-          </CloseButton>
-          <div className="buttons-container">
-            <StyledButton>
-              <Link href={project.url}>
-                <Image src="/assets/go.png" width={60} height={60} alt="github" />{" "}
-              </Link>
-            </StyledButton>
-          </div>
-        </Buttons>
+        
       </ContentWrapper>
         {/* <p className="status">Status project: {project.status}</p> */}
                     {/* <p className="last-update">
@@ -62,6 +44,30 @@ export default async function Project({ params }: Props) {
   );
 }
 
+const TitleContainer =styled.div`
+  text-align: center;
+  margin-top:0rem;
+`
+
+const HowIMade =styled.h1`
+ font-family:${theme.fontFamily.primaryFont};
+    background-color:${theme.colors.platinum} ;
+  font-size: 5rem;
+    margin-top: 0rem;
+    padding-top: 1rem;
+    color: ${theme.colors.blueDarkest};
+    margin-bottom: 0rem;
+`
+const ProjectName =styled.h1`
+ font-family:${theme.fontFamily.primaryFont};
+    background-color:${theme.colors.blueDarkest} ;
+  font-size: 5rem;
+  margin-top: 0rem;
+    padding: 1rem;
+    color: #b29d6e;
+    margin-bottom: 0rem;
+`
+
 const Buttons = styled.div`
   display: flex;
   align-items: center;
@@ -76,6 +82,8 @@ const ProjectDescription = styled.div`
   color: #333333;
   line-height: 1.6;
   letter-spacing: 0.05em;
+  margin-top: 3rem;
+  font-size:1.3rem;
 `;
 const ProjectContainer = styled.div`
   display: flex;
@@ -88,58 +96,5 @@ const ProjectContainer = styled.div`
 `;
 
 const ContentWrapper = styled.div`
-  background-color: #ffffff;
-  border-radius: 20px;
-  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
-  padding: 2rem;
-  h1 {
-    background-color: #254fa9;
-    color: #fff;
-    font-family: "Amatic SC", sans-serif;
-    font-size: 2.5rem;
-  }
-  .button-container {
-    text-align: center;
-  }
-`;
+  `;
 
-const StyledButton = styled.div`
-  /* background-color: #007bff;
-  color: white;
-  padding: 0.5rem 1rem;
-  border: none;
-  border-radius: 0.5rem;
-  font-size: 1rem;
-  /* cursor: pointer; */
-  font-size: 1rem;
-  transition: background-color 0.3s ease;
-  */ a {
-    text-decoration: none;
-    text-align: center;
-  }
-  &:hover {
-    /* background-color: #0056b3; */
-  }
-`;
-
-const CloseButton = styled.button`
-  background-color: #d5dfd2;
-  /* color: white; */
-  padding: 0.5rem 1rem;
-  border: none;
-  border-radius: 0.5rem;
-  /* font-size: 1rem; */
-  cursor: pointer;
-  transition: padding background-color 0.3s ease;
-  height: 4rem;
-  width: 6rem;
-
-  margin: 1rem auto a {
-    text-decoration: none;
-  }
-
-  &:hover {
-    transform: scale(1);
-    padding-right: 4rem;
-  }
-`;
