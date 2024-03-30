@@ -57,8 +57,8 @@ const PersonalCard = styled.section`
   border-radius: 15px;
   position: relative;
   margin: 4rem 16rem;
-  /* margin-top: 6rem;
-  padding-bottom: 8rem; */
+  margin-top: 6rem;
+  padding-bottom: 10rem;
   border-left: solid 1px ${theme.colors.bigYellow};
   border-right: solid 1px ${theme.colors.bigYellow};
   border-bottom: solid 1px ${theme.colors.bigYellow};

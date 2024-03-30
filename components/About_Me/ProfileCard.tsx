@@ -42,7 +42,7 @@ const ProfileContainer = styled.section`
     letter-spacing: 2px;
     word-spacing: 5px;
     margin-left: -4rem;
-    margin-top: -2rem;
+    margin-top: 0rem;
     text-align: left;
     padding-bottom: 2rem;
     line-height: 1.6;
