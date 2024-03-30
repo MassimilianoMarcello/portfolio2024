@@ -39,7 +39,7 @@ export default async function Project({ params }: Props) {
             <Link href={project.url}>Visit Website </Link>
           </StyledButton>
           <StyledButton>
-            <Link href={`/projects/${project.slug}`}>Click for Details </Link>
+            <Link href={`/projects}`}>Return </Link>
           </StyledButton>
         </Buttons>
 

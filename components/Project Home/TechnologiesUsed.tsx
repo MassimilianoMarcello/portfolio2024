@@ -32,9 +32,9 @@ const StyledTechnologiesUsed = styled.div`
     margin-right: 0.5rem;
     color: ${theme.colors.blueDark};
     text-decoration: none;
-    background-color: ${theme.colors.azure};
-    border-right: 4px solid ${theme.colors.yellow};
-    border-bottom: 4px solid ${theme.colors.yellow};
+    /* background-color: ${theme.colors.azure}; */
+    /* border: 0.07rem solid ${theme.colors.yellow}; */
+    /* border-bottom: 4px solid ${theme.colors.yellow}; */
     transition: all 0.3s ease;
   }
 `;
@@ -42,7 +42,9 @@ const StyledTechnologiesUsed = styled.div`
 const TechnologiesUsed = ({ technologies }) => {
   return (
     <StyledTechnologiesUsed>
+    
       <ul>
+        
         {technologies.map((technology, index) => (
           <li key={index}>{technology}</li>
         ))}

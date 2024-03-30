@@ -89,7 +89,7 @@ const ProjectInfo = styled.div`
     margin-left: 2rem;
     margin-top: 1rem;
     padding-left: 0.5rem;
-    /* background-color: #fff; */
+ 
     border-left: 1rem solid ${theme.colors.yellow};
     color: ${theme.colors.blueDark};
     font-size: 2.5rem;
@@ -135,8 +135,6 @@ const SingleChallenge = styled.li`
   margin-right: 6rem;
   margin-top: 1rem;
   padding: 0.1rem 0.5rem;
-  /* background-color: #fff; */
-  border-right: 1rem solid ${theme.colors.yellow};
   color: ${theme.colors.blueDark};
 `;
 
