@@ -14,7 +14,6 @@ import React, { useEffect, useState } from "react";
 
 import Skills from "./SkillItem";
 
-
 export default function About() {
   const [aboutData, setAboutData] = useState([]);
 
@@ -40,24 +39,29 @@ export default function About() {
 const AboutContainer = styled.div`
   background: url("/assets/Blue_particles.jpg") center/cover no-repeat;
   padding-bottom: 1rem;
+  border-left: solid 1px ${theme.colors.bigYellow};
+  border-right: solid 1px ${theme.colors.bigYellow};
 
   @media (max-width: 600px) {
-    height: 240vh;
+    height: 280vh;
     margin-right: 0rem;
     padding-top: 4rem;
-    padding-bottom: 2rem;
+    padding-bottom: 6rem;
   }
 `;
 
 const PersonalCard = styled.section`
   background-color: #f0fff4;
   box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
-  backdrop-filter: blur(1.5px);
+  /* backdrop-filter: blur(1.5px); */
   border-radius: 15px;
   position: relative;
   margin: 4rem 16rem;
-  margin-top: 6rem;
-  padding-bottom: 8rem;
+  /* margin-top: 6rem;
+  padding-bottom: 8rem; */
+  border-left: solid 1px ${theme.colors.bigYellow};
+  border-right: solid 1px ${theme.colors.bigYellow};
+  border-bottom: solid 1px ${theme.colors.bigYellow};
 
   @media (min-width: 1000px) {
     margin: 6rem 8rem;
@@ -66,41 +70,6 @@ const PersonalCard = styled.section`
   @media (max-width: 600px) {
     padding-bottom: 8rem;
     margin: 6rem 1rem;
-    /* h1 {
-      font-size: 4rem;
-      padding-top: 1rem;
-      margin-left: 0rem;
-    } */
+    margin-bottom: 8rem;
   }
 `;
-
-// Animation keyframes definition here...
-
-// const SkillsContainer = styled.div`
-//   width: auto;
-//   height: auto;
-//   display: flex;
-//   flex-direction: row;
-//   flex-wrap: wrap;
-//   align-items: center;
-//   list-style-type: none;
-//   position: absolute;
-//   left: 0;
-//   bottom: 0;
-//   margin-bottom: 5rem;
-//   margin-left: 14rem;
-//   padding: 0 2rem;
-
-//   @media (max-width: 600px) {
-//     grid-column: 1/2;
-//     grid-row: 3/4;
-//     width: auto;
-//     height: auto;
-//     justify-content: center;
-//     margin-top: 0rem;
-//     margin-bottom: 2rem;
-//     padding: 0rem;
-//     margin-left: 2rem;
-//     padding-bottom: 0rem;
-//   }
-// `;

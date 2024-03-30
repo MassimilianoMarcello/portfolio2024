@@ -29,9 +29,9 @@ export default ProfileCard;
 const ProfileContainer = styled.section`
   .description {
     font-family: "Quicksand", sans-serif;
-    padding: 3rem;
-    margin-top: -1rem;
-    margin-bottom: 6rem;
+ 
+    margin-top: 0rem;
+    margin-bottom: 10rem;
     padding: 0 10rem;
   }
   .about-description {
@@ -42,7 +42,7 @@ const ProfileContainer = styled.section`
     letter-spacing: 2px;
     word-spacing: 5px;
     margin-left: -4rem;
-    margin-top: -3rem;
+    margin-top: -2rem;
     text-align: left;
     padding-bottom: 2rem;
     line-height: 1.6;
@@ -56,7 +56,7 @@ const ProfileContainer = styled.section`
     .description {
 
    padding: 2rem;
-   padding-bottom: 0rem;
+   padding-bottom: 4rem;
   }
   .about-description {
     font-family: "Quicksand", sans-serif;

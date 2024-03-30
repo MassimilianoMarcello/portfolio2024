@@ -32,8 +32,7 @@ const bounceAnimation = keyframes`
 const SkillsContainer = styled.div`
   width: auto;
   height: auto;
-  grid-column: 3/4;
-  grid-row: 3/4;
+
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
@@ -44,7 +43,7 @@ const SkillsContainer = styled.div`
   bottom: 0;
   margin-bottom: 5rem;
   margin-left: 14rem;
-  padding: 0 2rem;
+  padding: 0 4rem;
 
   @media (max-width: 1000px) {
     width: auto;
@@ -65,7 +64,7 @@ const SkillsContainer = styled.div`
 `;
 
 const AnimatedImage = styled(Image)`
-  margin: 1rem;
+  margin: 1.5rem;
 `;
 
 const SkillItem = styled.li<SkillItemProps>`
