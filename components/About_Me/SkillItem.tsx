@@ -1,11 +1,11 @@
-import React from "react";
+import React, { useRef, useEffect, useState } from "react";
 import styled from "@emotion/styled";
 import { keyframes } from "@emotion/react";
 import Image from "next/image";
 
-
 type SkillItemProps = {
   delay: number;
+  playAnimation: boolean; // Aggiungiamo la proprietà playAnimation
 };
 
 const bounceAnimation = keyframes`
@@ -27,8 +27,7 @@ const bounceAnimation = keyframes`
     50%, 100% {
       transform: translateY(2px);
     }
-  
-  `;
+`;
 
 const SkillsContainer = styled.div`
   width: auto;
@@ -66,22 +65,51 @@ const SkillsContainer = styled.div`
 `;
 
 const AnimatedImage = styled(Image)`
-  animation: ${bounceAnimation} 12s infinite;
   margin: 1rem;
 `;
+
 const SkillItem = styled.li<SkillItemProps>`
   margin-right: 1rem;
   height: auto;
-  animation: ${bounceAnimation} 14s infinite;
+  animation: ${(props) => (props.playAnimation ? bounceAnimation : "none")} 14s infinite;
   animation-delay: ${(props) => props.delay}s;
 `;
 
 const Skills = ({ about }) => {
-    return (
-      <SkillsContainer>
-        {about && about.map((aboutData) => (
+  const containerRef = useRef<HTMLDivElement>(null);
+  const [playAnimation, setPlayAnimation] = useState(false);
+
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            setPlayAnimation(true);
+          } else {
+            setPlayAnimation(false);
+          }
+        });
+      },
+      { threshold: 0.5 } // Adjust threshold as needed
+    );
+
+    if (containerRef.current) {
+      observer.observe(containerRef.current);
+    }
+
+    return () => {
+      if (containerRef.current) {
+        observer.unobserve(containerRef.current);
+      }
+    };
+  }, []);
+
+  return (
+    <SkillsContainer ref={containerRef}>
+      {about &&
+        about.map((aboutData) =>
           aboutData.skillsName.map((skill, index) => (
-            <SkillItem key={index} delay={index * 0.2}>
+            <SkillItem key={index} delay={index * 0.2} playAnimation={playAnimation}>
               <AnimatedImage
                 src={skill.skillIconImage}
                 width={50}
@@ -91,10 +119,9 @@ const Skills = ({ about }) => {
               />
             </SkillItem>
           ))
-        ))}
-      </SkillsContainer>
-    );
-  };
-  
+        )}
+    </SkillsContainer>
+  );
+};
 
 export default Skills;
