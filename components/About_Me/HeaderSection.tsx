@@ -6,7 +6,9 @@ const HeaderSection = () => {
     <Container>
       <TextContainer>
         <p className="greeting">
-          Exploring Frontend: <br />
+          <SingleLetterBackground> E</SingleLetterBackground>xploring{""} {""} {""} {""} {""} 
+Frontend: 
+         <br />
           <span className="section-title">My Path</span>{" "}
         </p>
       </TextContainer>
@@ -15,6 +17,19 @@ const HeaderSection = () => {
 };
 
 const Container = styled.div``;
+const SingleLetterBackground = styled.span`
+  /* background-color: ${theme.colors.bigYellow}; */
+  border: solid 3px ${theme.colors.bigYellow};
+  border-right: none;
+  padding: 0;
+  margin: 0; 
+  padding-left:2rem ;
+  margin-left:-2rem ;
+  font-size: 4.6rem;
+
+  
+`;
+
 
 const TextContainer = styled.div`
   text-align: center;
@@ -34,6 +49,7 @@ const TextContainer = styled.div`
   .greeting {
     margin-top: 0rem;
     padding-top: 4rem;
+    
 
   }
   .section-title {
@@ -43,6 +59,7 @@ const TextContainer = styled.div`
     padding-bottom: 1rem;
     color: #b29d6e;
     margin-bottom: 0rem;
+    
   }
 
   width: 100%;
@@ -55,6 +72,7 @@ padding-bottom: 2rem;
       margin-top: -1rem;
       margin-left: -1rem;
       font-size: 3.8rem;
+      
     }
     .section-title {
       font-size: 4rem;
@@ -62,6 +80,7 @@ padding-bottom: 2rem;
       padding: 0;
       color: #b29d6e;
       margin-bottom: 5rem;
+      
     }
   }
   @media (min-width: 1000px) {
