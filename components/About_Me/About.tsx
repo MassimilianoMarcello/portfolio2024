@@ -45,6 +45,7 @@ const AboutContainer = styled.div`
     height: 240vh;
     margin-right: 0rem;
     padding-top: 4rem;
+    padding-bottom: 2rem;
   }
 `;
 
@@ -64,42 +65,42 @@ const PersonalCard = styled.section`
 
   @media (max-width: 600px) {
     padding-bottom: 8rem;
-    margin: 6rem 2rem;
-    h1 {
+    margin: 6rem 1rem;
+    /* h1 {
       font-size: 4rem;
       padding-top: 1rem;
       margin-left: 0rem;
-    }
+    } */
   }
 `;
 
 // Animation keyframes definition here...
 
-const SkillsContainer = styled.div`
-  width: auto;
-  height: auto;
-  display: flex;
-  flex-direction: row;
-  flex-wrap: wrap;
-  align-items: center;
-  list-style-type: none;
-  position: absolute;
-  left: 0;
-  bottom: 0;
-  margin-bottom: 5rem;
-  margin-left: 14rem;
-  padding: 0 2rem;
+// const SkillsContainer = styled.div`
+//   width: auto;
+//   height: auto;
+//   display: flex;
+//   flex-direction: row;
+//   flex-wrap: wrap;
+//   align-items: center;
+//   list-style-type: none;
+//   position: absolute;
+//   left: 0;
+//   bottom: 0;
+//   margin-bottom: 5rem;
+//   margin-left: 14rem;
+//   padding: 0 2rem;
 
-  @media (max-width: 600px) {
-    grid-column: 1/2;
-    grid-row: 3/4;
-    width: auto;
-    height: auto;
-    justify-content: center;
-    margin-top: 0rem;
-    margin-bottom: 2rem;
-    padding: 0rem;
-    margin-left: 2rem;
-    padding-bottom: 0rem;
-  }
-`;
+//   @media (max-width: 600px) {
+//     grid-column: 1/2;
+//     grid-row: 3/4;
+//     width: auto;
+//     height: auto;
+//     justify-content: center;
+//     margin-top: 0rem;
+//     margin-bottom: 2rem;
+//     padding: 0rem;
+//     margin-left: 2rem;
+//     padding-bottom: 0rem;
+//   }
+// `;

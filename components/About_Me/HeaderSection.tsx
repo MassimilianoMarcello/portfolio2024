@@ -25,7 +25,7 @@ const TextContainer = styled.div`
   font-weight: 900;
   font-size: 5rem;
   padding-top: 2rem;
-  padding-bottom: 2rem;
+  padding-bottom: 4rem;
   background-color: #f0f0f0;
   @media (min-width: 1400px) {
     margin-top: -2rem;
@@ -34,11 +34,13 @@ const TextContainer = styled.div`
   .greeting {
     margin-top: 0rem;
     padding-top: 4rem;
+
   }
   .section-title {
     font-size: 5rem;
     margin-top: -5rem;
     padding: 0;
+    padding-bottom: 1rem;
     color: #b29d6e;
     margin-bottom: 0rem;
   }
@@ -48,11 +50,11 @@ const TextContainer = styled.div`
   @media (max-width: 600px) {
     margin-top: 4rem;
     padding-top: 2rem;
-
+padding-bottom: 2rem;
     .greeting {
       margin-top: -1rem;
       margin-left: -1rem;
-      font-size: 3rem;
+      font-size: 3.8rem;
     }
     .section-title {
       font-size: 4rem;

@@ -48,4 +48,23 @@ const ProfileContainer = styled.section`
     line-height: 1.6;
     text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
   }
+
+  @media (max-width: 600px) {
+    margin:0 ;
+    margin-top: 4rem;
+    padding-bottom: 4rem;
+    .description {
+
+   padding: 2rem;
+   padding-bottom: 0rem;
+  }
+  .about-description {
+    font-family: "Quicksand", sans-serif;
+    font-optical-sizing: auto;
+    font-size: 1.2rem;
+ margin-left: 0rem;
+ padding-bottom: 3rem;
+
+      }
+  }
 `;
