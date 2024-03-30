@@ -23,12 +23,13 @@ const NoProjectsMessage = ({ handleClearSelection }) => {
 export default NoProjectsMessage;
 
 const MessageContainer = styled.div`
+
   font-family: ${theme.fontFamily.primaryFont};
   /* text-transform:uppercase; */
   /* background-color: #1d3b7a; */
   background-color: #f0f0f0;
 
-  margin-top: -5rem;
+  margin-top: -38rem;
   margin-bottom: 12rem;
   width: 100%;
   height: 100%;
@@ -39,11 +40,13 @@ const MessageContainer = styled.div`
   color: #1d3b7a;
   display: inline-block;
   text-align: center;
+  padding-top:11rem ;
   animation: fadeIn 1.5s ease;
   @media screen and (max-width: 600px) {
-    margin-top: -35rem;
-   padding-top:10rem ;
-   padding-bottom:10rem ;
+    margin-top: -30rem;
+
+   padding-top:11rem ;
+   padding-bottom:0rem ;
 
 
   }
@@ -61,6 +64,6 @@ const MessageContainer = styled.div`
   }
   img {
     border-radius: 50%;
-    margin-right: 2rem;
+    margin-right: 4rem;
   }
 `;
