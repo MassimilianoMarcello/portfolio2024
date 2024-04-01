@@ -1,7 +1,5 @@
-
 import styled from "@emotion/styled";
 import theme from "@/app/theme_emotion";
-
 
 const HeaderSection = () => {
   return (
@@ -12,14 +10,13 @@ const HeaderSection = () => {
           <span className="section-title">Articles</span>{" "}
         </p>
       </TextContainer>
-  
     </Container>
   );
 };
 
 const Container = styled.div`
-
-  `;
+  margin-bottom: 4rem;
+`;
 
 const TextContainer = styled.div`
   text-align: center;
@@ -31,10 +28,10 @@ const TextContainer = styled.div`
   font-size: 5rem;
   padding-top: 2rem;
   padding-bottom: 2rem;
- background-color: #f0f0f0;
- @media (min-width: 1400px) {
-  margin-top: 4rem;
- }
+  background-color: #f0f0f0;
+  @media (min-width: 1400px) {
+    margin-top: 4rem;
+  }
 
   .greeting {
     margin-top: 0rem;
@@ -51,24 +48,22 @@ const TextContainer = styled.div`
   width: 100%;
   z-index: 999;
   @media (max-width: 600px) {
-    margin-top: 4rem;
-    padding-top: 2rem;
-   
+    margin-top: 2rem;
+    padding-top: 6rem;
+
     .greeting {
       margin-top: -1rem;
       margin-left: -1rem;
       font-size: 3rem;
     }
     .section-title {
-    font-size: 4rem;
-    margin-top: -5rem;
-    padding: 0;
-    color: #b29d6e;
-    margin-bottom: 5rem;
-  }
-
+      font-size: 4rem;
+      margin-top: -5rem;
+      padding: 0;
+      color: #b29d6e;
+      margin-bottom: 5rem;
+    }
   }
 `;
 
 export default HeaderSection;
-

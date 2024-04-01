@@ -79,7 +79,9 @@ const PostFilter = ({ posts, setFilteredPosts }) => {
 };
 
 export default PostFilter;
-const Wrapper = styled.div``;
+const Wrapper = styled.div`
+  margin-bottom: 6rem;
+`;
 const Filter = styled.section`
   display: flex;
   gap: 1rem;

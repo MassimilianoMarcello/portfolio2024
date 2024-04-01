@@ -165,12 +165,11 @@ const CardContent = styled.div`
 
     display: inline-block;
     padding: 0.5rem ;
-    /* margin-right: 0.5rem; */
+
     color: ${theme.colors.blueDark};
     text-decoration: none;
     background-color: ${theme.colors.azure};
-    /* border-right: 4px solid ${theme.colors.yellow};
-    border-bottom: 4px solid ${theme.colors.yellow}; */
+ 
     transition: all 0.3s ease;
             &:hover {
            color:${theme.colors.yellow}; ;

@@ -17,11 +17,17 @@ const MediumBlueBorder = () => {
 
 export default MediumBlueBorder;
 const Section = styled.section`
+  background-color:${theme.colors.blueDarkest} ;
 margin-top: -6rem;
-padding: 0rem;
+padding: 0 5rem;
+@media (min-width: 601px) {
+  padding: 0 8rem;
+
+}
 @media (min-width: 1400px) {
   background-color:${theme.colors.blueDarkest} ;
   width: 79%;
+  padding: 0 15rem;
 }
 
 `
