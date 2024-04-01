@@ -45,6 +45,7 @@ const ProfileContainer = styled.section`
     margin-top: 0rem;
     text-align: left;
     padding-bottom: 2rem;
+    padding-top: 1rem;
     line-height: 1.6;
     text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
   }

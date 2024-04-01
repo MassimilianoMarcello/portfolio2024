@@ -62,7 +62,7 @@ const PersonalCard = styled.section`
   border-left: solid 1px ${theme.colors.bigYellow};
   border-right: solid 1px ${theme.colors.bigYellow};
   border-bottom: solid 1px ${theme.colors.bigYellow};
-
+  width: auto;
   @media (min-width: 1000px) {
     margin: 6rem 8rem;
   }
@@ -71,5 +71,6 @@ const PersonalCard = styled.section`
     padding-bottom: 8rem;
     margin: 6rem 1rem;
     margin-bottom: 8rem;
+    width: auto;
   }
 `;

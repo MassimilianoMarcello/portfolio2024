@@ -126,6 +126,11 @@ const LogoBox = styled.div`
   .massdev-text {
     margin-left: 0.2rem;
   }
+  img{
+    border-radius:50%;
+    padding: .5rem;
+    margin-bottom: -.1rem;
+  }
 `;
 
 const SocialMediaBox = styled.div`

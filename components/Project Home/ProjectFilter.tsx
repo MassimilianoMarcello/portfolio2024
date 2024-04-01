@@ -47,7 +47,7 @@ const ProjectFilter = ({ projects, setFilteredProjects, setOpenProjectId }) => {
   };
 
   return (
-    <div>
+    <FilterContainer>
       <MediumBlueBorder/>
       <Filter>
         {projects &&
@@ -79,12 +79,19 @@ const ProjectFilter = ({ projects, setFilteredProjects, setOpenProjectId }) => {
       {noProjectsMessage && (
         <NoProjectsMessage handleClearSelection={handleClearSelection} />
       )}
-    </div>
+    </FilterContainer>
   );
 };
 
 export default ProjectFilter;
 
+
+const FilterContainer = styled.div`
+margin-top: 8rem;
+@media (max-width: 600px){
+margin-top: 0rem;
+}
+`
 const Filter = styled.section`
   margin-top: -1rem;
   margin-left: -50rem;
@@ -93,11 +100,6 @@ const Filter = styled.section`
   flex-wrap: wrap;
   flex-direction: row;
   gap: 0.5rem;
-  /* position: fixed;
-  bottom: 0;
-  left: 0;
-  right: 0; */
-  /* margin-bottom: 20rem; */
   z-index: 111111111111;
   animation: slideIn 1.5s forwards;
   animation-fill-mode: forwards;
@@ -105,13 +107,14 @@ const Filter = styled.section`
   @media (max-width: 600px) {
  
     flex-direction: row;
-    flex-wrap:wrap-reverse;
-    justify-content: space-between;
-    margin-top: 0rem;
+    flex-wrap:wrap;
+    /* justify-content: space-between; */
+    margin-top: 0rem ;
+  
     padding: 1rem 0;
     position: initial;
     background-color:${theme.colors.blueDarkest} ;
-
+;
 
   }
   @keyframes slideIn {
@@ -143,9 +146,10 @@ const TheButton = styled.button`
     background-color:${theme.colors.yellow};
   }
   @media (max-width: 600px) {
-    margin-left: 1rem;
+    margin-left: .4rem;
     padding: 1rem;
-    margin-right: 1rem;
+    margin-right: .2rem;
+    
     margin-top: .5rem;
   }
 `;
@@ -155,10 +159,19 @@ const ClearButton = styled.button`
   color: ${theme.colors.blueDarker};
   border: 2px solid ${theme.colors.blueDarker};
   transition: background-color 0.3s ease, color 0.3s ease;
-margin-right: 1rem;
-padding: 0 .8rem;
+margin-right:0;
+font-size:.9rem;
+
+padding: 0 .9rem;
+margin-top: .5rem;
+margin-left: 1rem;
   &:hover {
     background-color:${theme.colors.yellow};
     color: ${theme.colors.blueDarker};
+  }
+  @media (max-width: 600px) {
+    padding: 0 .9rem;
+margin-top: .5rem;
+margin-left: 10rem;
   }
 `;
