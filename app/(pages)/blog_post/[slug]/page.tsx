@@ -11,7 +11,6 @@ import { createClient } from 'next-sanity';
 import { apiVersion, dataset, projectId } from '@/sanity/sanity.client';
 import { getImageDimensions } from '@sanity/asset-utils';
 import urlBuilder from '@sanity/image-url';
-
 import theme from '@/app/theme_emotion';
 
 
@@ -80,10 +79,19 @@ const Post = ({ params }) => {
     <PostContainer>
       {post ? (
         <div>
-          <Header title={post.title} image={post.imageURL} />
-          <div>
-            <PortableText value={post.body} components={components} />
-          </div>
+          <ContentWrapper>
+        
+        <TitleContainer className="button-container">
+         <UnleashingTheCode className="HowIMade">Unleashing the Code</UnleashingTheCode>
+         <PostName className="title-project">{post.title} </PostName>
+ 
+      </TitleContainer> 
+       <PostDescription className="project-description">
+       <PortableText value={post.body} components={components} />
+       </PostDescription>
+       
+     </ContentWrapper>
+       
         </div>
       ) : (
         <p>Wait a minute...</p>
@@ -93,3 +101,49 @@ const Post = ({ params }) => {
 }
 
 export default Post;
+
+
+const ContentWrapper = styled.div`
+
+  `;
+
+const TitleContainer =styled.div`
+  text-align: center;
+  margin-top:4rem;
+  border-bottom: 4px solid ${theme.colors.yellow};
+
+`
+
+const UnleashingTheCode=styled.h1`
+ font-family:${theme.fontFamily.primaryFont};
+    background-color:${theme.colors.blueContrast};
+  font-size: 5rem;
+    margin-top: 0rem;
+    padding-top: 4rem;
+    color: ${theme.colors.blueDarkest};
+    margin-bottom: 0rem;
+    @media screen and (max-width: 600px){
+      font-size: 4rem;
+    }
+`
+const PostName =styled.h1`
+ font-family:${theme.fontFamily.primaryFont};
+    background-color:${theme.colors.blueDarkest} ;
+  font-size: 5rem;
+  margin-top: 0rem;
+    padding: 1rem;
+    color: ${theme.colors.blueContrast};
+    margin-bottom: 0rem;
+    @media screen and (max-width: 600px){
+      font-size: 3rem;
+    }
+`
+
+const PostDescription = styled.div`
+  margin: 1rem 3rem;
+  color: #333333;
+  line-height: 1.6;
+  letter-spacing: 0.05em;
+  margin-top: 3rem;
+  font-size:1.3rem;
+`;

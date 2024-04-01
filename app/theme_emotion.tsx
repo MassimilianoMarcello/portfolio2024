@@ -15,6 +15,7 @@ const theme = {
     azure:"#b0cdff ",
     blueLight: "#277fdd",
     blue: "#254fa9 ",
+    blueContrast:"#55aed8",
     blueDark: " #0741a4",
     blueDarker: "#1d3b7a",
     blueDarkerPlus: "#102e58",
