@@ -43,28 +43,23 @@ export default function PostList() {
               />
               <CardContent>
                 <AuthorData>
-                <p className="author">{post.author.name}</p>
+                  <p className="author">{post.author.name}</p>
                   <p className="date"> Aug. 24, 2015</p>
                 </AuthorData>
-            
-                <h3>{post.title}</h3>
+
+                <Title>{post.title}</Title>
                 <PostDetails className="post-details">
-               
-                  <div className="tags">
-                  
-                    <TopicPost>
-                      <li>
+                  <TopicPost>
+                    <li>
                       <p>Tags:</p>
+                    </li>
+
+                    {post.categories.map((category) => (
+                      <li key={category.id}>
+                        <a href="#">{category.title}</a>
                       </li>
-                   
-                      {post.categories.map((category) => (
-                        
-                        <li key={category.id}>
-                          <a href="#">{category.title}</a>
-                        </li>
-                      ))}
-                    </TopicPost>
-                  </div>
+                    ))}
+                  </TopicPost>
                 </PostDetails>
                 <p>{post.description}</p>
               </CardContent>
@@ -87,16 +82,15 @@ const Section = styled.section`
 
 const AuthorData = styled.div`
   display: flex;
-justify-content: space-between;
-margin-top: -1rem;
- 
-
-`
+  justify-content: space-between;
+  margin-top: -1rem;
+`;
 
 const PostContainer = styled.div`
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
+  height: auto;
 `;
 
 const PostCard = styled.div`
@@ -104,22 +98,22 @@ const PostCard = styled.div`
   box-shadow: 0 3px 7px -1px rgba(0, 0, 0, 0.1);
   background: #fff;
   border-radius: 5px;
-  overflow: hidden;
+  /* overflow: hidden; */
   transition: transform 0.2s;
   cursor: pointer;
-  width: 320px;
+  height: auto;
+  width: 20rem;
   &:hover {
     transform: translateY(-3px);
   }
 `;
 
 const PostImage = styled.div`
-  height: 200px;
+  height: 14rem;
   background-size: cover;
 `;
 
 const CardContent = styled.div`
-  position: relative;
   padding: 1rem;
   text-decoration: none;
   font-family: ${theme.fontFamily.customFont};
@@ -129,12 +123,8 @@ const CardContent = styled.div`
   color: ${theme.colors.blueDark};
   background-color: ${theme.colors.white};
   display: inline-block;
-height:auto;
-  h3 {
-    margin-bottom: 0.5rem;
-    margin:2rem  auto ;
-    font-size: 1.5rem;
-  }
+  height: auto;
+
   .post-details {
     margin-bottom: 0.5rem;
 
@@ -146,31 +136,32 @@ height:auto;
   }
 `;
 
-
+const Title = styled.h3`
+  margin-bottom: 0.5rem;
+  margin: 2rem auto;
+  height: 5rem;
+  font-size: 1.5rem;
+`;
 
 const TopicPost = styled.div`
   list-style-type: none;
-  padding: 0;
-  margin: 0;
-  margin-bottom: .5rem;
-position: absolute;
-bottom: 0;
-left: 0;
-  
+  /* padding: 0;
+  margin: 0; */
+  margin-bottom: 0;
+  padding-bottom: 0;
+
   display: flex;
 
   align-items: center;
-  flex-wrap: wrap;
-  p{
-  margin-bottom: -.6rem;
-margin-left: .4rem;
- 
+  justify-content: flex-end;
+  /* flex-wrap: wrap; */
+  p {
+    margin-bottom: 1rem;
+    margin-left: 0.4rem;
   }
   li {
     margin-right: 0.5rem;
-margin-bottom:.1rem;
-    
-  
+
     a {
       font-family: ${theme.fontFamily.headersFont};
       letter-spacing: 0.07rem;
@@ -200,12 +191,10 @@ margin-bottom:.1rem;
   }
 `;
 
-
 const PostDetails = styled.div`
   display: flex;
   flex-direction: row;
 
-      margin-right: 1rem;
-      font-size: 0.9rem;
-   
-`
+  margin-right: 1rem;
+  font-size: 0.9rem;
+`;
