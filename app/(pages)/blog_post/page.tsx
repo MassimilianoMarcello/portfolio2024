@@ -129,7 +129,7 @@ const CardContent = styled.div`
   color: ${theme.colors.blueDark};
   background-color: ${theme.colors.white};
   display: inline-block;
-height:15rem;
+height:auto;
   h3 {
     margin-bottom: 0.5rem;
     margin:2rem  auto ;
